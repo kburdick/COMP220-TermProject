@@ -29,16 +29,16 @@ Song::Song(std::string songString) {
     //TODO: clean up this if statement with more concise code
     // it works... but looks bad
     if(splitter) {
-        getline(splitter, songInfo, '\t');
+        getline(splitter, songInfo, ',');
         titleString = songInfo;
         songInfo = "";
-        getline(splitter, songInfo, '\t');
+        getline(splitter, songInfo, ',');
         artistString = songInfo;
         songInfo = "";
-        getline(splitter, songInfo, '\t');
+        getline(splitter, songInfo, ',');
         durationString = stof(songInfo);
         songInfo = "";
-        getline(splitter, songInfo, '\t');
+        getline(splitter, songInfo, ',');
         playCountString = stoi(songInfo);
         songInfo = "";
     }
@@ -127,10 +127,10 @@ std::string Song::toString() {
     std::string songString = "";
 
     //example of a CSV style string
-    //songString = title + ", " + artist + ", " + std::to_string(duration);
+    songString = title + ", " + artist + ", " + std::to_string(duration) + ", " + std::to_string(playCount);
 
     //example of a tab delimited string
-    songString = title + "\t" + artist + "\t" + std::to_string(duration) + '\t' + std::to_string(playCount);
+    //songString = title + "\t" + artist + "\t" + std::to_string(duration) + '\t' + std::to_string(playCount);
 
     return songString;
 }

@@ -35,14 +35,14 @@ int main() {
     std::cout << "---------------" << std::endl;
     std::cout << "Test string as input for song object:\n" << std::endl;
 
-    std::string testString = "Harvester of Sorrow\tMetallica\t600\t5";
+    std::string testString = "Harvester of Sorrow, Metallica, 600, 5";
     Song song2 = Song(testString);
     std::cout << song2.toString() << std::endl;
 
     std::cout << "---------------\n" << std::endl;
     std::cout << "Test string as input for song object again..." << std::endl;
 
-    std::string testSong = "The Rover\tLed Zeppelin\t800\t2";
+    std::string testSong = "The Rover, Led Zeppelin, 800, 2";
     Song ledSong = Song(testSong);
     std::cout << ledSong.toString() << std::endl;
     std::cout << "test get play count: " << ledSong.getPlayCount() << std::endl;
