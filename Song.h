@@ -15,6 +15,8 @@
         int playCount;
 
     public:
+
+        Song();
         Song(std::string title, std::string artist, float duration);
         Song(std::string songString);
         Song(const Song& songToCopy);

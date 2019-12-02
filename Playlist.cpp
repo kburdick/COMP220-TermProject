@@ -3,13 +3,8 @@
 //
 
 #include <string>
+#include "List.h"
+#include "LinkedList.h"
 #include "Playlist.h"
 
-Playlist::Playlist() {
-
-}
-
-Playlist::~Playlist() {
-
-}
 

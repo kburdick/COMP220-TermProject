@@ -5,13 +5,9 @@
 #ifndef COMP220_TERMPROJECT_PLAYLIST_H
 #define COMP220_TERMPROJECT_PLAYLIST_H
 
-#include <string>
 #include "MusicLibrary.h"
 
-// NOTE::
-//playlist is a subclass of music library
-
-class Playlist : MusicLibrary {
+class Playlist : public MusicLibrary {
 private:
     //TODO: fill in the data here
 
@@ -21,10 +17,18 @@ private:
     Playlist &operator=(const Playlist &playlistToCopy);
 
 public:
+    /**
+     * Constructor
+     */
     //TODO fill in functions that are specific to the playlist (can inherit some functions from the library class)
     //default constructor TODO check if we even want this to be possible
     Playlist();
+
+    //destructor
     ~Playlist();
+
+
 };
+
 
 #endif //COMP220_TERMPROJECT_PLAYLIST_H
