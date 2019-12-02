@@ -30,4 +30,7 @@ public:
 
 };
 
+// we need to add and remove songs from the library
+
+
 #endif //COMP220_TERMPROJECT_MUSICLIBRARY_H
