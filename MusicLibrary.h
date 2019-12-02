@@ -5,13 +5,8 @@
 #ifndef COMP220_TERMPROJECT_MUSICLIBRARY_H
 #define COMP220_TERMPROJECT_MUSICLIBRARY_H
 
-#include <string>
+#include "LinkedList.h"
 
-//can the music library be created using a template based linked list class
-//either way we need to make the linked list code accept classes of type song at the very least
-//also need to make the music library write out and read in from files to keep songs up to date
-//the playlist needs to be called the same text file as is read in, and each playlist needs to be kept
-//in a different text file to keep track of the songs
 
 class MusicLibrary {
 private:

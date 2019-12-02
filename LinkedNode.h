@@ -5,18 +5,20 @@
 #ifndef LINKEDNODE_H
 #define LINKEDNODE_H
 
+#include "Song.h"
+
 class LinkedNode {
 
 private:
-    int item;
+    Song item;
     LinkedNode* next;
 
 public:
-    LinkedNode(int item);
+    LinkedNode(Song item);
     LinkedNode(const LinkedNode& nodeToCopy); //only copies item, next is set to nullptr
-    int getItem();
+    Song getItem();
     LinkedNode* getNext();
-    void setItem(int newItem);
+    void setItem(Song newSong);
     void setNext(LinkedNode* newNext);
 };
 

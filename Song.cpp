@@ -6,6 +6,14 @@
 #include <sstream>
 #include "Song.h"
 
+
+Song::Song() {
+    this->title = "";
+    this->artist = "";
+    this->duration = 0;
+    this->playCount = 0;
+}
+
 //constructor for the song class
 Song::Song(std::string title, std::string artist, float duration) {
 

@@ -1,6 +1,12 @@
 //
 // Created by Toby Dragon on 10/30/18.
 //
+//TODO :
+// we need to implement a template version of the linked node class, to store any type of data (aka song objects)
+// and also a template version of the linkedlist class, which will have functions that handle templates.
+// the library and playlist can be based on the linkedlist class, but also need to have their own functionality and
+// fewer functions than the integer type classes that we have written in the past...I think this is the best way to do this.////
+// end.
 
 #ifndef LAB8SOLN_LINKEDLIST_H
 #define LAB8SOLN_LINKEDLIST_H
@@ -30,104 +36,59 @@ public:
     ~LinkedList();
 
     /**
-     * appends the new item to the end of the list
-     * @post the list has an additional value in it, at the end
-     */
-    void insertAtEnd(int itemToAdd);
+      * appends the new song to the end of the list
+      * @post the list has an additional song in it, at the end
+      */
+    void insertAtEnd(Song songToAdd);
 
-    /**
-     * gets a value from the list
-     * @param index the location from which to get the value
-     * @return a copy of the item at index
-     * @throws out_of_range exception if index is invalid
-     */
-    int getValueAt(int index);
 
     /**
      * gives a string representation of the current list
-     * @returns a string representing the given list in the exact format shown below
-     * {1, 2, 3, 4, 5}
+     * @returns a string representing the song using the song class methods
      */
     std::string toString();
 
     /**
-     * checks if there are any valid items in the list
-     * @return true if there are no valid items in the list, false otherwise
+     * checks if there are any valid songs in the list
+     * @return true if there are no valid songs in the list, false otherwise
      */
     bool isEmpty();
 
     /**
-     * returns a count of valid items currently in the list
-     * @returns the number of valid items in the list
-     */
-    int itemCount();
-
-    /**
-     * makes the list empty of valid items
+     * makes the list empty of valid songs
      * @post the list is empty, such that isEmpty() == true
      */
     void clearList();
 
     /**
-     * Searches an int array for a certain value
-     * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
+     * Searches a song array for a certain song
+     * @return true or false if the song is present or not
      */
-    int find(int numToFind);
+    bool findSong(Song songToFind);
 
     /**
-     * Searches an int array for a certain value
-     * @return the index of the last occurrence of numToFind if it is present, otherwise returns -1
+     * removes the song from the list, and returns a copy of that song
+     * @param the song from which to remove the song
+     * @post the song is removed from the list if found, everything else is shifted down one
+     * @return a copy of the song at index
+     * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
-    int findLast(int numToFind);
+    Song removeSong(Song songToRemove);
 
     /**
-     * finds the largest value in the array
-     * @return the first index of the maximum value
-     * @throws out_of_range exception if there is no item to remove
+     * sorts the list for alphabetical order of artists and then songs
+     * @param none
+     * @post the songs in the list are sorted alphabetically
+     * @return none
      */
-    int findMaxIndex();
+    void sortList();
 
     /**
-     * appends the new item to the beginning of the list
-     * @post the list has an additional value in it, at the beginning
-     *    all other items are shifted down by one index
+     * shuffles the list to be in random order
+     * @param none
+     * @post the list is shuffled out of order
      */
-    void insertAtFront(int itemToAdd);
-
-    /**
-     * inserts the item into the list so that it can be found with get(index)
-     * @param index the location in which to insert this item
-     * @post the list has an additional value in it at the specified index,
-     *        all further values have been shifted down by one index
-     * @throws out_of_range exception if index is invalid (< 0 or > currItemCount)
-     */
-    void insertAt(int itemToAdd, int index);
-
-    /**
-     * removes the item at the end of the list, and returns a copy of that item
-     * @post the item at the end is removed from the list
-     * @return a copy of the item at the end
-     * @throws out_of_range exception if there is no item to remove
-     */
-    int removeValueAtEnd();
-
-    /**
-     * removes the item at the front of the list, and returns a copy of that item
-     * @post the item at the front is removed from the list, everything else is shifted down one
-     * @return a copy of the item at index
-     * @throws out_of_range exception if there is no item to remove
-     */
-    int removeValueAtFront();
-
-    /**
-     * removes the item at index from the list, and returns a copy of that item
-     * @param index the location from which to get the value
-     * @post the item at index is removed from the list, everything else is shifted down one
-     * @return a copy of the item at index
-     * @throws out_of_range exception if index is invalid
-     */
-    int removeValueAt(int index);
-
+    void shuffle();
 };
 
 
