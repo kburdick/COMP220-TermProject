@@ -10,9 +10,15 @@
 
 int main() {
 
+<<<<<<< HEAD
     std::cout << "-------------------" << std::endl;
     std::cout << "----List Tester----" << std::endl;
     std::cout << "-------------------\n" << std::endl;
+=======
+    std::cout << "----------------------" << std::endl;
+    std::cout << "----List Tester----" << std::endl;
+    std::cout << "----------------------\n" << std::endl;
+>>>>>>> 9787f89945ab6eb914364c515e0b66a9dac4a74a
 
 
     std::cout << "----make a song to test----\n" << std::endl;
