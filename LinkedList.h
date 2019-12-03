@@ -38,9 +38,10 @@ public:
 
     /**
      * gives a string representation of the current list
-     * @returns a string representing the song using the song class methods
+     * @returns null
+     * @post displays all songs to the current console
      */
-    std::string toString();
+    void toString();
 
     /**
      * checks if there are any valid songs in the list

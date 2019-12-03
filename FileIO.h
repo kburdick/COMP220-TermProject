@@ -15,6 +15,7 @@
  * @return a pointer to a Linked List of songs to add to a playlist or library
  */
 LinkedList* ReadFile(std::string fileName);
+
 /**
  * Writes a playlist or library to fileName
  * @param fileName
