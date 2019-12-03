@@ -6,7 +6,6 @@
 
 Playlist::Playlist() {
     this->totalDuration = 0;
-    this->songName = "";
 }
 
 //destructor

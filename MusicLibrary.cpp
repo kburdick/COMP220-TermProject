@@ -4,11 +4,9 @@
 
 #include "MusicLibrary.h"
 
-//default constructor
+//default constructor creates an empty music library
 MusicLibrary::MusicLibrary() {
-    this->title = "";
-    this->artist = "";
-    this->fileName= "";
+    this->totalSongCount = 0;
 }
 
 //destructor

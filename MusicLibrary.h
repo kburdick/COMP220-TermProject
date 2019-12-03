@@ -11,15 +11,17 @@
 class MusicLibrary {
 private:
     //TODO fill in data for the library here
-    std::string title;
-    std::string artist;
-    std:: string fileName;
+
+    int totalSongCount;
+
     //TODO determine if these methods should be implemented (yes or no)
+
     MusicLibrary(const MusicLibrary& libraryToCopy);
     MusicLibrary& operator=(const MusicLibrary& libraryToCopy);
 
 public:
     //TODO fill in functions for the library here
+
     MusicLibrary(); //check if we want default methods to be possible
     ~MusicLibrary();
     /**
