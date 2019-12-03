@@ -1,12 +1,6 @@
 //
-// Created by Toby Dragon on 10/30/18.
+// Created by Kurt Burdick on 12/2/19.
 //
-//TODO :
-// we need to implement a template version of the linked node class, to store any type of data (aka song objects)
-// and also a template version of the linkedlist class, which will have functions that handle templates.
-// the library and playlist can be based on the linkedlist class, but also need to have their own functionality and
-// fewer functions than the integer type classes that we have written in the past...I think this is the best way to do this.////
-// end.
 
 #ifndef LAB8SOLN_LINKEDLIST_H
 #define LAB8SOLN_LINKEDLIST_H
