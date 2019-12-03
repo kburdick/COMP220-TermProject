@@ -15,7 +15,7 @@ Song::Song() {
 }
 
 //constructor for the song class
-Song::Song(std::string title, std::string artist, float duration) {
+Song::Song(std::string title, std::string artist, int duration) {
 
     this->title = title;
     this->artist = artist;
@@ -31,7 +31,7 @@ Song::Song(std::string songString) {
     std::string songInfo = "";
     std::string titleString;
     std::string artistString;
-    float durationString = 0;
+    int durationString = 0;
     int playCountString = 0;
 
     //TODO: clean up this if statement with more concise code
@@ -100,7 +100,7 @@ void Song::updateSongArtist(std::string artist) {
     this->artist = artist;
 }
 
-void Song::updateSongDuration(float duration) {
+void Song::updateSongDuration(int duration) {
     this->duration = duration;
 }
 
@@ -118,7 +118,7 @@ std::string Song::getSongArtist() {
     return this->artist;
 }
 
-float Song::getSongDuration() {
+int Song::getSongDuration() {
     return this->duration;
 }
 

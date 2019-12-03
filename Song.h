@@ -11,24 +11,24 @@
     private:
         std::string title;
         std::string artist;
-        float duration;
+        int duration;
         int playCount;
 
     public:
 
         Song();
-        Song(std::string title, std::string artist, float duration);
+        Song(std::string title, std::string artist, int duration);
         Song(std::string songString);
         Song(const Song& songToCopy);
         Song& operator=(const Song& songToCopy);
         ~Song();
         std::string getSongTitle();
         std::string getSongArtist();
-        float getSongDuration();
+        int getSongDuration();
         int getPlayCount();
         void updateSongTitle(std::string title);
         void updateSongArtist(std::string artist);
-        void updateSongDuration(float duration);
+        void updateSongDuration(int duration);
         void updatePlayCount(int num);
         std::string toString();
 
