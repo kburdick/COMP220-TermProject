@@ -10,7 +10,8 @@
 class Playlist : public MusicLibrary {
 private:
     //TODO: fill in the data here
-
+    int totalDuration;
+    std::string songName;
     //TODO check for the implementation of these methods (yes or no)
     //Private to disable copying and assigning from outside of class
     Playlist(const Playlist &playlistToCopy);
@@ -26,7 +27,28 @@ public:
 
     //destructor
     ~Playlist();
+    /**
+    * uses add song, new playlist, and sumDuration
+    * Creates a new playlist and adds songs at random without going over the duration specified by the user
+    * Note: Songs do not repeat
+    * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
+    */
+    void newRandomPlaylist(std::string songName, int totalDuration);
 
+    /**
+   * sums the total duration of the playlist
+   * @post the total duration in seconds of the playlist
+   */
+   void sumDuration();
+
+    /**
+   * Prints information about the next song in the playlist
+   * Removes the desired song from the playlist
+   * Adds one to the play count of that song in the library
+   * If the playlist is empty, then remove the playlist
+   * @post all of the information about the song is displayed to the user
+   */
+   void playNext(std::string songName);
 
 };
 
