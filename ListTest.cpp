@@ -10,9 +10,9 @@
 
 int main() {
 
-    std::cout << "----------------------" << std::endl;
-    std::cout << "----Library Tester----" << std::endl;
-    std::cout << "----------------------\n" << std::endl;
+    std::cout << "-------------------" << std::endl;
+    std::cout << "----List Tester----" << std::endl;
+    std::cout << "-------------------\n" << std::endl;
 
 
     std::cout << "----make a song to test----\n" << std::endl;
@@ -55,6 +55,34 @@ int main() {
     songList->insertAtEnd(song2);
     songList->toString();
 
+    std::cout << '\n' << std::endl;
+
+    //song not in the list
+    Song song3 = Song("Gravity", "John Mayer", 500);
+
+    std::cout << "\n----Test boolean find song method----\n" << std::endl;
+    std::cout << "expected 1, got: " << songList->findSong(song2) << std::endl;
+    std::cout << "expected 0, got: " << songList->findSong(song3) << std::endl;
+
+    //TODO NOTE these functions find the first occurrence
+    std::cout << "\n----Test find song by artist method----\n" << std::endl;
+    std::cout << "expected 0, got: " << songList->findSongByArtist("Metallica") << std::endl;
+    std::cout << "expected -1, got: " << songList->findSongByArtist("John Mayer") << std::endl;
+
+    std::cout << "\n----Test find song by title method----\n" << std::endl;
+    std::cout << "expected 2, got: " << songList->findSongByTitle("The Rover") << std::endl;
+    std::cout << "expected -1, got: " << songList->findSongByTitle("Gravity") << std::endl;
+
+    std::cout << "\n finally add song to the list, and test again\n" << std::endl;
+    songList->insertAtEnd(song3);
+    std::cout << "expected 3, got: " << songList->findSongByArtist("John Mayer") << std::endl;
+
+
+    //test remove song
+    //std::cout << "----test removeSong method----\n" << std::endl;
+    //songList->removeSong(song2);
+    //songList->toString();
+
     delete songList;
 
     std::cout << "\nNOTE: currently adds duplicates..." << std::endl;
@@ -63,13 +91,6 @@ int main() {
     std::cout << "----end test for linkedlist----" << std::endl;
     std::cout << "-------------------------------\n" << std::endl;
 
-
-    std::cout << "----------------------------" << std::endl;
-    std::cout << "----Create Music Library----" << std::endl;
-    std::cout << "----------------------------\n" << std::endl;
-
-    //TODO write test functions to create the music library and test its functionality
-    //todo place in a separate test file?? also make tests for the playlist class in a different test file?
 
     std::cout << "\n" << std::endl;
 

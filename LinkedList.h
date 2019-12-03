@@ -56,10 +56,23 @@ public:
     void clearList();
 
     /**
-     * Searches a song array for a certain song
+     * Searches a song list for a certain song
      * @return true or false if the song is present or not
      */
     bool findSong(Song songToFind);
+
+    /**
+    * Searches a song list for a certain song
+    * @return index of the song in the list, -1 if the song is not present
+    */
+    int findSongByArtist(std::string artistIn);
+
+    /**
+    * Searches a song list for a certain song
+    * @return index of the song in the list, -1 if the song is not present
+    */
+    int findSongByTitle(std::string titleIn);
+
 
     /**
      * removes the song from the list, and returns a copy of that song

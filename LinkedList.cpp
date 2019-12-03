@@ -114,6 +114,51 @@ bool LinkedList::findSong(Song songToFind) {
     return 0;
 }
 
+/**
+   * Searches a song list for a certain song
+   * @return index of the song in the list, -1 if the song is not present
+   */
+int LinkedList::findSongByArtist(std::string artistIn){
+    LinkedNode* current = head;
+
+    int index = 0;
+
+    while(current != nullptr) {
+
+        if(current->getItem().getSongArtist() == artistIn){
+            return index;
+        }
+
+        index++;
+        current = current->getNext();
+    }
+
+    return -1;
+}
+
+/**
+* Searches a song list for a certain song
+* @return index of the song in the list, -1 if the song is not present
+*/
+int LinkedList::findSongByTitle(std::string titleIn){
+    LinkedNode* current = head;
+
+    int index = 0;
+
+    while(current != nullptr) {
+
+        if(current->getItem().getSongTitle() == titleIn){
+            return index;
+        }
+
+        index++;
+        current = current->getNext();
+    }
+
+    return -1;
+
+}
+
 
 /**
      * removes the song from the list, and returns a copy of that song
@@ -124,6 +169,35 @@ bool LinkedList::findSong(Song songToFind) {
      */
 Song LinkedList::removeSong(Song songToRemove) {
     //TODO write this function to remove songs from the list/playlist
+
+    if(head == nullptr || currItemCount == 0){
+        throw std::out_of_range("In removeSong, List must have items");
+    }
+
+    else {
+        LinkedNode *current = head;
+        bool songFound;
+        int count = 0;
+        Song songValue;
+
+        while (count < currItemCount) {
+            songFound = findSong(songToRemove);
+
+            if (songFound == 1) {
+                LinkedNode *temp = current->getNext();
+
+                current->setNext(temp->getNext());
+                songValue = temp->getItem();
+                delete temp;
+            }
+
+            current = current->getNext();
+            count++;
+        }
+        currItemCount -= 1;
+
+        return songValue;
+    }
 }
 
 /**

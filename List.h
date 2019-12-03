@@ -54,6 +54,18 @@ public:
     virtual bool findSong(Song songToFind)=0;
 
     /**
+    * Searches a song list for a certain song
+    * @return index of the song in the list, -1 if the song is not present
+    */
+    virtual int findSongByArtist(std::string artistIn)=0;
+
+    /**
+    * Searches a song list for a certain song
+    * @return index of the song in the list, -1 if the song is not present
+    */
+    virtual int findSongByTitle(std::string titleIn)=0;
+
+    /**
      * removes the song from the list, and returns a copy of that song
      * @param the song from which to remove the song
      * @post the song is removed from the list if found, everything else is shifted down one
