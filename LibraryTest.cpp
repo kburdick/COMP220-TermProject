@@ -27,10 +27,30 @@ int main() {
 
     std::cout << "\n" << std::endl;
 
+    std::cout << "--Create a linked list of songs to test--" << std::endl;
+
+    //make a new linkedlist of songs
+    LinkedList* songList = new LinkedList();
+
+    //add two songs to the list
+    songList->insertAtEnd(song1);
+    songList->insertAtEnd(song1);
+    //test the tostring method
+    songList->toString();
+
+    delete songList;
+
+
+    std::cout << "--end test for linkedlist--" << std::endl;
+
+
+
+
     std::cout << "--Create Music Library--" << std::endl;
     //TODO write test functions to create the music library and test its functionality
 
     std::cout << "\n" << std::endl;
+
 
     return 0;
 }

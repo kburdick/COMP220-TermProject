@@ -59,7 +59,6 @@ std::string LinkedList::toString(){
 
         std::cout << current->getItem().toString() << '\n';
 
-
         current = current->getNext();
     }
 }
@@ -123,7 +122,6 @@ bool LinkedList::findSong(Song songToFind) {
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
 Song LinkedList::removeSong(Song songToRemove) {
-
     //TODO write this function to remove songs from the list/playlist
 }
 
