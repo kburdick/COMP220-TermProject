@@ -11,7 +11,7 @@
 int main() {
 
     std::cout << "----------------------" << std::endl;
-    std::cout << "----Library Tester----" << std::endl;
+    std::cout << "----List Tester----" << std::endl;
     std::cout << "----------------------\n" << std::endl;
 
 
