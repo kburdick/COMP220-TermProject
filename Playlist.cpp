@@ -4,4 +4,12 @@
 
 #include "Playlist.h"
 
+Playlist::Playlist() {
+
+}
+
+//destructor
+Playlist::~Playlist() {
+
+}
 

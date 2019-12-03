@@ -50,15 +50,15 @@ void LinkedList::insertAtEnd(Song songToAdd) {
 
 /**
      * gives a string representation of the current list
-     * @returns a string representing the song using the song class methods
+     * @returns null
+     * @post displays all songs to the current console
      */
-std::string LinkedList::toString(){
+void LinkedList::toString(){
     LinkedNode* current = head;
 
     while(current != nullptr) {
 
         std::cout << current->getItem().toString() << '\n';
-
 
         current = current->getNext();
     }
@@ -123,7 +123,6 @@ bool LinkedList::findSong(Song songToFind) {
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
 Song LinkedList::removeSong(Song songToRemove) {
-
     //TODO write this function to remove songs from the list/playlist
 }
 

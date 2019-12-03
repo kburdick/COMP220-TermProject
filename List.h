@@ -33,7 +33,7 @@ public:
      * gives a string representation of the current list
      * @returns a string representing the song using the song class methods
      */
-    virtual std::string toString()=0;
+    virtual void toString()=0;
 
     /**
      * checks if there are any valid songs in the list
