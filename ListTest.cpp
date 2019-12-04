@@ -86,6 +86,37 @@ int main() {
     std::cout << "\nNOTE: currently adds duplicates..." << std::endl;
     std::cout << "a function for adding songs will be altered in library and playlist classes\n" << std::endl;
     std::cout << "-------------------------------" << std::endl;
+
+    std::cout << "\n----Test sort songs by artist and then song title alphabetically----\n" << std::endl;
+    LinkedList* songList2 = new LinkedList(); // creates a new songList
+    Song song10 = Song("Heart Strings", "Enamour", 244);
+    Song song11 = Song("Rock It", "Detlef", 432);
+    Song song12 = Song("Activate", "Deep Moth", 372);
+    Song song13 = Song("Turbo Time", "Patrick Topping", 392);
+    Song song14 = Song("Roped In", "Gorgon City", 265);
+    Song song15 = Song("ARK", "Kayzo", 217);
+    Song song16 = Song("Blackwing", "Cloudkicker", 342);
+    Song song17 = Song("Physical Education", "Animals As Leaders", 323);
+    Song song18 = Song("Turbo Speed", "Patrick Topping", 267);
+    Song song19 = Song("Braincase", "Kayzo", 187);
+    Song song20 = Song("Antidance", "Kayzo", 286);
+    songList2->insertAtEnd(song10);
+    songList2->insertAtEnd(song11);
+    songList2->insertAtEnd(song12);
+    songList2->insertAtEnd(song13);
+    songList2->insertAtEnd(song14);
+    songList2->insertAtEnd(song15);
+    songList2->insertAtEnd(song16);
+    songList2->insertAtEnd(song17);
+    songList2->insertAtEnd(song18);
+    songList2->insertAtEnd(song19);
+    songList2->insertAtEnd(song20);
+    std::cout << "\n----Unsorted List of songs in library----\n" << std::endl;
+    songList2->toString();
+    std::cout << "\n----sorted List of songs in library----\n" << std::endl;
+    songList2->sortList();
+    songList2->toString();
+
     std::cout << "----end test for linkedlist----" << std::endl;
     std::cout << "-------------------------------\n" << std::endl;
 

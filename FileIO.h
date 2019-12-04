@@ -10,7 +10,7 @@
 #include "LinkedList.h"
 
 /**
- * Reads in a csv file and returns a linked list of songs
+ * Reads in a csv file and returns a sorted linked list of songs
  * @param fileName
  * @return a pointer to a Linked List of songs to add to a playlist or library
  */

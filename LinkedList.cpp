@@ -208,6 +208,13 @@ Song LinkedList::removeSong(Song songToRemove) {
     */
 void LinkedList::sortList() {
     //TODO write this function to sort the list alphabetically
+    //LinkedNode* current = head;
+  //  std::string firstArtist = current->getItem().getSongArtist();
+//    std::string firstSong = current->getItem().getSongTitle();
+    //while(current != nullptr){
+
+    //}
+
 }
 
 
