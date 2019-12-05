@@ -80,20 +80,21 @@ public:
      */
     virtual Song removeSong(Song songToRemove)=0;
 
-    /**
-     * sorts the list for alphabetical order of artists and then songs
-     * @param none
-     * @post the songs in the list are sorted alphabetically
-     * @return none
-     */
-     virtual void sortList()=0;
 
      /**
-      * shuffles the list to be in random order
-      * @param none
+      * generates a random number
+      * @param
       * @post the list is shuffled out of order
       */
-     virtual void shuffle()=0;
+     virtual int ranNumGenerator(int max)=0;
+
+    /**
+    * determines the total amount of items within the list
+    * @param none
+    * @return the total amount of items within the list
+    */
+    virtual int getCurrentItemCount()=0;
+
 };
 
 

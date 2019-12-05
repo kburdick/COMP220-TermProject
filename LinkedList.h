@@ -91,19 +91,18 @@ public:
     Song removeSong(Song songToRemove);
 
     /**
-     * sorts the list for alphabetical order of artists and then songs
-     * @param none
-     * @post the songs in the list are sorted alphabetically
-     * @return none
-     */
-    void sortList();
-
-    /**
      * shuffles the list to be in random order
      * @param none
      * @post the list is shuffled out of order
      */
-    void shuffle();
+    int ranNumGenerator(int max);
+
+    /**
+     * determines the total amount of items within the list
+     * @param none
+     * @return the total amount of items within the list
+     */
+     int getCurrentItemCount();
 };
 
 
