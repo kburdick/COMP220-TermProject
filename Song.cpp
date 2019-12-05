@@ -6,10 +6,6 @@
 #include <sstream>
 #include "Song.h"
 
-
-/**
- * Default constructor
- */
 Song::Song() {
     this->title = "";
     this->artist = "";
@@ -25,11 +21,7 @@ Song::Song(std::string title, std::string artist, int duration) {
     this->playCount = 0;
 }
 
-/**
- * Creates songs from a song string input
- * @param songString example: "The Rover, Led Zeppelin, 800, 2"
- * @post creates a song object from the string input
- */
+
 Song::Song(std::string songString) {
 
     std::stringstream splitter(songString);
@@ -73,9 +65,6 @@ Song::Song(const Song& songToCopy) {
 
 }
 
-// returns a song by reference
-// a combination of the copy constructor and the destructor
-// not entirely necessary because their is not dynamic memory (could use implicit copy and assignment)
 Song& Song::operator=(const Song& songToCopy) {
 
     if(this != &songToCopy) {
@@ -133,17 +122,11 @@ int Song::getPlayCount() {
 //getters end
 
 
-//additional methods
-// need to make another file that contains a toString method to read and write from files...
-// TODO: do we want to use CSV or tab character delimited strings?
 std::string Song::toString() {
     std::string songString = "";
 
     //example of a CSV style string
     songString = title + ", " + artist + ", " + std::to_string(duration) + ", " + std::to_string(playCount);
-
-    //example of a tab delimited string
-    //songString = title + "\t" + artist + "\t" + std::to_string(duration) + '\t' + std::to_string(playCount);
 
     return songString;
 }

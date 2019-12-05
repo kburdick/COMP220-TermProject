@@ -2,16 +2,54 @@
 // Created by Kurt Burdick on 12/3/19.
 //
 
-#include <string>
+#include <iostream>
+#include "UserInterface.h"
 
-//TODO DEFINE ALL FUNCTIONS IN THIS FILE TO WORK WITH THE INTERFACE
+//TODO DEFINE ALL FUNCTIONS IN THIS FILE TO WORK WITH THE INTERFACED CLASSES
 
 /**
  * provides a summary of all available commands
  * @post prints all possible commands to the console
  */
 void help(){
+    std::cout << "\n####################" << std::endl;
+    std::cout << "### Command Keys ###" << std::endl;
+    std::cout << "####################\n" << std::endl;
 
+    std::cout << "A list of available commands with syntax: " << std::endl;
+    std::cout << "(NOTE: enter desired functionality in brackets, ex: artist<The Beatles>)\n" << std::endl;
+
+    std::cout << " Command: " << "     " << "\t\t\t\t\tDescription: \n" << std::endl;
+
+    std::cout << " 'help' " << "\t\t\t\t\t\t-Provides a summary of all available commands\n" << std::endl;
+
+    std::cout << " 'library' " << "\t\t\t\t\t\t-Display all the songs in the current music library\n" << std::endl;
+
+    std::cout << " 'artist<artist>' " << "\t\t\t\t-Display all songs for the given artist\n" << std::endl;
+
+    std::cout << " 'song'<artist, title>' " << "\t\t-Display all the information for a given song\n" << std::endl;
+
+    std::cout << " 'import<filename>' " << "\t\t\t-Add songs from a given file to the library\n" << std::endl;
+
+    std::cout << " 'discontinue<filename>' " << "\t\t-Remove songs from the library in a given file\n" << std::endl;
+
+    std::cout << " 'playlists' " << "\t\t\t\t\t-Display the names of all the playlists and their durations\n" << std::endl;
+
+    std::cout << " 'playlist<name>' " << "\t\t\t\t-Display songs left in the playlist, and remaining playtime\n" << std::endl;
+
+    std::cout << " 'new<name>' " << "\t\t\t\t\t-Make a new empty playlist with the given name\n" << std::endl;
+
+    std::cout << " 'add<name, artist, title>' " << "\t-Add the given song to the desired playlist\n" << std::endl;
+
+    std::cout << " 'remove<name, artist, title>' " << "\t-Remove the given song from the desired playlist\n" << std::endl;
+
+    std::cout << " 'playnext<name>' " << "\t\t\t\t-Play the next song in the playlist, and display that songs information\n" << std::endl;
+
+    std::cout << " 'newrandom<name, duration>' " << "\t-Make a new random playlist with a given name, and duration limit\n" << std::endl;
+
+    std::cout << " 'quit' " << "\t\t\t\t\t\t-Save the library, all playlists, and terminate program execution\n" << std::endl;
+
+    std::cout << "####################\n" << std::endl;
 }
 
 /**
@@ -20,6 +58,7 @@ void help(){
  * @post prints all songs in order to console
  */
 void library(){
+    //TODO make calls to display (toString) all library music in alphabetical order (sort while importing
 
 }
 
@@ -29,6 +68,8 @@ void library(){
  * @post prints all songs for that artist to console
  */
 void artist(std::string artistIn){
+    //TODO make calls to display all songs for the given artist
+    //(find and toString on all objects with that artist) findByArtist function?
 
 }
 
@@ -39,6 +80,7 @@ void artist(std::string artistIn){
  * @post prints all song info to the console
  */
 void songInfo(std::string songIn, std::string titleIn){
+    //TODO make calls to display all song info (find and toString on that object)
 
 }
 
@@ -49,6 +91,9 @@ void songInfo(std::string songIn, std::string titleIn){
  * @return print songs that already existed (to avoid duplicates)
  */
 std::string import(std::string fileNameIn){
+    //TODO make call to fileIO functions to create a new library that holds the songs from the file
+    //readIn function (automatically add to library)
+
 
 }
 
@@ -60,6 +105,8 @@ std::string import(std::string fileNameIn){
  * @return print songs that could not be removed
  */
 std::string discontinue(std::string fileNameIn){
+    //TODO make calls to fileIO functions to remove all songs in the library from the list
+
 
 }
 
@@ -68,6 +115,7 @@ std::string discontinue(std::string fileNameIn){
  * @post prints all playlists with respective duration to the console
  */
 void playlists(){
+    //TODO makes calls to have a toString method that prints the names of all current linked list based playlists
 
 }
 
@@ -77,6 +125,7 @@ void playlists(){
  * @post print songs in playlist to console
  */
 void playlist(std::string playlistIn){
+    //TODO make calls to display (toString again) all songs in a playlist
 
 }
 
@@ -86,7 +135,7 @@ void playlist(std::string playlistIn){
  * @post a new empty playlist is created and saved
  */
 void newPlaylist(std::string playlistNameIn){
-
+    //TODO make calls to create a new playlist
 }
 
 /**
@@ -98,7 +147,7 @@ void newPlaylist(std::string playlistNameIn){
  */
 //TODO do we need to check if song already exists?
 void add(std::string nameIn, std::string artistIn, std::string titleIn, int duration){
-
+    //TODO make calls to add song to proper linked list
 }
 
 /**
@@ -109,6 +158,7 @@ void add(std::string nameIn, std::string artistIn, std::string titleIn, int dura
  */
 //TODO do we need to check if song does not exist?
 void remove(std::string nameIn, std::string artistIn, std::string titleIn){
+    //TODO make calls to remove song from proper linked list
 
 }
 
@@ -119,6 +169,7 @@ void remove(std::string nameIn, std::string artistIn, std::string titleIn){
  * @post print to console all song information
  */
 void playNext(std::string playlistIn){
+    //TODO make calls to play song and display it to the screen
 
 }
 
@@ -129,6 +180,7 @@ void playNext(std::string playlistIn){
  * @param maxDurationIn
  */
 void newRandom(std::string playlistNameIn, int maxDurationIn){
+    //TODO make calls to random playlist generation functions
 
 }
 
@@ -138,5 +190,9 @@ void newRandom(std::string playlistNameIn, int maxDurationIn){
  * @post terminate execution of the program.
  */
 void quit(){
+
+    //TODO make calls to save/write out files here?
+
+    std::cout << "\nSaving files and exiting...\n" << std::endl;
 
 }
