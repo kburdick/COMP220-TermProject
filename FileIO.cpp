@@ -4,9 +4,10 @@
 
 #include "FileIO.h"
 #include <fstream>
+#include <iostream>
+#include <sstream>
 #include <exception>
 #include "LinkedList.h"
-#include <iostream>
 
 
 /**
@@ -15,17 +16,21 @@
  * @return a pointer to a Linked List of songs to add to a playlist or library
  */
 LinkedList* ReadFile(std::string fileName){
-    LinkedList* lib = new LinkedList();
     std::ifstream infile(fileName);
+
     if (infile){
+        LinkedList* lib = new LinkedList();
         std::string line;
-        while (infile){
-            line = "";
-            getline(infile, line); //Strafes csv for full line. This should match songString format
-            std::cout<<line<<std::endl;
+        std::stringstream splitter(line);
+
+        while (getline(infile, line)){
+
             Song temp = Song(line);
             lib->insertAtEnd(temp);
+            getline(splitter, line, '\n');
+
         }
+
         return lib;
     }
     else {
