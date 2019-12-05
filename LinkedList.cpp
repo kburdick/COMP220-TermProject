@@ -5,8 +5,12 @@
 
 #include <iostream>
 #include "LinkedList.h"
+<<<<<<< Updated upstream
 #include <cstdlib>
 
+=======
+#include <fstream>
+>>>>>>> Stashed changes
 
 /**
      * Constructor
@@ -85,6 +89,19 @@ void LinkedList::toString(){
     }
 }
 
+void LinkedList::WriteFile(std::string fileName){
+    std::ofstream outFile(fileName);
+    LinkedNode* current  = head;
+    if (outFile){
+        while (current != nullptr){
+            outFile << current->getItem().toString() << '\n';
+            current = current->getNext();
+        }
+    }
+    else{
+        throw "File Not Found";
+    }
+}
 
 /**
      * checks if there are any valid songs in the list

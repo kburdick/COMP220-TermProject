@@ -51,6 +51,13 @@ public:
     void toString();
 
     /**
+     * Writes a playlist or library to fileName
+     * @param fileName
+     */
+    void WriteFile(std::string fileName);
+
+
+    /**
      * checks if there are any valid songs in the list
      * @return true if there are no valid songs in the list, false otherwise
      */

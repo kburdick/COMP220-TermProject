@@ -41,6 +41,8 @@ public:
      */
     virtual void toString()=0;
 
+    virtual void WriteFile(std::string fileName)=0;
+
     /**
      * checks if there are any valid songs in the list
      * @return true if there are no valid songs in the list, false otherwise

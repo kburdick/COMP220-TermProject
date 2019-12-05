@@ -20,6 +20,6 @@ LinkedList* ReadFile(std::string fileName);
  * Writes a playlist or library to fileName
  * @param fileName
  */
-void WriteFile(std::string fileName);
+//void WriteFile(std::string fileName, LinkedList* songList);
 
 #endif //COMP220_TERMPROJECT_FILEIO_H
