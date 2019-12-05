@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include "LinkedList.h"
+#include <cstdlib>
+
 
 /**
      * Constructor
@@ -200,29 +202,36 @@ Song LinkedList::removeSong(Song songToRemove) {
     }
 }
 
-/**
-    * sorts the list for alphabetical order of artists and then songs
-    * @param none
-    * @post the songs in the list are sorted alphabetically
-    * @return none
-    */
-void LinkedList::sortList() {
-    //TODO write this function to sort the list alphabetically
-    //LinkedNode* current = head;
-  //  std::string firstArtist = current->getItem().getSongArtist();
-//    std::string firstSong = current->getItem().getSongTitle();
-    //while(current != nullptr){
 
-    //}
-
-}
-
+//srand(time(NULL)); this will go in the main main file once everything is done
 
 /**
     * shuffles the list to be in random order
     * @param none
     * @post the list is shuffled out of order
     */
-void LinkedList::shuffle() {
+int LinkedList::ranNumGenerator(int max) {
     //TODO used for the playlist class.
+    int min = 1;
+    if(min < max) {
+
+        return (rand() % (max - min + 1) + min);
+    }
+    else {
+        return (rand() % (min - max + 1) + max);
+    }
+
+    //can use getCurrentItemCount to get the max amount of items within the list
+    // then copy the genrandInt
+
+}
+
+
+/**
+ * determines the total amount of items within the list
+ * @param none
+ * @return the total amount of items within the list
+ */
+int LinkedList::getCurrentItemCount(){
+    return currItemCount;
 }

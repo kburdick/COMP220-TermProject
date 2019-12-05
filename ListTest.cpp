@@ -8,7 +8,7 @@
 #include "MusicLibrary.h"
 
 int main() {
-
+    srand(time(NULL));
     std::cout << "-------------------" << std::endl;
     std::cout << "----List Tester----" << std::endl;
     std::cout << "-------------------\n" << std::endl;
@@ -87,7 +87,7 @@ int main() {
     std::cout << "a function for adding songs will be altered in library and playlist classes\n" << std::endl;
     std::cout << "-------------------------------" << std::endl;
 
-    std::cout << "\n----Test sort songs by artist and then song title alphabetically----\n" << std::endl;
+    std::cout << "\n----Test shuffle songs ----\n" << std::endl;
     LinkedList* songList2 = new LinkedList(); // creates a new songList
     Song song10 = Song("Heart Strings", "Enamour", 244);
     Song song11 = Song("Rock It", "Detlef", 432);
@@ -111,11 +111,25 @@ int main() {
     songList2->insertAtEnd(song18);
     songList2->insertAtEnd(song19);
     songList2->insertAtEnd(song20);
-    std::cout << "\n----Unsorted List of songs in library----\n" << std::endl;
+    std::cout << "\n----Unshuffled List of songs in a list----\n" << std::endl;
     songList2->toString();
-    std::cout << "\n----sorted List of songs in library----\n" << std::endl;
-    songList2->sortList();
+    std::cout << "\n----shuffled List of songs in a list----\n" << std::endl;
+    std::cout << songList2->getCurrentItemCount() << std::endl;
     songList2->toString();
+
+
+
+    std::cout << "\n----Test ranGenNum ----\n" << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+    std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
+
 
     std::cout << "----end test for linkedlist----" << std::endl;
     std::cout << "-------------------------------\n" << std::endl;
