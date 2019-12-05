@@ -9,9 +9,11 @@ int main() {
 
     std::string inputString = "";
 
-    while()
+    while(inputString != "quit"){
 
 
+
+    }
 
     return 0;
 }
