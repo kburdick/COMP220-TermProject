@@ -117,12 +117,11 @@ int main() {
     songList2->sortList();
     songList2->toString();
 
-    std::cout << "----end test for linkedlist----" << std::endl;
+    std::cout << "\n----end test for linkedlist----" << std::endl;
     std::cout << "-------------------------------\n" << std::endl;
 
 
     std::cout << "\n" << std::endl;
-
 
     return 0;
 }

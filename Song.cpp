@@ -7,6 +7,9 @@
 #include "Song.h"
 
 
+/**
+ * Default constructor
+ */
 Song::Song() {
     this->title = "";
     this->artist = "";
@@ -14,17 +17,19 @@ Song::Song() {
     this->playCount = 0;
 }
 
-//constructor for the song class
-Song::Song(std::string title, std::string artist, int duration) {
 
+Song::Song(std::string title, std::string artist, int duration) {
     this->title = title;
     this->artist = artist;
     this->duration = duration;
     this->playCount = 0;
 }
 
-//constructor that creates a song from a single string input
-// TODO: this will be used to get the list of songs from the text file and create new song objects!
+/**
+ * Creates songs from a song string input
+ * @param songString example: "The Rover, Led Zeppelin, 800, 2"
+ * @post creates a song object from the string input
+ */
 Song::Song(std::string songString) {
 
     std::stringstream splitter(songString);

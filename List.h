@@ -28,6 +28,12 @@ public:
      */
     virtual void insertAtEnd(Song songToAdd)=0;
 
+    /**
+     * adds a new song to the list in alphabetical order by artist and then by song
+     * @param songToAdd song to add to the list
+     * @post song is added in order and the library will be sorted for lookup
+     */
+    virtual void insertInOrder(Song songToAdd)=0;
 
     /**
      * gives a string representation of the current list

@@ -46,6 +46,25 @@ void LinkedList::insertAtEnd(Song songToAdd) {
     }
 }
 
+/**
+     * adds a new song to the list in alphabetical order by artist and then by song
+     * @param songToAdd song to add to the list
+     * @post song is added in order and the library will be sorted for lookup
+     */
+void LinkedList::insertInOrder(Song songToAdd) {
+    LinkedNode* newNode = new LinkedNode(songToAdd);
+
+    if(head == nullptr){
+        head = newNode;
+        tail = newNode;
+        currItemCount += 1;
+    }
+    else{
+
+
+    }
+}
+
 
 
 /**
@@ -216,7 +235,6 @@ void LinkedList::sortList() {
     //}
 
 }
-
 
 /**
     * shuffles the list to be in random order

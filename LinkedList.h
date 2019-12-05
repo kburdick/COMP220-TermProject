@@ -32,9 +32,16 @@ public:
     /**
       * appends the new song to the end of the list
       * @post the list has an additional song in it, at the end
+      * @param songToAdd song to add to the list
       */
     void insertAtEnd(Song songToAdd);
 
+    /**
+     * adds a new song to the list in alphabetical order by artist and then by song
+     * @param songToAdd song to add to the list
+     * @post song is added in order and the library will be sorted for lookup
+     */
+    void insertInOrder(Song songToAdd);
 
     /**
      * gives a string representation of the current list
