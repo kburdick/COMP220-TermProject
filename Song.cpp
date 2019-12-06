@@ -41,7 +41,7 @@ Song::Song(std::string songString) {
         artistString = songInfo;
         songInfo = "";
         getline(splitter, songInfo, ',');
-        durationString = stof(songInfo);
+        durationString = stoi(songInfo);
         songInfo = "";
         getline(splitter, songInfo, ',');
         playCountString = stoi(songInfo);
@@ -126,7 +126,7 @@ std::string Song::toString() {
     std::string songString = "";
 
     //example of a CSV style string
-    songString = title + ", " + artist + ", " + std::to_string(duration) + ", " + std::to_string(playCount);
+    songString = title + ", " + artist + ", " + std::to_string(duration) + ", " + std::to_string(playCount) + ",";
 
     return songString;
 }

@@ -5,12 +5,8 @@
 
 #include <iostream>
 #include "LinkedList.h"
-<<<<<<< Updated upstream
 #include <cstdlib>
-
-=======
 #include <fstream>
->>>>>>> Stashed changes
 
 /**
      * Constructor

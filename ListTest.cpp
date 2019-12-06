@@ -118,7 +118,6 @@ int main() {
     songList2->toString();
 
 
-<<<<<<< Updated upstream
 
     std::cout << "\n----Test ranGenNum ----\n" << std::endl;
     std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
@@ -131,10 +130,9 @@ int main() {
     std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
     std::cout << songList2->ranNumGenerator(songList2->getCurrentItemCount()) << std::endl;
 
-=======
     std::cout << "\n----Writing List to testSongLib.csv----\n" << std::endl;
     songList2->WriteFile("testSongLib.csv");
->>>>>>> Stashed changes
+
 
     std::cout << "----end test for linkedlist----" << std::endl;
     std::cout << "-------------------------------\n" << std::endl;
