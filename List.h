@@ -84,13 +84,6 @@ public:
      */
     virtual Song removeSong(Song songToRemove)=0;
 
-     /**
-      * generates a random number
-      * @param
-      * @post the list is shuffled out of order
-      */
-     virtual int ranNumGenerator(int max)=0;
-
 
      // BEGIN ARRAYLIST FUNCTIONS
 

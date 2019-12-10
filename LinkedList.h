@@ -30,6 +30,12 @@ public:
     ~LinkedList();
 
     /**
+     * Writes a playlist or library to fileName
+     * @param fileName
+     */
+    void WriteFile(std::string fileName);
+
+    /**
       * appends the new song to the end of the list
       * @post the list has an additional song in it, at the end
       * @param songToAdd song to add to the list
@@ -49,12 +55,6 @@ public:
      * @post displays all songs to the current console
      */
     void toString();
-
-    /**
-     * Writes a playlist or library to fileName
-     * @param fileName
-     */
-    void WriteFile(std::string fileName);
 
 
     /**
@@ -97,12 +97,6 @@ public:
      */
     Song removeSong(Song songToRemove);
 
-    /**
-     * shuffles the list to be in random order
-     * @param none
-     * @post the list is shuffled out of order
-     */
-    int ranNumGenerator(int max);
 
     /**
      * determines the total amount of items within the list

@@ -235,30 +235,6 @@ Song LinkedList::removeSong(Song songToRemove) {
 }
 
 
-//srand(time(NULL)); this will go in the main main file once everything is done
-
-/**
-    * shuffles the list to be in random order
-    * @param none
-    * @post the list is shuffled out of order
-    */
-int LinkedList::ranNumGenerator(int max) {
-    //TODO used for the playlist class.
-    int min = 1;
-    if(min < max) {
-
-        return (rand() % (max - min + 1) + min);
-    }
-    else {
-        return (rand() % (min - max + 1) + max);
-    }
-
-    //can use getCurrentItemCount to get the max amount of items within the list
-    // then copy the genrandInt
-    //TODO this function exists for arraylist, should be used instead?
-
-}
-
 /**
  * determines the total amount of items within the list
  * @param none

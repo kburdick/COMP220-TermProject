@@ -2,11 +2,11 @@
 // Created by Robert on 12/4/19.
 //
 
-#include "FileIO.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <exception>
+#include "FileIO.h"
 #include "LinkedList.h"
 
 
@@ -15,29 +15,59 @@
  * @param fileName
  * @return a pointer to a Linked List of songs to add to a playlist or library
  */
-LinkedList* ReadFile(std::string fileName){
+LinkedList* readPlaylist(std::string fileName){
     std::ifstream infile(fileName);
 
     if (infile){
-        LinkedList* lib = new LinkedList();
+        LinkedList* playlist = new LinkedList();
         std::string line;
         std::stringstream splitter(line);
 
         while (getline(infile, line)){
 
             Song temp = Song(line);
-            lib->insertAtEnd(temp);
+            playlist->insertAtEnd(temp);
             getline(splitter, line, '\n');
 
         }
 
-        return lib;
+        return playlist;
     }
     else {
         throw "File Not Found!";
     }
 }
 
+
+/**
+ * Reads in a csv file and returns a sorted linked list of songs
+ * @param fileName
+ * @return a pointer to a Linked List of songs to add to a playlist or library
+ */
+ArrayList* readLibrary(std::string fileName){
+    std::ifstream infile(fileName);
+
+    if (infile){
+        ArrayList* library = new ArrayList(100);
+        std::string line;
+        std::stringstream splitter(line);
+
+        while (getline(infile, line)){
+
+            Song temp = Song(line);
+            library->insertAtEnd(temp);
+            getline(splitter, line, '\n');
+
+        }
+
+        //TODO call sorting function here, to sort the array
+
+        return library;
+    }
+    else {
+        throw "File Not Found!";
+    }
+}
 
 /**
 void WriteFile(std::string fileName, LinkedList* songList){

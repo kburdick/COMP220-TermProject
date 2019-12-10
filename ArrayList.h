@@ -44,11 +44,22 @@ public:
     //Destructor
     ~ArrayList();
 
+    //file io stuff
+    //TODO write function description
+    void WriteFile(std::string fileName);
+
     /**
      * appends the new item to the end of the list
      * @post the list has an additional value in it, at the end
      */
     void insertAtEnd(Song itemToAdd);
+
+    /**
+     * adds a new song to the list in alphabetical order by artist and then by song
+     * @param songToAdd song to add to the list
+     * @post song is added in order and the library will be sorted for lookup
+     */
+    void insertInOrder(Song songToAdd);
 
     /**
      * gets a value from the list
@@ -95,6 +106,17 @@ public:
      */
     int findSongIndex(Song songToFind);
 
+    /**
+   * Searches a song list for a certain song
+   * @return index of the song in the list, -1 if the song is not present
+   */
+    int findSongByArtist(std::string artistIn);
+
+    /**
+    * Searches a song list for a certain song
+    * @return index of the song in the list, -1 if the song is not present
+    */
+    int findSongByTitle(std::string titleIn);
 
     /**
      * appends the new item to the beginning of the list

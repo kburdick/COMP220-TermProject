@@ -50,6 +50,13 @@ ArrayList::~ArrayList(){
     delete [] array;
 }
 
+//file io stuff
+//TODO write function description
+void ArrayList::WriteFile(std::string fileName){
+
+}
+
+
 void ArrayList::doubleCapacity() {
     int doubleCap = currCapacity * 2;
 
@@ -72,6 +79,10 @@ void ArrayList::insertAtEnd(Song songToAdd) {
         array[currItemCount] = songToAdd;
         currItemCount += 1;
     }
+}
+
+void ArrayList::insertInOrder(Song songToAdd){
+
 }
 
 
@@ -146,6 +157,15 @@ int ArrayList::findSongIndex(Song songToFind) {
     return ::find(array, currItemCount, songToFind, unusedTimer);
 }
 
+int ArrayList::findSongByArtist(std::string artistIn){
+    //TODO finish function implementation
+    return -2345;
+}
+
+int ArrayList::findSongByTitle(std::string titleIn){
+    //TODO finish implementing this function
+    return -2345;
+}
 
 
 void ArrayList::insertAtFront(Song songToAdd) {
