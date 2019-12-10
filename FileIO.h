@@ -20,6 +20,7 @@ LinkedList* ReadFile(std::string fileName);
  * Writes a playlist or library to fileName
  * @param fileName
  */
+ //TODO bring this function back into this file instead of in linkedlist.cpp?
 //void WriteFile(std::string fileName, LinkedList* songList);
 
 #endif //COMP220_TERMPROJECT_FILEIO_H

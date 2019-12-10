@@ -255,6 +255,7 @@ int LinkedList::ranNumGenerator(int max) {
 
     //can use getCurrentItemCount to get the max amount of items within the list
     // then copy the genrandInt
+    //TODO this function exists for arraylist, should be used instead?
 
 }
 
@@ -266,3 +267,32 @@ int LinkedList::ranNumGenerator(int max) {
 int LinkedList::getCurrentItemCount(){
     return currItemCount;
 }
+
+Song LinkedList::getValueAt(int index){
+    Song newSong = Song("");
+    return newSong;
+}
+
+void LinkedList::insertAtFront(Song songToAdd){
+
+}
+
+void LinkedList::insertAt(Song songToAdd, int index){
+
+}
+
+Song LinkedList::removeSongAtEnd(){
+    Song newSong = Song("");
+    return newSong;
+}
+
+Song LinkedList::removeSongAtFront(){
+    Song newSong = Song("");
+    return newSong;
+}
+
+int LinkedList::findSongIndex(Song songToFind){
+
+    return -2345;
+}
+

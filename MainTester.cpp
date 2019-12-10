@@ -25,6 +25,10 @@ int main() {
             help();
         }
 
+        if(inputString == "import"){
+            //TODO please input a filename
+            // call the function from here with the filename
+        }
 
         if(inputString == "quit"){
             quit();

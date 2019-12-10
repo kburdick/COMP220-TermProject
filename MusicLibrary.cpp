@@ -6,6 +6,7 @@
 
 //default constructor creates an empty music library
 MusicLibrary::MusicLibrary() {
+
     this->totalSongCount = 0;
 }
 

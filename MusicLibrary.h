@@ -5,13 +5,13 @@
 #ifndef COMP220_TERMPROJECT_MUSICLIBRARY_H
 #define COMP220_TERMPROJECT_MUSICLIBRARY_H
 
-#include "LinkedList.h"
+#include "List.h"
 
 
 class MusicLibrary {
 private:
     //TODO fill in data for the library here
-
+    Song* arrayOfSongs;
     int totalSongCount;
 
     //TODO determine if these methods should be implemented (yes or no)
