@@ -49,6 +49,12 @@ public:
     void WriteFile(std::string fileName);
 
     /**
+     * get the song duration
+     * @param songIn input parameter
+     */
+    int getDuration(Song songIn);
+
+    /**
      * appends the new item to the end of the list
      * @post the list has an additional value in it, at the end
      */

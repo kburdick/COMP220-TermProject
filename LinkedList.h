@@ -36,6 +36,13 @@ public:
     void WriteFile(std::string fileName);
 
     /**
+    * get the song duration
+    * @param songIn input parameter
+    */
+    int getDuration(Song songIn);
+
+
+    /**
       * appends the new song to the end of the list
       * @post the list has an additional song in it, at the end
       * @param songToAdd song to add to the list

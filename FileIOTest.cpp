@@ -29,6 +29,18 @@ int main(){
     testLib->toString();
     std::cout << "\n----To String Should Print Same information from the file again----\n" << std::endl;
 
-    //TODO Automate the tests in some way
+    //make a music library
+    MusicLibrary* myMusic = new MusicLibrary(testLib);
+
+    int temp = myMusic->sumDuration();
+    std::cout << temp << std::endl;
+
+    //make an empty library
+    MusicLibrary* anotherFile = new MusicLibrary();
+    int temp2 = anotherFile->getTotalSongCount();
+    std::cout << temp2 << std::endl;
+
+
+    //TODO Automate the tests in some way with another file.....
 
 }

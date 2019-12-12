@@ -2,15 +2,19 @@
 // Created by Kurt Burdick on 11/20/19.
 //
 
+#include <iostream>
+#include <string>
 #include "Playlist.h"
+#include "LinkedList.h"
 
 Playlist::Playlist() {
+    this->playlist = new LinkedList();
     this->totalDuration = 0;
 }
 
 //destructor
 Playlist::~Playlist() {
-
+    delete playlist; //does this call the actual destructor for the linked list?
 }
 
 /**

@@ -30,6 +30,17 @@ LinkedList::~LinkedList(){
 }
 
 /**
+    * get the song duration
+    * @param songIn input parameter
+    */
+int LinkedList::getDuration(Song songIn) {
+    int duration = songIn.getSongDuration();
+
+    return duration;
+};
+
+
+/**
     * appends the new song to the end of the list
     * @post the list has an additional song in it, at the end
     */
@@ -54,6 +65,7 @@ void LinkedList::insertAtEnd(Song songToAdd) {
      * @post song is added in order and the library will be sorted for lookup
      */
 void LinkedList::insertInOrder(Song songToAdd) {
+    //TODO ::NOTE add this function to file IO and not to the linkedlist
     LinkedNode* newNode = new LinkedNode(songToAdd);
 
     if(head == nullptr){
@@ -245,30 +257,33 @@ int LinkedList::getCurrentItemCount(){
 }
 
 Song LinkedList::getValueAt(int index){
+    //TODO finish definition for linked list get value at index.....
     Song newSong = Song("");
     return newSong;
 }
 
 void LinkedList::insertAtFront(Song songToAdd){
-
+//TODO
 }
 
 void LinkedList::insertAt(Song songToAdd, int index){
-
+//TODO
 }
 
 Song LinkedList::removeSongAtEnd(){
+    //TODO
     Song newSong = Song("");
     return newSong;
 }
 
 Song LinkedList::removeSongAtFront(){
+    //TODO
     Song newSong = Song("");
     return newSong;
 }
 
 int LinkedList::findSongIndex(Song songToFind){
-
+//TODO
     return -2345;
 }
 

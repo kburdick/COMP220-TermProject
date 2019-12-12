@@ -27,6 +27,12 @@ public:
     virtual void WriteFile(std::string fileName)=0;
 
     /**
+     * get the song duration
+     * @param songIn input parameter
+     */
+    virtual int getDuration(Song songIn)=0;
+
+    /**
      * appends the new song to the end of the list
      * @post the list has an additional song in it, at the end
      */
@@ -83,10 +89,6 @@ public:
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
     virtual Song removeSong(Song songToRemove)=0;
-
-
-     // BEGIN ARRAYLIST FUNCTIONS
-
 
     /**
     * determines the total amount of items within the list

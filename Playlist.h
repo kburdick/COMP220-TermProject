@@ -6,11 +6,12 @@
 #define COMP220_TERMPROJECT_PLAYLIST_H
 
 #include "List.h"
+#include "LinkedList.h"
 
 class Playlist {
 private:
     //TODO: fill in the data here
-
+    LinkedList* playlist;
     int totalDuration;
 
     //TODO check for the implementation of these methods (yes or no)

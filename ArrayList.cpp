@@ -52,8 +52,15 @@ ArrayList::~ArrayList(){
 
 //file io stuff
 //TODO write function description
-void ArrayList::WriteFile(std::string fileName){
+void ArrayList::WriteFile(std::string fileName) {
 
+}
+
+
+int ArrayList::getDuration(Song songIn){
+    int duration = songIn.getSongDuration();
+
+    return duration;
 }
 
 
