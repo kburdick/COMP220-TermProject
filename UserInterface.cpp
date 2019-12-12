@@ -58,9 +58,9 @@ void help(){
  * (within artist alphabetical by song)
  * @post prints all songs in order to console
  */
-void library(){
+void library(MusicLibrary musicLibraryIn){
     //TODO make calls to display (toString) all library music in alphabetical order (sort while importing
-
+    musicLibraryIn.displayAllSongs();
 }
 
 /**
@@ -68,9 +68,12 @@ void library(){
  * @param artistIn
  * @post prints all songs for that artist to console
  */
-void artist(std::string artistIn){
+void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to display all songs for the given artist
     //(find and toString on all objects with that artist) findByArtist function?
+
+    musicLibraryIn->displayArtist(artistIn);
+
 
 }
 
