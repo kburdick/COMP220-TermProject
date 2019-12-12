@@ -21,7 +21,7 @@ int main(){
     std::cout << "----Read File to Test List----" << std::endl;
     std::cout << "------------------------------\n" << std::endl;
 
-    testList = ReadFile("testSongLib.csv");
+    testList = ReadFile("readIn.csv");
 
 
     std::cout << "\n-------------------------------------------------------------" << std::endl;
