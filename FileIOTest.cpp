@@ -31,9 +31,12 @@ int main(){
 
     //make a music library
     MusicLibrary* myMusic = new MusicLibrary(testLib);
+    myMusic->displayAllSongs();
 
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;
+
+    myMusic->displaySongInfo("Detlef", "Rock It");
 
     //make an empty library
     MusicLibrary* anotherFile = new MusicLibrary();
