@@ -72,18 +72,25 @@ void MusicLibrary::displayArtist(std::string artist){
   * @param the title of the song
   * @post a list of information about the song is displayed to the user
   */
-void MusicLibrary::displaySongInfo(std::string artist, std::string title){
+std::string MusicLibrary::displaySongInfo(std::string artist, std::string title){
 
     int count = arrayOfSongs->getCurrentItemCount();
+    Song tempSong;
+    std::string songString = "song not found";
 
     for(int i = 0; i < count; i++) {
         int artistPosition = arrayOfSongs->findSongByArtist(artist);
         int titlePosition = arrayOfSongs->findSongByTitle(title);
 
         if(artistPosition == titlePosition) {
-            arrayOfSongs[i].toString();
+            tempSong = arrayOfSongs[i].getValueAt(artistPosition);
+
+            songString = tempSong.toString();
+
+            return songString;
         }
     }
+    return songString;
 }
 
 

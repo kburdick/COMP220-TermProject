@@ -65,7 +65,7 @@ public:
       * @param the title of the song
       * @post a list of information about the song is displayed to the user
       */
-    void displaySongInfo(std::string artist, std::string title);
+    std::string displaySongInfo(std::string artist, std::string title);
 
     /**
      * calculates the total duration of the list of songs
