@@ -126,7 +126,7 @@ std::string Song::toString() {
     std::string songString = "";
 
     //example of a CSV style string
-    songString = title + ", " + artist + ", " + std::to_string(duration) + ", " + std::to_string(playCount) + ",";
+    songString = title + "," + artist + "," + std::to_string(duration) + "," + std::to_string(playCount) + ",";
 
     return songString;
 }

@@ -165,19 +165,28 @@ int ArrayList::findSongIndex(Song songToFind) {
 }
 
 int ArrayList::findSongByArtist(std::string artistIn){
+<<<<<<< HEAD
     //TODO finish function implementation could be void?
     std::string artist = "";
+=======
+    std::string artist;
+>>>>>>> 71ea816ded141fd11260532477a82a4ccdb1819a
     int found = -1;
 
     for(int i = 0; i < currItemCount; i++) {
         Song temp = array[i];
 
         artist = temp.getSongArtist();
+<<<<<<< HEAD
         //std::cout<< artist << std::endl;
        // std::cout<< artistIn << std::endl;
 
 
         if(artist == artistIn) {
+=======
+        std::cout << artist ;
+        if(artist == artistIn){
+>>>>>>> 71ea816ded141fd11260532477a82a4ccdb1819a
             found = i;
             return found;
         }
