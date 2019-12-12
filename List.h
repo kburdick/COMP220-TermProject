@@ -22,6 +22,16 @@ public:
     //Destructor
     virtual ~List() {}
 
+    //file io stuff
+    //TODO write function description
+    virtual void WriteFile(std::string fileName)=0;
+
+    /**
+     * get the song duration
+     * @param songIn input parameter
+     */
+    virtual int getDuration(Song songIn)=0;
+
     /**
      * appends the new song to the end of the list
      * @post the list has an additional song in it, at the end
@@ -40,8 +50,6 @@ public:
      * @returns a string representing the song using the song class methods
      */
     virtual void toString()=0;
-
-    virtual void WriteFile(std::string fileName)=0;
 
     /**
      * checks if there are any valid songs in the list
@@ -82,14 +90,6 @@ public:
      */
     virtual Song removeSong(Song songToRemove)=0;
 
-
-     /**
-      * generates a random number
-      * @param
-      * @post the list is shuffled out of order
-      */
-     virtual int ranNumGenerator(int max)=0;
-
     /**
     * determines the total amount of items within the list
     * @param none
@@ -97,6 +97,52 @@ public:
     */
     virtual int getCurrentItemCount()=0;
 
+    /**
+     * gets a value from the list
+     * @param index the location from which to get the value
+     * @return a copy of the item at index
+     * @throws out_of_range exception if index is invalid
+     */
+    virtual Song getValueAt(int index)=0;
+
+    /**
+     * appends the new item to the beginning of the list
+     * @post the list has an additional value in it, at the beginning
+     *    all other items are shifted down by one index
+     */
+    virtual void insertAtFront(Song songToAdd)=0;
+
+    /**
+     * inserts the item into the list so that it can be found with get(index)
+     * @param index the location in which to insert this item
+     * @post the list has an additional value in it at the specified index,
+     *        all further values have been shifted down by one index
+     * @throws out_of_range exception if index is invalid (< 0 or > currItemCount)
+     */
+    virtual void insertAt(Song songToAdd, int index)=0;
+
+
+    /**
+     * removes the item at the end of the list, and returns a copy of that item
+     * @post the item at the end is removed from the list
+     * @return a copy of the item at the end
+     * @throws out_of_range exception if there is no item to remove
+     */
+    virtual Song removeSongAtEnd()=0;
+
+    /**
+     * removes the item at the front of the list, and returns a copy of that item
+     * @post the item at the front is removed from the list, everything else is shifted down one
+     * @return a copy of the item at index
+     * @throws out_of_range exception if there is no item to remove
+     */
+    virtual Song removeSongAtFront()=0;
+
+    /**
+    * Searches a song array for a certain song
+    * @return the index of the list that contains the song
+    */
+    virtual int findSongIndex(Song songToFind)=0;
 };
 
 

@@ -5,13 +5,13 @@
 #ifndef COMP220_TERMPROJECT_MUSICLIBRARY_H
 #define COMP220_TERMPROJECT_MUSICLIBRARY_H
 
-#include "LinkedList.h"
-
+#include "List.h"
+#include "ArrayList.h"
 
 class MusicLibrary {
 private:
     //TODO fill in data for the library here
-
+    ArrayList* arrayOfSongs;
     int totalSongCount;
 
     //TODO determine if these methods should be implemented (yes or no)
@@ -23,6 +23,7 @@ public:
     //TODO fill in functions for the library here
 
     MusicLibrary(); //check if we want default methods to be possible
+    MusicLibrary(ArrayList* listOfSongs);
     ~MusicLibrary();
     /**
          * calls the file read in method
@@ -31,13 +32,18 @@ public:
          */
     void fileReadIn(std::string fileName);
 
+    /**
+     * get the total song count for the library
+     * @return the int number of songs
+     */
+    int getTotalSongCount();
 
     /**
-       * Removes all songs from the music library and any occurrences of those songs within the valid playlists
-       * Prints out a message of any songs that do not occur within the library or the playlist
-       * @param the name of the file containing all of the songs that should be removed from the library and playlists
-       * @post a library and playlists without the songs given in the file
-       */
+     * Removes all songs from the music library and any occurrences of those songs within the valid playlists
+     * Prints out a message of any songs that do not occur within the library or the playlist
+     * @param the name of the file containing all of the songs that should be removed from the library and playlists
+     * @post a library and playlists without the songs given in the file
+     */
     void removeSongs(std::string fileName);
 
     /**
@@ -59,8 +65,14 @@ public:
       * @param the title of the song
       * @post a list of information about the song is displayed to the user
       */
-    void displaySongInfo(std::string artist,std::string title);
+    std::string displaySongInfo(std::string artist, std::string title);
 
+    /**
+     * calculates the total duration of the list of songs
+     * @param listToSum
+     * @return the total duration
+     */
+    int sumDuration();
 
 };
 

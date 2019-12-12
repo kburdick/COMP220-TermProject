@@ -5,12 +5,13 @@
 #ifndef COMP220_TERMPROJECT_PLAYLIST_H
 #define COMP220_TERMPROJECT_PLAYLIST_H
 
-#include "MusicLibrary.h"
+#include "List.h"
+#include "LinkedList.h"
 
-class Playlist : public MusicLibrary {
+class Playlist {
 private:
     //TODO: fill in the data here
-
+    LinkedList* playlist;
     int totalDuration;
 
     //TODO check for the implementation of these methods (yes or no)
@@ -31,6 +32,7 @@ public:
 
     //destructor
     ~Playlist();
+
     /**
     * uses add song, new playlist, and sumDuration
     * Creates a new playlist and adds songs at random without going over the duration specified by the user

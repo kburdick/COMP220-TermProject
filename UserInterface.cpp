@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "UserInterface.h"
+#include "MusicLibrary.h"
 
 //TODO DEFINE ALL FUNCTIONS IN THIS FILE TO WORK WITH THE INTERFACED CLASSES
 
@@ -16,8 +17,8 @@ void help(){
     std::cout << "### Command Keys ###" << std::endl;
     std::cout << "####################\n" << std::endl;
 
-    std::cout << "A list of available commands with syntax: " << std::endl;
-    std::cout << "(NOTE: enter desired functionality in brackets, ex: artist<The Beatles>)\n" << std::endl;
+    std::cout << "A list of available commands: " << std::endl;
+    std::cout << "(NOTE: enter desired functionality in prompt after entering command, ex: artist, Please Enter an Artist: The Beatles)\n" << std::endl;
 
     std::cout << " Command: " << "     " << "\t\t\t\t\tDescription: \n" << std::endl;
 
@@ -25,27 +26,27 @@ void help(){
 
     std::cout << " 'library' " << "\t\t\t\t\t\t-Display all the songs in the current music library\n" << std::endl;
 
-    std::cout << " 'artist<artist>' " << "\t\t\t\t-Display all songs for the given artist\n" << std::endl;
+    std::cout << " 'artist'         " << "\t\t\t\t-Display all songs for the given artist\n" << std::endl;
 
-    std::cout << " 'song'<artist, title>' " << "\t\t-Display all the information for a given song\n" << std::endl;
+    std::cout << " 'song'                  " << "\t\t-Display all the information for a given song\n" << std::endl;
 
-    std::cout << " 'import<filename>' " << "\t\t\t-Add songs from a given file to the library\n" << std::endl;
+    std::cout << " 'import'           " << "\t\t\t-Add songs from a given file to the library\n" << std::endl;
 
-    std::cout << " 'discontinue<filename>' " << "\t\t-Remove songs from the library in a given file\n" << std::endl;
+    std::cout << " 'discontinue'           " << "\t\t-Remove songs from the library in a given file\n" << std::endl;
 
     std::cout << " 'playlists' " << "\t\t\t\t\t-Display the names of all the playlists and their durations\n" << std::endl;
 
-    std::cout << " 'playlist<name>' " << "\t\t\t\t-Display songs left in the playlist, and remaining playtime\n" << std::endl;
+    std::cout << " 'playlist'       " << "\t\t\t\t-Display songs left in the playlist, and remaining playtime\n" << std::endl;
 
-    std::cout << " 'new<name>' " << "\t\t\t\t\t-Make a new empty playlist with the given name\n" << std::endl;
+    std::cout << " 'new'       " << "\t\t\t\t\t-Make a new empty playlist with the given name\n" << std::endl;
 
-    std::cout << " 'add<name, artist, title>' " << "\t-Add the given song to the desired playlist\n" << std::endl;
+    std::cout << " 'add'                      " << "\t-Add the given song to the desired playlist\n" << std::endl;
 
-    std::cout << " 'remove<name, artist, title>' " << "\t-Remove the given song from the desired playlist\n" << std::endl;
+    std::cout << " 'remove'                      " << "\t-Remove the given song from the desired playlist\n" << std::endl;
 
-    std::cout << " 'playnext<name>' " << "\t\t\t\t-Play the next song in the playlist, and display that songs information\n" << std::endl;
+    std::cout << " 'playnext'       " << "\t\t\t\t-Play the next song in the playlist, and display that songs information\n" << std::endl;
 
-    std::cout << " 'newrandom<name, duration>' " << "\t-Make a new random playlist with a given name, and duration limit\n" << std::endl;
+    std::cout << " 'newrandom'                 " << "\t-Make a new random playlist with a given name, and duration limit\n" << std::endl;
 
     std::cout << " 'quit' " << "\t\t\t\t\t\t-Save the library, all playlists, and terminate program execution\n" << std::endl;
 
@@ -82,6 +83,7 @@ void artist(std::string artistIn){
 void songInfo(std::string songIn, std::string titleIn){
     //TODO make calls to display all song info (find and toString on that object)
 
+
 }
 
 /**
@@ -93,7 +95,6 @@ void songInfo(std::string songIn, std::string titleIn){
 std::string import(std::string fileNameIn){
     //TODO make call to fileIO functions to create a new library that holds the songs from the file
     //readIn function (automatically add to library)
-
 
 }
 
@@ -156,7 +157,7 @@ void add(std::string nameIn, std::string artistIn, std::string titleIn, int dura
  * @param artistIn name of artist
  * @param titleIn title of the song
  */
-//TODO do we need to check if song does not exist?
+//TODO we need to check if a song does not exist
 void remove(std::string nameIn, std::string artistIn, std::string titleIn){
     //TODO make calls to remove song from proper linked list
 
