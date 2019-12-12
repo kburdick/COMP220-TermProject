@@ -38,10 +38,10 @@ int main(){
 
     std::cout << myMusic->displaySongInfo("Detlef", "Rock It") << std::endl;
 
+
     //make an empty library
     MusicLibrary* anotherFile = new MusicLibrary();
     int temp2 = anotherFile->getTotalSongCount();
-    std::cout << temp2 << std::endl;
 
 
     //TODO Automate the tests in some way with another file.....

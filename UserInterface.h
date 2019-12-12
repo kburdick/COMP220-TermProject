@@ -6,6 +6,7 @@
 #define COMP220_TERMPROJECT_USERINTERFACE_H
 
 #include <string>
+#include "MusicLibrary.h"
 
 /**
  * provides a summary of all available commands
@@ -16,16 +17,18 @@ void help();
 /**
  * displays all songs in alphabetical order by artist
  * (within artist alphabetical by song)
+ * @param musicLibraryIn
  * @post prints all songs in order to console
  */
-void library();
+void library(MusicLibrary* musicLibraryIn);
 
 /**
  * display all songs for a given artist
  * @param artistIn
+ * @param musicLibraryIn
  * @post prints all songs for that artist to console
  */
-void artist(std::string artistIn);
+void artist(std::string artistIn, MusicLibrary* musicLibraryIn);
 
 
 /**

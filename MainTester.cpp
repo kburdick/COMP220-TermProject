@@ -11,6 +11,7 @@ int main() {
 
     MusicLibrary* musicLibrary;
     std::string* playListsMade = new std::string[20]; //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
+    //Make the playlist pointer array that can hold onto our new playlists, and make the playlist names a property of the list like front/end
 
     std::cout << "\n#################################" << std::endl;
     std::cout << "### Welcome to the Virtual DJ ###" << std::endl;
@@ -40,15 +41,17 @@ int main() {
         if(inputString == "library") {
 
             std::cout << "Listing all the songs in your Library: \n" << std::endl;
-            //call the tostring function on the library
+            library(musicLibrary);
         }
 
         if(inputString == "artist") {
 
             std::cout << "Enter an artist: \n" << std::endl;
-            getline(std::cin, selectionString);
+            getline(std::cin, artistIn);
 
             std::cout << "Displaying all songs for the given artist: \n" << std::endl;
+            artist(artistIn, musicLibrary);
+
             //call function to display all songs by artist
             //TODO algorithm that goes through the library array and makes a copy of each song into another array that matches the
             // desired artist and then  prints the contents of that array and deletes it
