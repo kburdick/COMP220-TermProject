@@ -5,9 +5,6 @@
 #include <iostream>
 #include "UserInterface.h"
 #include "MusicLibrary.h"
-#include "FileIO.h"
-
-//TODO DEFINE ALL FUNCTIONS IN THIS FILE TO WORK WITH THE INTERFACED CLASSES
 
 /**
  * provides a summary of all available commands
@@ -69,11 +66,8 @@ void library(MusicLibrary* musicLibraryIn){
  * @post prints all songs for that artist to console
  */
 void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
-    //TODO make calls to display all songs for the given artist
     musicLibraryIn->displayArtist(artistIn);
-
 }
-
 
 /**
  * display all information for a given song
@@ -81,9 +75,8 @@ void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
  * @post prints all song info to the console
  */
 void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibraryIn){
-    //TODO make calls to display all song info (find and toString on that object)
-    musicLibraryIn->displaySongInfo(artistIn, titleIn);
-
+    std::string song = musicLibraryIn->displaySongInfo(artistIn, titleIn);
+    std::cout << song << std::endl;
 }
 
 /**
@@ -95,6 +88,7 @@ void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibr
 MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
     musicLibraryIn->fileReadIn(fileNameIn);
     return musicLibraryIn;
+    //TODO overwrites the text file
 }
 
 /**
@@ -145,7 +139,6 @@ void newPlaylist(std::string playlistNameIn){
  * @param titleIn title of the song
  * @param duration length of the song in seconds
  */
-//TODO do we need to check if song already exists?
 void add(std::string nameIn, std::string artistIn, std::string titleIn, int duration){
     //TODO make calls to add song to proper linked list
 }
@@ -156,7 +149,6 @@ void add(std::string nameIn, std::string artistIn, std::string titleIn, int dura
  * @param artistIn name of artist
  * @param titleIn title of the song
  */
-//TODO we need to check if a song does not exist
 void remove(std::string nameIn, std::string artistIn, std::string titleIn){
     //TODO make calls to remove song from proper linked list
 

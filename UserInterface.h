@@ -36,7 +36,7 @@ void artist(std::string artistIn, MusicLibrary* musicLibraryIn);
  * @param songIn
  * @post prints all song info to the console
  */
-void songInfo(std::string songIn, std::string titleIn, MusicLibrary* musicLibraryIn);
+void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibraryIn);
 
 /**
  * add all songs from the given file to the library

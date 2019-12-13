@@ -10,18 +10,15 @@
 
 class MusicLibrary {
 private:
-    //TODO fill in data for the library here
     ArrayList* arrayOfSongs;
     std::string name;
     int totalSongCount;
 
-    //TODO determine if these methods should be implemented (yes or no)
 
     MusicLibrary(const MusicLibrary& libraryToCopy);
     MusicLibrary& operator=(const MusicLibrary& libraryToCopy);
 
 public:
-    //TODO fill in functions for the library here
 
     MusicLibrary(); //check if we want default methods to be possible
     MusicLibrary(ArrayList* listOfSongs);
@@ -65,7 +62,7 @@ public:
       * @param the title of the song
       * @post a list of information about the song is displayed to the user
       */
-    std::string displaySongInfo(std::string artist, std::string title);
+    std::string displaySongInfo(std::string artistIn, std::string titleIn);
 
     /**
      * calculates the total duration of the list of songs

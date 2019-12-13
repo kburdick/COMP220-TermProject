@@ -73,8 +73,6 @@ void MusicLibrary::removeSongs(std::string fileName){
 
        }
    }
-
-
 }
 
 /**
@@ -101,7 +99,7 @@ void MusicLibrary::displayArtist(std::string artist){
         artistToCheck = temp.getSongArtist();
 
         if(artist == artistToCheck){
-            std::cout<< temp.toString() << std::endl;
+            std::cout << temp.toString() << std::endl;
         }
     }
     // may need to manipulate so that it only prints out the song title and not all the information from the song obj
@@ -113,24 +111,26 @@ void MusicLibrary::displayArtist(std::string artist){
   * @param the title of the song
   * @post a list of information about the song is displayed to the user
   */
-std::string MusicLibrary::displaySongInfo(std::string artist, std::string title){
+std::string MusicLibrary::displaySongInfo(std::string artistIn, std::string titleIn){
     int size = arrayOfSongs->getCurrentItemCount();
+
     std::string artistToCheck;
     std::string titleToCheck;
     std::string songString;
+
     for(int i = 0; i < size; i++){
+
         Song temp = arrayOfSongs->getValueAt(i);
         artistToCheck = temp.getSongArtist();
         titleToCheck = temp.getSongTitle();
-        if(artist == artistToCheck && title == titleToCheck){
-            songString =  temp.toString();
+
+        if(artistIn == artistToCheck && titleIn == titleToCheck){
+            songString = temp.toString();
             return songString;
         }
     }
-
     return songString;
 }
-
 
 int MusicLibrary::sumDuration(){
     int size = arrayOfSongs->getCurrentItemCount();
@@ -142,7 +142,7 @@ int MusicLibrary::sumDuration(){
         duration = duration + temp.getSongDuration();
     }
 
-    return duration; //TODO check function this currently returns seconds!
+    return duration;
 }
 
 Song* MusicLibrary::findSong(Song songToFind) {
@@ -152,7 +152,9 @@ Song* MusicLibrary::findSong(Song songToFind) {
 
     Song newSong = arrayOfSongs->getValueAt(indexOfSong);
 
-    return &newSong;
+    Song* songPtr = &newSong;
+
+    return songPtr;
 }
 
 Song MusicLibrary::findSongAtIndex(int index){
