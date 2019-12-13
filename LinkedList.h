@@ -27,6 +27,8 @@ public:
      */
     LinkedList();
 
+    LinkedList(std::string name);
+
     //Destructor
     ~LinkedList();
 

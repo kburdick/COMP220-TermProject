@@ -12,10 +12,15 @@
      */
 LinkedList::LinkedList() {
     //creates an empty list
+    this->name = "";
     this->head = nullptr;
     this->tail = nullptr;
     this->currItemCount = 0;
 }
+
+LinkedList::LinkedList(std::string name){
+}
+
 
 //Destructor
 LinkedList::~LinkedList(){
@@ -212,14 +217,14 @@ int LinkedList::findSongByTitle(std::string titleIn){
      * @return a copy of the song at index
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
-<<<<<<< HEAD
+
 void LinkedList::removeSongAt(Song songToRemove) {
-    //TODO write this function to remove songs from the list/playlist
+        //TODO write this function to remove songs from the list/playlist
+}
 
 
-=======
 Song LinkedList::removeSong(Song songToRemove) {
->>>>>>> 8a0aa58235a0387a0f6dcef00a2114ca276f551f
+
     if(head == nullptr || currItemCount == 0){
         throw std::out_of_range("In removeSong, List must have items");
     }
@@ -304,6 +309,7 @@ int LinkedList::findSongIndex(Song songToFind){
 void LinkedList::newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library){
 
 }
+
 
 /**
 * sums the total duration of the playlist
