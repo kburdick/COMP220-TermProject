@@ -28,7 +28,7 @@ public:
     LinkedList(std::string name);
 
     //Private to disable copying and assigning from outside class, don't implement these methods
-    LinkedList(const LinkedList& arrayListToCopy);//TODO
+    LinkedList(const LinkedList& arrayListToCopy);// TODO
 
     LinkedList& operator=(const LinkedList& arrayListToCopy);//TODO
 
