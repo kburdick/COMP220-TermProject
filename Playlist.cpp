@@ -8,6 +8,13 @@
 #include "LinkedList.h"
 
 Playlist::Playlist() {
+    this->name = "";
+    this->playlist = new LinkedList();
+    this->totalDuration = 0;
+}
+
+Playlist::Playlist(std::string name){
+    this->name = name;
     this->playlist = new LinkedList();
     this->totalDuration = 0;
 }
@@ -32,7 +39,6 @@ void Playlist::newRandomPlaylist(std::string songName, int totalDuration){}
 * @post the total duration in seconds of the playlist
 */
 void Playlist::sumDuration(){
-
 
 }
 

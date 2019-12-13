@@ -49,6 +49,31 @@ void MusicLibrary::WriteFile(std::string fileName) {
    * @post a library and playlists without the songs given in the file
    */
 void MusicLibrary::removeSongs(std::string fileName){
+   ArrayList* tempLib = readLibrary(fileName);
+   std::string titleToCheck;
+   std::string titleToCheck2;
+   int count2 = arrayOfSongs->getCurrentItemCount();
+   int count = tempLib->getCurrentItemCount();
+   for(int i = 0; i <= count; i++) {
+       Song temp = tempLib->getValueAt(i);
+       //std::cout << temp.toString() << std::endl;
+       titleToCheck = temp.getSongTitle();
+       for(int x = 0; x <= count2; x++){
+           Song temp2 = arrayOfSongs->getValueAt(x);
+           titleToCheck2 = temp2.getSongTitle();
+           if(titleToCheck == titleToCheck2){
+               arrayOfSongs->removeSong(temp);
+               std::cout << "I'm here baby" << std::endl;
+           }
+           int foundSong = arrayOfSongs->findSong(temp);
+           if(foundSong == 0){
+               std::cout << temp.toString() << std::endl;
+           }
+
+
+       }
+   }
+
 
 }
 
@@ -87,20 +112,18 @@ void MusicLibrary::displayArtist(std::string artist){
   * @post a list of information about the song is displayed to the user
   */
 std::string MusicLibrary::displaySongInfo(std::string artist, std::string title){
-
-    Song tempSong;
-    std::string songString = "not found";
-
-    int artistPosition = arrayOfSongs->findSongByArtist(artist);
-    int titlePosition = arrayOfSongs->findSongByTitle(title);
-
-    std::cout << artistPosition << " " << titlePosition;
-    if(artistPosition == titlePosition) {
-        tempSong = arrayOfSongs[artistPosition].getValueAt(artistPosition);
-
-        std::cout << "here";
-        songString = tempSong.toString();
-        return songString;
+    int size = arrayOfSongs->getCurrentItemCount();
+    std::string artistToCheck;
+    std::string titleToCheck;
+    std::string songString;
+    for(int i = 0; i < size; i++){
+        Song temp = arrayOfSongs->getValueAt(i);
+        artistToCheck = temp.getSongArtist();
+        titleToCheck = temp.getSongTitle();
+        if(artist == artistToCheck && title == titleToCheck){
+            songString =  temp.toString();
+            return songString;
+        }
     }
 
     return songString;

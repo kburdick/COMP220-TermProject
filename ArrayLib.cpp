@@ -72,7 +72,7 @@ std::string toString(const int* arrayPtr, int size){
 
 
 //tail recursion
-int find(Song* const arrayPtr, int size, Song songToFind, int index, int &numLinesRun){
+int find(Song* arrayPtr, int size, Song songToFind, int index, int &numLinesRun){
     numLinesRun += 6;
     if(size < 1){
         numLinesRun += 1;

@@ -8,10 +8,11 @@
 
 #include "List.h"
 #include "LinkedNode.h"
+#include "MusicLibrary.h"
 
 class LinkedList : public List{
 private:
-    //TODO: Your data here
+    std::string name;
     LinkedNode* head;
     LinkedNode* tail;
     int currItemCount;
@@ -90,7 +91,7 @@ public:
 
     /**
     * Searches a song list for a certain song
-    * @return index of the song in the list, -1 if the song is not present
+    * @return Song -1 if the song is not present
     */
     int findSongByTitle(std::string titleIn);
 
@@ -158,6 +159,32 @@ public:
     * @return the index of the list that contains the song
     */
     int findSongIndex(Song songToFind);
+
+    /**
+    * uses add song, new playlist, and sumDuration
+    * Creates a new playlist and adds songs at random without going over the duration specified by the user
+    * Note: Songs do not repeat
+    * @param the name of the song
+    * @param the total duration of the playlist
+    * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
+    */
+    void newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library);
+
+    /**
+   * sums the total duration of the playlist
+   * @post the total duration in seconds of the playlist
+   */
+    void sumDuration();
+
+    /**
+   * Prints information about the next song in the playlist
+   * Removes the desired song from the playlist
+   * Adds one to the play count of that song in the library
+   * If the playlist is empty, then remove the playlist
+   * @param the name of the song
+   * @post all of the information about the song is displayed to the user
+   */
+    void playNext(MusicLibrary* library);
 };
 
 
