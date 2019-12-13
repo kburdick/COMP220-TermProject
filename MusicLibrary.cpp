@@ -66,6 +66,7 @@ void MusicLibrary::displayAllSongs(){
   * @post a list of all the songs from the given artist is displayed to the user
   */
 void MusicLibrary::displayArtist(std::string artist){
+
     int size = arrayOfSongs->getCurrentItemCount();
     std::string artistToCheck;
     for(int i = 0; i < size; i++){

@@ -39,7 +39,7 @@ void Playlist::newRandomPlaylist(std::string songName, int totalDuration){}
 * @post the total duration in seconds of the playlist
 */
 void Playlist::sumDuration(){
-    while (playlist->getValueAt())
+
 }
 
 /**
