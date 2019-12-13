@@ -38,12 +38,25 @@ int main(){
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;
 
-    std::cout << myMusic->displaySongInfo("Detlef", "Rock It") << std::endl;
-
+    //std::string temp1 = myMusic->displaySongInfo("Detlef", "Rock It");
+    //std::cout << temp1;
 
     //make an empty library
-    MusicLibrary* anotherFile = new MusicLibrary();
-    int temp2 = anotherFile->getTotalSongCount();
+   // MusicLibrary* anotherFile = new MusicLibrary();
+   // int temp2 = anotherFile->getTotalSongCount();
+
+    // testing displaySongArtist
+    std::cout << "\n----Testing the displaySongArtist----\n" << std::endl;
+    std::cout << "\n----Should print out three songs by Kayzo----\n" << std::endl;
+    std::string artistToTest = "Kayzo";
+    myMusic->displayArtist(artistToTest);
+    std::cout << "\n----Should print out one song by Animals As Leaders----\n" << std::endl;
+    artistToTest = "Animals As Leaders";
+    myMusic->displayArtist(artistToTest);
+    std::cout << "\n----Should print out one song by Deep Moth----\n" << std::endl;
+    artistToTest = "Deep Moth";
+    myMusic->displayArtist(artistToTest);
+
 
 
     //TODO Automate the tests in some way with another file.....

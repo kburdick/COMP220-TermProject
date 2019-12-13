@@ -11,7 +11,7 @@
 //default constructor creates an empty music library
 MusicLibrary::MusicLibrary() {
     this->arrayOfSongs = new ArrayList(10);
-    this->totalSongCount = -1;
+    this->totalSongCount = 0;
 }
 
 MusicLibrary::MusicLibrary(ArrayList* listOfSongs) {
@@ -33,9 +33,6 @@ void MusicLibrary::fileReadIn(std::string fileName){
     this->totalSongCount = arrayOfSongs->getCurrentItemCount();
 }
 
-int MusicLibrary::getTotalSongCount(){
-    return totalSongCount;
-}
 
 /**
  * Writes a playlist or library to fileName
@@ -69,7 +66,16 @@ void MusicLibrary::displayAllSongs(){
   * @post a list of all the songs from the given artist is displayed to the user
   */
 void MusicLibrary::displayArtist(std::string artist){
-    //TODO
+    int size = arrayOfSongs->getCurrentItemCount();
+    std::string artistToCheck;
+    for(int i = 0; i < size; i++){
+        Song temp = arrayOfSongs->getValueAt(i);
+        artistToCheck = temp.getSongArtist();
+        if(artist == artistToCheck){
+            std::cout<< temp.toString() << std::endl;
+        }
+    }
+    // may need to manipulate so that it only prints out the song title and not all the information from the song obj
 
 }
 
@@ -82,15 +88,16 @@ void MusicLibrary::displayArtist(std::string artist){
 std::string MusicLibrary::displaySongInfo(std::string artist, std::string title){
 
     Song tempSong;
-    std::string songString = "";
+    std::string songString = "not found";
 
     int artistPosition = arrayOfSongs->findSongByArtist(artist);
     int titlePosition = arrayOfSongs->findSongByTitle(title);
 
-
+    std::cout << artistPosition << " " << titlePosition;
     if(artistPosition == titlePosition) {
         tempSong = arrayOfSongs[artistPosition].getValueAt(artistPosition);
 
+        std::cout << "here";
         songString = tempSong.toString();
         return songString;
     }

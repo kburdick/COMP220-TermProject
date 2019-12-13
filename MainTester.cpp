@@ -9,7 +9,7 @@
 
 int main() {
 
-    MusicLibrary* musicLibrary;
+    MusicLibrary* musicLibrary = new MusicLibrary();
     std::string* playListsMade = new std::string[20]; //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
     //Make the playlist pointer array that can hold onto our new playlists, and make the playlist names a property of the list like front/end
 
@@ -50,7 +50,7 @@ int main() {
             getline(std::cin, artistIn);
 
             std::cout << "Displaying all songs for the given artist: \n" << std::endl;
-            artist(artistIn, musicLibrary);
+            //artist(artistIn, musicLibrary);
 
             //call function to display all songs by artist
             //TODO algorithm that goes through the library array and makes a copy of each song into another array that matches the
@@ -69,26 +69,21 @@ int main() {
 
 
         if(inputString == "import"){
-            //TODO please input a filename
-            //            // call the function from here with the filename
-
-            std::cout << "Please enter the file to be loaded: \n" << std::endl;
+            std::cout << "Enter the file to be loaded: \n" << std::endl;
             getline(std::cin, selectionString);
-            //import(selectionString); //change the void return type for most of these because they need to create the lists
-            // and then send them back here for use by the user.
-            // hold onto the library with one pointer
-            // hold onto the playlists with an array of playlist pointers, and keep the valid playlists in a string with the names of the
-            // playlists inside of it
+
+            import(selectionString, musicLibrary);
+
             //TODO how do we hold onto the library and playlists for use by the user?
             // create the pointers in here and only allow the user to access them through the interface?
-
-
         }
 
         if(inputString == "discontinue") {
 
             std::cout << "Enter a file name: \n" << std::endl;
             getline(std::cin, selectionString);
+
+            discontinue(selectionString, musicLibrary);
             //discontinue(selectionString); called on the music library again inside of the user interface??
 
         }

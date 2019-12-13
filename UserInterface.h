@@ -44,7 +44,7 @@ void songInfo(std::string songIn, std::string titleIn);
  * @post new songs are in the library file
  * @return print songs that already existed (to avoid duplicates)
  */
-std::string import(std::string fileNameIn);
+void import(std::string fileNameIn, MusicLibrary* musicLibrary);
 
 /**
  * remove all songs in a given file from the library
@@ -53,7 +53,7 @@ std::string import(std::string fileNameIn);
  * @post songs are removed from library and any playlists that they occur in
  * @return print songs that could not be removed
  */
-std::string discontinue(std::string fileNameIn);
+void discontinue(std::string fileNameIn, MusicLibrary* musicLibraryIn);
 
 /**
  * display the names of all playlists and their duration

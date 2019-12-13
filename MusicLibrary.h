@@ -38,13 +38,6 @@ public:
      */
     void WriteFile(std::string fileName);
 
-    /**
-     * get the total song count for the library
-     * @return the int number of songs
-     */
-    int getTotalSongCount();
-
-    /**
      * Removes all songs from the music library and any occurrences of those songs within the valid playlists
      * Prints out a message of any songs that do not occur within the library or the playlist
      * @param the name of the file containing all of the songs that should be removed from the library and playlists
