@@ -31,8 +31,8 @@ Playlist::~Playlist() {
     * @post adds list to playlists array
     */
 void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library){
-    LinkedList* randomList = LinkedList(songName);
-    int maxSongCount = library.getItemCount();
+    LinkedList randomList = LinkedList(name);
+    int maxSongCount = library->getItemCount();
     int songsToAdd[maxSongCount];
     int currDuration = 0;
     for(int i=0; i<maxSongCount; i++){
@@ -45,12 +45,12 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
         songsToAdd[swapIndex] = temp;
     }
     for(int i=0; i<maxSongCount; i++){
-        if (currDuration + library->findSongAtIndex(songsToAdd[i])->getSongDuration() < totalDuration){
-            randomList->insertAtEnd(library.findSongAtIndex(songsToAdd[i]))
-            currDuration +=library->findSongAtIndex(songsToAdd[i])->getSongDuration;
+        if (currDuration + library->findSongAtIndex(songsToAdd[i]).getSongDuration() < totalDuration){
+            randomList.insertAtEnd(library->findSongAtIndex(songsToAdd[i]));
+            currDuration += library->findSongAtIndex(songsToAdd[i]).getSongDuration();
         }
     }
-    playlists[currCount] = randomList;
+    playlists[currCount] = &randomList;
     currCount ++;
 }
 
@@ -60,7 +60,8 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
      * @post adds list to playlists array
      */
 void Playlist::newPlaylist(std::string name){
-    playlists[currCount] = *LinkedList(name);
+    LinkedList temp = LinkedList(name);
+    playlists[currCount] = &temp;
     currCount++;
 }
 
@@ -72,7 +73,7 @@ void Playlist::newPlaylist(std::string name){
     */
 LinkedList* Playlist::getPlaylist(std::string name){
     for(int i=0; i<currCount; i++){
-        if (name == playlists[currCount].getName()){
+        if (name == playlists[currCount]->getName()){
             return playlists[currCount];
         }
     }

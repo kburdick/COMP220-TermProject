@@ -142,7 +142,6 @@ Song ArrayList::getValueAt(int index) {
 }
 
 void ArrayList::toString() {
-    //TODO fix to string methods for song printing
     std::string arrString;
 
     for(int i = 0; i < currItemCount; i++){
@@ -305,32 +304,23 @@ Song ArrayList::removeSongAtFront() {
     return songCopy;
 }
 
-void ArrayList::removeSong(Song songToRemove) {
-    int unusedTimer = 0;
-
-    bool result = findSong(songToRemove);
-
-    if(result == false) {
-        throw std::out_of_range("Song not in library");
+/**
+ * removes the Song from Master Library and returns it as a Song Object
+ * @param Song object to remove
+ * @post the array of songs is shifted to compensate for the loss
+ * @return the song
+ * @throws out_of_range exception if index is invalid
+ */
+Song ArrayList::removeSong(Song songToRemove) {
+    if (isEmpty()){
+        throw std::out_of_range("No item to remove");
     }
-
-    Song* arrCopy = new Song[currItemCount - 1];
-    currItemCount = currItemCount - 1;
-    Song songCopy;
-
-    for(int i = 0; i <= currItemCount; i++) {
-        //if(i != array[i]) {
-          //  arrCopy[i] = array[i];
-        //}
-        //else {
-            //int indexCopy = array[index];
-          //  arrCopy[i] = array[i + 1];
-        //}
+    int index = findSongIndex(songToRemove);
+    Song toReturn = array[index];
+    for (int i = index; i < currItemCount-1; i++){
+        array[i] = array[i+1];
     }
-
-    array = copyArray(arrCopy, currItemCount, unusedTimer);
-    delete [] arrCopy;
-
-    //return songCopy;
+    currItemCount += -1;
+    return toReturn;
 }
 

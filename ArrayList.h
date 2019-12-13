@@ -157,13 +157,13 @@ public:
     Song removeSongAtFront();
 
     /**
-     * removes the item at index from the list, and returns a copy of that item
-     * @param index the location from which to get the value
-     * @post the item at index is removed from the list, everything else is shifted down one
-     * @return a copy of the item at index
+     * removes the Song from Master Library and returns it as a Song Object
+     * @param Song object to remove
+     * @post the array of songs is shifted to compensate for the loss
+     * @return the song
      * @throws out_of_range exception if index is invalid
      */
-    void removeSong(Song songToRemove);
+    Song removeSong(Song songToRemove);
 
 };
 
