@@ -63,4 +63,10 @@ int main(){
     myMusic2->removeSongs("extraSongs.csv");
     myMusic2->displayAllSongs();
 
+    Playlist* allLists = new Playlist();
+    allLists->newPlaylist("pl1");
+
+    LinkedList* tempPL = allLists->getPlaylist("pl1");
+    tempPL->toString();
+
 }

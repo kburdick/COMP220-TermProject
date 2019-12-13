@@ -88,3 +88,18 @@ LinkedList* Playlist::getPlaylist(std::string name){
     }
     throw("Playlist not found");
 }
+
+std::string Playlist::getPlaylistName(int index) {
+    for (int i = 0; i < currCount; i++) {
+
+        if (i = index) {
+            std::string temp = playlists[i]->getName();
+            return temp;
+        }
+    }
+}
+
+int Playlist::getCurrCount(){
+    return currCount;
+}
+

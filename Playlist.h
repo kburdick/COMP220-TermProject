@@ -57,6 +57,19 @@ public:
     * @return pointer to playlist based on name
     */
     LinkedList* getPlaylist(std::string name);
+
+    /**
+     * gets the playlist name by passing an index
+     * @param index
+     * @return the name of the playlist
+     */
+    std::string getPlaylistName(int index);
+
+    /**
+     * gets the count of the items of linked lists that are in the playlists holder
+     * @return the currCount
+     */
+    int getCurrCount();
 };
 
 

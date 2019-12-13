@@ -10,7 +10,7 @@
 int main() {
 
     MusicLibrary* musicLibrary = new MusicLibrary();
-    Playlist* listOfPlaylistsIn; //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
+    Playlist* listOfPlaylistsIn = new Playlist(); //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
     //Make the playlist pointer array that can hold onto our new playlists, and make the playlist names a property of the list like front/end
 
     std::cout << "\n#################################" << std::endl;
@@ -86,7 +86,7 @@ int main() {
         if(inputString == "playlists") {
 
             std::cout << "Listing all available playlists: \n" << std::endl;
-            //playlists(); //should just print an array of the playlist names that were made by the user
+            playlists(listOfPlaylistsIn); //should just print an array of the playlist names that were made by the user
         }
 
         if(inputString == "playlist") {
@@ -101,7 +101,7 @@ int main() {
 
             std::cout << "Enter a name for the playlist: \n" << std::endl;
             getline(std::cin, selectionString);
-            //new(selectionString); makes a new empty playlist, and adds to the available playlists
+            listOfPlaylistsIn = newPlaylist(listOfPlaylistsIn, selectionString); //makes a new empty playlist, and adds to the available playlists
         }
 
         if(inputString == "add"){
@@ -153,7 +153,7 @@ int main() {
         }
 
         if(inputString == "quit"){
-            quit(playlistIn, musicLibrary);
+            quit(listOfPlaylistsIn, musicLibrary);
         }
     }
 
