@@ -74,6 +74,12 @@ public:
      */
     int sumDuration();
 
+    /**
+     * finds the song for an array list
+     * @param songToFind
+     * @return a pointer to the song found
+     */
+    Song* findSong(Song songToFind);
 };
 
 // we need to add and remove songs from the library
