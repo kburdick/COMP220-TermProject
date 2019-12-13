@@ -63,6 +63,4 @@ int main(){
     myMusic2->removeSongs("extraSongs.csv");
     myMusic2->displayAllSongs();
 
-    //TODO Automate the tests in some way with another file.....
-
 }

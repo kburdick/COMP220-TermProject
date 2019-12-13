@@ -19,6 +19,10 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::LinkedList(std::string name){
+    this->name = name;
+    this->head = nullptr;
+    this->tail = nullptr;
+    this->currItemCount = 0;
 }
 
 
@@ -68,22 +72,7 @@ void LinkedList::insertAtEnd(Song songToAdd) {
      * @param songToAdd song to add to the list
      * @post song is added in order and the library will be sorted for lookup
      */
-void LinkedList::insertInOrder(Song songToAdd) {
-    //TODO ::NOTE add this function to file IO and not to the linkedlist
-    LinkedNode* newNode = new LinkedNode(songToAdd);
-
-    if(head == nullptr){
-        head = newNode;
-        tail = newNode;
-        currItemCount += 1;
-    }
-    else{
-
-
-    }
-}
-
-
+void LinkedList::insertInOrder(Song songToAdd){}
 
 /**
      * gives a string representation of the current list
@@ -218,32 +207,22 @@ int LinkedList::findSongByTitle(std::string titleIn){
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
 Song LinkedList::removeSong(Song songToRemove) {
-
     if(head == nullptr || currItemCount == 0){
         throw std::out_of_range("In removeSong, List must have items");
     }
-    else {
-        LinkedNode *current = head;
-        bool songFound;
-        int count = 0;
-        Song songValue;
-
-        while (count < currItemCount) {
-            songFound = findSong(songToRemove);
-
-            if (songFound == 1) {
-                LinkedNode *temp = current->getNext();
-
-                current->setNext(temp->getNext());
-                songValue = temp->getItem();
-                delete temp;
-            }
-
-            current = current->getNext();
-            count++;
-        }
-        currItemCount -= 1;
+    int index = findSong(songToRemove);
+    LinkedNode* currNode = head;
+    LinkedNode* previousNode = nullptr;
+    for(int i = 0; i<index; i++){
+        previousNode = currNode;
+        currNode = currNode->getNext();
     }
+    Song songToReturn = currNode->getItem();
+    LinkedNode* next = currNode->getNext();
+    delete currNode;
+    previousNode->setNext(next);
+    currItemCount -= 1;
+    return songToReturn;
 }
 
 
@@ -257,21 +236,17 @@ int LinkedList::getCurrentItemCount(){
 }
 
 Song LinkedList::getValueAt(int index){
-    //TODO finish definition for linked list get value at index.....
     Song newSong = Song("");
     return newSong;
 }
 
 void LinkedList::insertAtFront(Song songToAdd){
-//TODO
 }
 
 void LinkedList::insertAt(Song songToAdd, int index){
-//TODO
 }
 
 Song LinkedList::removeSongAtEnd(){
-    //TODO
     Song newSong = Song("");
     return newSong;
 }
@@ -288,22 +263,9 @@ Song LinkedList::removeSongAtFront(){
 }
 
 int LinkedList::findSongIndex(Song songToFind){
-//TODO
-    return -2345;
+    std::string title = songToFind.getSongTitle();
+    return findSongByTitle(title);
 }
-
-/**
-    * uses add song, new playlist, and sumDuration
-    * Creates a new playlist and adds songs at random without going over the duration specified by the user
-    * Note: Songs do not repeat
-    * @param the name of the song
-    * @param the total duration of the playlist
-    * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
-    */
-void LinkedList::newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library){
-
-}
-
 
 /**
 * sums the total duration of the playlist

@@ -62,7 +62,6 @@ int main() {
     std::cout << "expected 1, got: " << songList->findSong(song2) << std::endl;
     std::cout << "expected 0, got: " << songList->findSong(song3) << std::endl;
 
-    //TODO NOTE these functions find the first occurrence
     std::cout << "\n----Test find song by artist method----\n" << std::endl;
     std::cout << "expected 0, got: " << songList->findSongByArtist("Metallica") << std::endl;
     std::cout << "expected -1, got: " << songList->findSongByArtist("John Mayer") << std::endl;
