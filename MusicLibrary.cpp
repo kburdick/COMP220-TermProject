@@ -30,16 +30,16 @@ MusicLibrary::~MusicLibrary() {
  */
 void MusicLibrary::fileReadIn(std::string fileName){
     this->arrayOfSongs = readLibrary(fileName);
+    this->name = fileName;
     this->totalSongCount = arrayOfSongs->getCurrentItemCount();
 }
-
 
 /**
  * Writes a playlist or library to fileName
  * @param fileName
  */
-void MusicLibrary::WriteFile(std::string fileName) {
-    arrayOfSongs->WriteFile(fileName);
+void MusicLibrary::WriteFile() {
+    arrayOfSongs->WriteFile(name);
 }
 
 /**
@@ -94,15 +94,17 @@ void MusicLibrary::displayArtist(std::string artist){
 
     int size = arrayOfSongs->getCurrentItemCount();
     std::string artistToCheck;
+
     for(int i = 0; i < size; i++){
+
         Song temp = arrayOfSongs->getValueAt(i);
         artistToCheck = temp.getSongArtist();
+
         if(artist == artistToCheck){
             std::cout<< temp.toString() << std::endl;
         }
     }
     // may need to manipulate so that it only prints out the song title and not all the information from the song obj
-
 }
 
 /**

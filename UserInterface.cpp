@@ -60,7 +60,6 @@ void help(){
  * @post prints all songs in order to console
  */
 void library(MusicLibrary* musicLibraryIn){
-    //TODO make calls to display (toString) all library music in alphabetical order (sort while importing
     musicLibraryIn->displayAllSongs();
 }
 
@@ -71,7 +70,6 @@ void library(MusicLibrary* musicLibraryIn){
  */
 void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to display all songs for the given artist
-    //(find and toString on all objects with that artist) findByArtist function?
     musicLibraryIn->displayArtist(artistIn);
 
 }
@@ -82,9 +80,9 @@ void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
  * @param songIn
  * @post prints all song info to the console
  */
-void songInfo(std::string songIn, std::string titleIn){
+void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to display all song info (find and toString on that object)
-
+    musicLibraryIn->displaySongInfo(artistIn, titleIn);
 
 }
 
@@ -95,7 +93,6 @@ void songInfo(std::string songIn, std::string titleIn){
  * @return print songs that already existed (to avoid duplicates)
  */
 MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
-    //TODO make call to fileIO functions to create a new library that holds the songs from the file
     musicLibraryIn->fileReadIn(fileNameIn);
     return musicLibraryIn;
 }
@@ -129,7 +126,7 @@ void playlists(){
  */
 void playlist(std::string playlistIn){
     //TODO make calls to display (toString again) all songs in a playlist
-
+    //wait for playlist class to be implemented
 }
 
 /**
@@ -192,10 +189,14 @@ void newRandom(std::string playlistNameIn, int maxDurationIn){
  * (write output to text files)
  * @post terminate execution of the program.
  */
-void quit(){
-
+void quit(std::string playlistArrayIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to save/write out files here?
 
     std::cout << "\nSaving files and exiting...\n" << std::endl;
+
+    musicLibraryIn->WriteFile();
+
+    // for loop to get all of the proper files saved?? probably
+    //playlistArrayIn->WriteFile();
 
 }

@@ -12,6 +12,7 @@ class MusicLibrary {
 private:
     //TODO fill in data for the library here
     ArrayList* arrayOfSongs;
+    std::string name;
     int totalSongCount;
 
     //TODO determine if these methods should be implemented (yes or no)
@@ -33,10 +34,9 @@ public:
     void fileReadIn(std::string fileName);
 
     /**
-     * Writes a playlist or library to fileName
-     * @param fileName
+     * Writes a playlist or library to a file (saves it to the most recent file loaded
      */
-    void WriteFile(std::string fileName);
+    void WriteFile();
 
     /**
      * Removes all songs from the music library and any occurrences of those songs within the valid playlists
