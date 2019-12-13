@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "LinkedList.h"
+#include "MusicLibrary.h"
 
 /**
      * Constructor
@@ -204,7 +205,7 @@ int LinkedList::findSongByTitle(std::string titleIn){
 }
 
 
-/**
+    /**
      * removes the song from the list, and returns a copy of that song
      * @param the song from which to remove the song
      * @post the song is removed from the list if found, everything else is shifted down one
@@ -212,12 +213,9 @@ int LinkedList::findSongByTitle(std::string titleIn){
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
 Song LinkedList::removeSong(Song songToRemove) {
-    //TODO write this function to remove songs from the list/playlist
-
     if(head == nullptr || currItemCount == 0){
         throw std::out_of_range("In removeSong, List must have items");
     }
-
     else {
         LinkedNode *current = head;
         bool songFound;
@@ -275,9 +273,14 @@ Song LinkedList::removeSongAtEnd(){
 }
 
 Song LinkedList::removeSongAtFront(){
-    //TODO
-    Song newSong = Song("");
-    return newSong;
+    if (head = nullptr){
+        throw("Playlist is empty");
+    }
+    LinkedNode* newHead = head->getNext();
+    Song song = head->getItem();
+    delete head;
+    head = newHead;
+    return song;
 }
 
 int LinkedList::findSongIndex(Song songToFind){
@@ -285,3 +288,45 @@ int LinkedList::findSongIndex(Song songToFind){
     return -2345;
 }
 
+/**
+    * uses add song, new playlist, and sumDuration
+    * Creates a new playlist and adds songs at random without going over the duration specified by the user
+    * Note: Songs do not repeat
+    * @param the name of the song
+    * @param the total duration of the playlist
+    * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
+    */
+void LinkedList::newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library){
+
+}
+
+/**
+* sums the total duration of the playlist
+* @post the total duration in seconds of the playlist
+*/
+void LinkedList::sumDuration(){
+    int sumDuration = 0;
+    LinkedNode* curr = head;
+    while (curr != nullptr){
+        sumDuration += curr->getItem().getSongDuration();
+        curr = curr->getNext();
+    }
+}
+
+/**
+* Prints information about the next song in the playlist
+* Removes the desired song from the playlist
+* Adds one to the play count of that song in the library
+* If the playlist is empty, then remove the playlist
+* @param the name of the song
+* @post all of the information about the song is displayed to the user
+*/
+void LinkedList::playNext(MusicLibrary* library){
+    if (this->isEmpty()){
+        delete(this);
+    }
+    Song song = head->getItem();
+    Song* libSong = library->findSong(song);
+    libSong->updatePlayCount();
+    removeSongAtFront();
+}

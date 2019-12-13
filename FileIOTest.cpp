@@ -7,6 +7,7 @@
 #include "Song.h"
 #include "MusicLibrary.h"
 #include "FileIO.h"
+#include "Playlist.h"
 
 int main(){
     std::cout << "--------------------------" << std::endl;
