@@ -153,5 +153,19 @@ Song* MusicLibrary::findSong(Song songToFind) {
     return &newSong;
 }
 
+Song MusicLibrary::findSongAtIndex(int index){
+    Song temp = arrayOfSongs->getValueAt(index);
+
+    return temp;
+}
+
+int MusicLibrary::getItemCount() {
+    int count = arrayOfSongs->getCurrentItemCount();
+
+    return count;
+}
+
+
+
 
 

@@ -80,6 +80,19 @@ public:
      * @return a pointer to the song found
      */
     Song* findSong(Song songToFind);
+
+    /**
+     * find song at a specific index
+     * @param index
+     * @return
+     */
+    Song findSongAtIndex(int index);
+
+    /**
+     * gets the number of items in the arraylist
+     * @return integer values
+     */
+    int getItemCount();
 };
 
 // we need to add and remove songs from the library

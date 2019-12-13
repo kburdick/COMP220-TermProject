@@ -84,14 +84,7 @@ public:
     */
     virtual int findSongByTitle(std::string titleIn)=0;
 
-    /**
-     * removes the song from the list, and returns a copy of that song
-     * @param the song from which to remove the song
-     * @post the song is removed from the list if found, everything else is shifted down one
-     * @return a copy of the song at index
-     * @throws out_of_range exception if song is invalid, prints the song it could not find
-     */
-    virtual void removeSongAt(int index)=0;
+
 
     /**
     * determines the total amount of items within the list

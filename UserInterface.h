@@ -44,7 +44,7 @@ void songInfo(std::string songIn, std::string titleIn);
  * @post new songs are in the library file
  * @return print songs that already existed (to avoid duplicates)
  */
-void import(std::string fileNameIn, MusicLibrary* musicLibrary);
+MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibrary);
 
 /**
  * remove all songs in a given file from the library

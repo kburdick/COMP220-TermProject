@@ -163,7 +163,7 @@ public:
      * @return a copy of the item at index
      * @throws out_of_range exception if index is invalid
      */
-    void removeSongAt(int index);
+    void removeSong(Song songToRemove);
 
 };
 

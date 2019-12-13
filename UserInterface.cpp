@@ -94,10 +94,10 @@ void songInfo(std::string songIn, std::string titleIn){
  * @post new songs are in the library file
  * @return print songs that already existed (to avoid duplicates)
  */
-void import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
+MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
     //TODO make call to fileIO functions to create a new library that holds the songs from the file
     musicLibraryIn->fileReadIn(fileNameIn);
-
+    return musicLibraryIn;
 }
 
 /**

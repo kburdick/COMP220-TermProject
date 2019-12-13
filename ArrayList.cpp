@@ -305,7 +305,7 @@ Song ArrayList::removeSongAtFront() {
     return songCopy;
 }
 
-void ArrayList::removeSongAt(int index) {
+void ArrayList::removeSong(Song songToRemove) {
     int unusedTimer = 0;
 
     bool result = findSong(songToRemove);
@@ -319,17 +319,18 @@ void ArrayList::removeSongAt(int index) {
     Song songCopy;
 
     for(int i = 0; i <= currItemCount; i++) {
-        if(i != array[i]) {
-            arrCopy[i] = array[i];
-        }
-        else {
-            indexCopy = array[index];
-            arrCopy[i] = array[i + 1];
-        }
+        //if(i != array[i]) {
+          //  arrCopy[i] = array[i];
+        //}
+        //else {
+            //int indexCopy = array[index];
+          //  arrCopy[i] = array[i + 1];
+        //}
     }
 
     array = copyArray(arrCopy, currItemCount, unusedTimer);
     delete [] arrCopy;
 
-    return songCopy;
+    //return songCopy;
 }
+
