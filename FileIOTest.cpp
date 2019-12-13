@@ -63,6 +63,10 @@ int main(){
     myMusic2->removeSongs("extraSongs.csv");
     myMusic2->displayAllSongs();
 
-    //TODO Automate the tests in some way with another file.....
+    Playlist* allLists = new Playlist();
+    allLists->newPlaylist("pl1");
+
+    LinkedList* tempPL = allLists->getPlaylist("pl1");
+    tempPL->toString();
 
 }

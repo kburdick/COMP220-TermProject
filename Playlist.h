@@ -10,13 +10,10 @@
 
 class Playlist {
 private:
-    std::string name;
-    LinkedList* playlist;
-    int totalDuration;
+    int capacity;
+    int currCount;
+    LinkedList* playlists[];
 
-    //TODO check for the implementation of these methods (yes or no)
-
-    //Private to disable copying and assigning from outside of class
 
     Playlist(const Playlist &playlistToCopy);
     Playlist &operator=(const Playlist &playlistToCopy);
@@ -25,12 +22,8 @@ public:
     /**
      * Constructor
      */
-    //TODO fill in functions that are specific to the playlist (can inherit some functions from the library class)
 
-    //default constructor TODO check if we even want this to be possible
     Playlist();
-    //constructor that accepts name
-    Playlist(std::string name);
 
     //destructor
     ~Playlist();
@@ -39,28 +32,44 @@ public:
     * uses add song, new playlist, and sumDuration
     * Creates a new playlist and adds songs at random without going over the duration specified by the user
     * Note: Songs do not repeat
-    * @param the name of the song
+    * @param the name of the list
     * @param the total duration of the playlist
     * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
+    * @post adds list to playlists array
     */
-    void newRandomPlaylist(std::string songName, int totalDuration);
+    void newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library);
 
     /**
-   * sums the total duration of the playlist
-   * @post the total duration in seconds of the playlist
-   */
-   void sumDuration();
+     * calls write file on each of the proper linked lists files
+     */
+    void writeFile();
 
     /**
-   * Prints information about the next song in the playlist
-   * Removes the desired song from the playlist
-   * Adds one to the play count of that song in the library
-   * If the playlist is empty, then remove the playlist
-   * @param the name of the song
-   * @post all of the information about the song is displayed to the user
-   */
-   void playNext(std::string songName);
+     * Create new Playlist
+     * @param the name of the list
+     * @post adds list to playlists array
+     */
+     void newPlaylist(std::string name);
 
+    /**
+    * returns pointer to playlist based on name
+    * @param the name of the list
+    * @return pointer to playlist based on name
+    */
+    LinkedList* getPlaylist(std::string name);
+
+    /**
+     * gets the playlist name by passing an index
+     * @param index
+     * @return the name of the playlist
+     */
+    std::string getPlaylistName(int index);
+
+    /**
+     * gets the count of the items of linked lists that are in the playlists holder
+     * @return the currCount
+     */
+    int getCurrCount();
 };
 
 

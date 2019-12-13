@@ -10,7 +10,7 @@
 int main() {
 
     MusicLibrary* musicLibrary = new MusicLibrary();
-    std::string* playListsMade = new std::string[20]; //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
+    Playlist* listOfPlaylistsIn = new Playlist(); //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
     //Make the playlist pointer array that can hold onto our new playlists, and make the playlist names a property of the list like front/end
 
     std::cout << "\n#################################" << std::endl;
@@ -20,17 +20,15 @@ int main() {
 
     std::cout << "Enter 'help' for a list of the available commands\n" << std::endl;
 
-    std::string inputString = "";
-    std::string selectionString = "";
-
+    std::string inputString;
+    std::string selectionString;
+    std::string playlistIn;
+    std::string artistIn;
+    std::string titleIn;
 
     while(inputString != "quit"){
 
-        std::string playlistIn = "";
-        std::string artistIn = "";
-        std::string titleIn = "";
-
-        std::cout << "Enter a command key to search or edit by: \n" << std::endl;
+        std::cout << "\nEnter a command key to search or edit by: \n" << std::endl;
         getline (std::cin, inputString);
 
         if(inputString == "help"){
@@ -50,21 +48,20 @@ int main() {
             getline(std::cin, artistIn);
 
             std::cout << "Displaying all songs for the given artist: \n" << std::endl;
-            //artist(artistIn, musicLibrary);
+            artist(artistIn, musicLibrary);
 
-            //call function to display all songs by artist
-            //TODO algorithm that goes through the library array and makes a copy of each song into another array that matches the
-            // desired artist and then  prints the contents of that array and deletes it
         }
 
         if(inputString == "song") {
 
-            std::cout << "Enter a song: \n" << std::endl;
-            getline(std::cin, selectionString);
+            std::cout << "Enter a song title: \n" << std::endl;
+            getline(std::cin, titleIn);
+
+            std::cout << "Enter a song artist: \n" << std::endl;
+            getline(std::cin, artistIn);
 
             std::cout << "Displaying song information: \n" << std::endl;
-            //do something else song(selectionString);
-
+            songInfo(artistIn, titleIn, musicLibrary);
         }
 
 
@@ -74,16 +71,14 @@ int main() {
 
             import(selectionString, musicLibrary);
 
-            //TODO how do we hold onto the library and playlists for use by the user?
-            // create the pointers in here and only allow the user to access them through the interface?
         }
 
         if(inputString == "discontinue") {
 
             std::cout << "Enter a file name: \n" << std::endl;
             getline(std::cin, selectionString);
-
-            discontinue(selectionString, musicLibrary);
+            //TODO make this work...currently broken
+            //discontinue(selectionString, musicLibrary);
             //discontinue(selectionString); called on the music library again inside of the user interface??
 
         }
@@ -91,7 +86,7 @@ int main() {
         if(inputString == "playlists") {
 
             std::cout << "Listing all available playlists: \n" << std::endl;
-            playlists(); //should just print an array of the playlist names that were made by the user
+            playlists(listOfPlaylistsIn); //should just print an array of the playlist names that were made by the user
         }
 
         if(inputString == "playlist") {
@@ -99,14 +94,14 @@ int main() {
             std::cout << "Enter a playlist name: \n" << std::endl;
             getline(std::cin, selectionString);
             std::cout << "Listing songs left in the playlist: \n" << std::endl;
-            //playlist(selectionString); printing all songs left in the playlists
+            //playlist(selectionString); //printing all songs left in the playlists
         }
 
         if(inputString == "new") {
 
             std::cout << "Enter a name for the playlist: \n" << std::endl;
             getline(std::cin, selectionString);
-            //new(selectionString); makes a new empty playlist, and adds to the available playlists
+            listOfPlaylistsIn = newPlaylist(listOfPlaylistsIn, selectionString); //makes a new empty playlist, and adds to the available playlists
         }
 
         if(inputString == "add"){
@@ -158,9 +153,11 @@ int main() {
         }
 
         if(inputString == "quit"){
-            quit();
+            quit(listOfPlaylistsIn, musicLibrary);
         }
     }
+
+
 
     return 0;
 }

@@ -7,6 +7,7 @@
 
 #include <string>
 #include "MusicLibrary.h"
+#include "Playlist.h"
 
 /**
  * provides a summary of all available commands
@@ -44,7 +45,7 @@ void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibr
  * @post new songs are in the library file
  * @return print songs that already existed (to avoid duplicates)
  */
-void import(std::string fileNameIn, MusicLibrary* musicLibrary);
+MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibrary);
 
 /**
  * remove all songs in a given file from the library
@@ -59,7 +60,7 @@ void discontinue(std::string fileNameIn, MusicLibrary* musicLibraryIn);
  * display the names of all playlists and their duration
  * @post prints all playlists with respective duration to the console
  */
-void playlists();
+void playlists(Playlist* listOfPlaylistsIn);
 
 /**
  * display all songs left in a given playlist
@@ -73,7 +74,7 @@ void playlist(std::string playlistIn);
  * @param playlistNameIn desired name for the playlist
  * @post a new empty playlist is created and saved
  */
-void newPlaylist(std::string playlistNameIn);
+Playlist* newPlaylist(Playlist* listOfPlaylistsIn, std::string nameIn);
 
 /**
  * add the given song to the end of of the playlist
@@ -83,7 +84,7 @@ void newPlaylist(std::string playlistNameIn);
  * @param duration length of the song in seconds
  */
  //TODO do we need to check if song already exists?
-void add(std::string nameIn, std::string artistIn, std::string titleIn, int duration);
+ std::string add(std::string nameIn, std::string artistIn, std::string titleIn, int duration, Playlist* listOfPlaylistsIn);
 
 /**
  * remove the given song from the requested playlist
@@ -92,7 +93,7 @@ void add(std::string nameIn, std::string artistIn, std::string titleIn, int dura
  * @param titleIn title of the song
  */
  //TODO do we need to check if song does not exist?
-void remove(std::string nameIn, std::string artistIn, std::string titleIn);
+ void remove(std::string nameIn, std::string artistIn, std::string titleIn, Playlist* listOfPlaylistsIn);
 
 /**
  * plays the next song in the playlist and removes it
@@ -100,7 +101,7 @@ void remove(std::string nameIn, std::string artistIn, std::string titleIn);
  * @param playlistIn
  * @post print to console all song information
  */
-void playNext(std::string playlistIn);
+void playNext(std::string nameIn);
 
 /**
  * makes a new playlist that does not exceed requested duration
@@ -111,11 +112,11 @@ void playNext(std::string playlistIn);
 void newRandom(std::string playlistNameIn, int maxDurationIn);
 
 /**
- * save the library and the playlist files
- * (write output to text files)
- * @post terminate execution of the program.
+ * saves (writes out files) all playlists and library
+ * @param playlistArray
+ * @param musicLibraryIn
  */
-void quit();
+void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn);
 
 
 

@@ -5,9 +5,8 @@
 #include <iostream>
 #include "UserInterface.h"
 #include "MusicLibrary.h"
-#include "FileIO.h"
-
-//TODO DEFINE ALL FUNCTIONS IN THIS FILE TO WORK WITH THE INTERFACED CLASSES
+#include "Playlist.h"
+#include "LinkedList.h"
 
 /**
  * provides a summary of all available commands
@@ -60,7 +59,6 @@ void help(){
  * @post prints all songs in order to console
  */
 void library(MusicLibrary* musicLibraryIn){
-    //TODO make calls to display (toString) all library music in alphabetical order (sort while importing
     musicLibraryIn->displayAllSongs();
 }
 
@@ -70,12 +68,8 @@ void library(MusicLibrary* musicLibraryIn){
  * @post prints all songs for that artist to console
  */
 void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
-    //TODO make calls to display all songs for the given artist
-    //(find and toString on all objects with that artist) findByArtist function?
     musicLibraryIn->displayArtist(artistIn);
-
 }
-
 
 /**
  * display all information for a given song
@@ -83,11 +77,16 @@ void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
  * @post prints all song info to the console
  */
 void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibraryIn){
+<<<<<<< HEAD
     //TODO make calls to display all song info (find and toString on that object)
     musicLibraryIn->displaySongInfo(artistIn,titleIn);
 
 
 
+=======
+    std::string song = musicLibraryIn->displaySongInfo(artistIn, titleIn);
+    std::cout << song << std::endl;
+>>>>>>> 9a6359e35c6f3e5372bb20d68ca815f2d434a792
 }
 
 /**
@@ -96,10 +95,10 @@ void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibr
  * @post new songs are in the library file
  * @return print songs that already existed (to avoid duplicates)
  */
-void import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
-    //TODO make call to fileIO functions to create a new library that holds the songs from the file
+MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
     musicLibraryIn->fileReadIn(fileNameIn);
-
+    return musicLibraryIn;
+    //TODO overwrites the text file
 }
 
 /**
@@ -119,9 +118,15 @@ void discontinue(std::string fileNameIn, MusicLibrary* musicLibraryIn){
  * display the names of all playlists and their duration
  * @post prints all playlists with respective duration to the console
  */
-void playlists(){
+void playlists(Playlist* listOfPlaylistsIn){
     //TODO makes calls to have a toString method that prints the names of all current linked list based playlists
+    int size = listOfPlaylistsIn->getCurrCount();
+    std::string nameOfPlaylist;
 
+    for(int i = 0; i < size; i++) {
+        nameOfPlaylist = listOfPlaylistsIn[i].getPlaylistName(i);
+        std::cout << nameOfPlaylist << std::endl;
+    }
 }
 
 /**
@@ -129,9 +134,17 @@ void playlists(){
  * @param playlistIn
  * @post print songs in playlist to console
  */
-void playlist(std::string playlistIn){
-    //TODO make calls to display (toString again) all songs in a playlist
+void playlist(Playlist* listOfPlaylistsIn, std::string nameIn){
+    int size = listOfPlaylistsIn->getCurrCount();
 
+    for(int i = 0; i < size; i++){
+
+        if(listOfPlaylistsIn->getPlaylistName(i) == nameIn){
+            LinkedList* temp = listOfPlaylistsIn->getPlaylist(nameIn);
+
+            temp->toString();
+        }
+    }
 }
 
 /**
@@ -139,8 +152,9 @@ void playlist(std::string playlistIn){
  * @param playlistNameIn desired name for the playlist
  * @post a new empty playlist is created and saved
  */
-void newPlaylist(std::string playlistNameIn){
-    //TODO make calls to create a new playlist
+Playlist* newPlaylist(Playlist* listOfPlaylistsIn, std::string nameIn){
+    listOfPlaylistsIn->newPlaylist(nameIn);
+    return listOfPlaylistsIn;
 }
 
 /**
@@ -150,9 +164,23 @@ void newPlaylist(std::string playlistNameIn){
  * @param titleIn title of the song
  * @param duration length of the song in seconds
  */
-//TODO do we need to check if song already exists?
-void add(std::string nameIn, std::string artistIn, std::string titleIn, int duration){
+std::string add(std::string nameIn, std::string artistIn, std::string titleIn, int duration, Playlist* listOfPlaylistsIn){
     //TODO make calls to add song to proper linked list
+    Song temp = Song(titleIn, artistIn, duration);
+    std::string songString;
+
+    LinkedList* listToUse = listOfPlaylistsIn->getPlaylist(nameIn);
+
+    int foundSong = listToUse->findSongByTitle(titleIn);
+
+    if(foundSong == -1){
+        listToUse->insertAtEnd(temp);
+    }
+    else {
+        songString = temp.toString();
+        return songString;
+    }
+    return songString;
 }
 
 /**
@@ -161,8 +189,7 @@ void add(std::string nameIn, std::string artistIn, std::string titleIn, int dura
  * @param artistIn name of artist
  * @param titleIn title of the song
  */
-//TODO we need to check if a song does not exist
-void remove(std::string nameIn, std::string artistIn, std::string titleIn){
+void remove(std::string nameIn, std::string artistIn, std::string titleIn, Playlist* listOfPlaylistsIn){
     //TODO make calls to remove song from proper linked list
 
 }
@@ -173,7 +200,7 @@ void remove(std::string nameIn, std::string artistIn, std::string titleIn){
  * @param playlistIn
  * @post print to console all song information
  */
-void playNext(std::string playlistIn){
+void playNext(std::string nameIn){
     //TODO make calls to play song and display it to the screen
 
 }
@@ -194,10 +221,17 @@ void newRandom(std::string playlistNameIn, int maxDurationIn){
  * (write output to text files)
  * @post terminate execution of the program.
  */
-void quit(){
-
+void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to save/write out files here?
 
     std::cout << "\nSaving files and exiting...\n" << std::endl;
 
+    musicLibraryIn->WriteFile();
+
+    int size = listOfPlaylistsIn->getCurrCount();
+
+    //TODO test
+    for(int i = 0; i < size; i++) {
+        listOfPlaylistsIn->writeFile();
+    }
 }

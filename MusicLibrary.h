@@ -10,17 +10,15 @@
 
 class MusicLibrary {
 private:
-    //TODO fill in data for the library here
     ArrayList* arrayOfSongs;
+    std::string name;
     int totalSongCount;
 
-    //TODO determine if these methods should be implemented (yes or no)
 
     MusicLibrary(const MusicLibrary& libraryToCopy);
     MusicLibrary& operator=(const MusicLibrary& libraryToCopy);
 
 public:
-    //TODO fill in functions for the library here
 
     MusicLibrary(); //check if we want default methods to be possible
     MusicLibrary(ArrayList* listOfSongs);
@@ -33,10 +31,9 @@ public:
     void fileReadIn(std::string fileName);
 
     /**
-     * Writes a playlist or library to fileName
-     * @param fileName
+     * Writes a playlist or library to a file (saves it to the most recent file loaded
      */
-    void WriteFile(std::string fileName);
+    void WriteFile();
 
     /**
      * Removes all songs from the music library and any occurrences of those songs within the valid playlists
@@ -65,7 +62,7 @@ public:
       * @param the title of the song
       * @post a list of information about the song is displayed to the user
       */
-    std::string displaySongInfo(std::string artist, std::string title);
+    std::string displaySongInfo(std::string artistIn, std::string titleIn);
 
     /**
      * calculates the total duration of the list of songs
@@ -80,6 +77,19 @@ public:
      * @return a pointer to the song found
      */
     Song* findSong(Song songToFind);
+
+    /**
+     * find song at a specific index
+     * @param index
+     * @return
+     */
+    Song findSongAtIndex(int index);
+
+    /**
+     * gets the number of items in the arraylist
+     * @return integer values
+     */
+    int getItemCount();
 };
 
 // we need to add and remove songs from the library

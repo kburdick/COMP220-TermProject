@@ -31,8 +31,6 @@ Song::Song(std::string songString) {
     int durationString = 0;
     int playCountString = 0;
 
-    //TODO: clean up this if statement with more concise code
-    // it works... but looks bad
     if(splitter) {
         getline(splitter, songInfo, ',');
         titleString = songInfo;
