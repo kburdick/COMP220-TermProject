@@ -217,12 +217,6 @@ int LinkedList::findSongByTitle(std::string titleIn){
      * @return a copy of the song at index
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
-
-void LinkedList::removeSongAt(Song songToRemove) {
-        //TODO write this function to remove songs from the list/playlist
-}
-
-
 Song LinkedList::removeSong(Song songToRemove) {
 
     if(head == nullptr || currItemCount == 0){

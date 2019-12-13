@@ -143,4 +143,15 @@ int MusicLibrary::sumDuration(){
     return duration; //TODO check function this currently returns seconds!
 }
 
+Song* MusicLibrary::findSong(Song songToFind) {
+    std::string temp = songToFind.getSongTitle();
+
+    int indexOfSong = arrayOfSongs->findSongByTitle(temp);
+
+    Song newSong = arrayOfSongs->getValueAt(indexOfSong);
+
+    return &newSong;
+}
+
+
 
