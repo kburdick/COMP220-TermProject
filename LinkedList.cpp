@@ -5,8 +5,6 @@
 
 #include <iostream>
 #include "LinkedList.h"
-#include <cstdlib>
-#include <fstream>
 
 /**
      * Constructor
@@ -99,7 +97,7 @@ void LinkedList::toString(){
 
 void LinkedList::WriteFile(std::string fileName){
     std::ofstream outFile(fileName);
-    LinkedNode* current  = head;
+    LinkedNode* current = head;
     if (outFile){
         while (current != nullptr){
             outFile << current->getItem().toString() << '\n';

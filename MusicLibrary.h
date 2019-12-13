@@ -33,6 +33,11 @@ public:
     void fileReadIn(std::string fileName);
 
     /**
+     * Writes a playlist or library to fileName
+     * @param fileName
+     */
+    void WriteFile(std::string fileName);
+
      * Removes all songs from the music library and any occurrences of those songs within the valid playlists
      * Prints out a message of any songs that do not occur within the library or the playlist
      * @param the name of the file containing all of the songs that should be removed from the library and playlists
