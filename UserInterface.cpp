@@ -5,6 +5,7 @@
 #include <iostream>
 #include "UserInterface.h"
 #include "MusicLibrary.h"
+#include "FileIO.h"
 
 //TODO DEFINE ALL FUNCTIONS IN THIS FILE TO WORK WITH THE INTERFACED CLASSES
 
@@ -58,9 +59,9 @@ void help(){
  * (within artist alphabetical by song)
  * @post prints all songs in order to console
  */
-void library(MusicLibrary musicLibraryIn){
+void library(MusicLibrary* musicLibraryIn){
     //TODO make calls to display (toString) all library music in alphabetical order (sort while importing
-    musicLibraryIn.displayAllSongs();
+    musicLibraryIn->displayAllSongs();
 }
 
 /**
@@ -71,9 +72,7 @@ void library(MusicLibrary musicLibraryIn){
 void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to display all songs for the given artist
     //(find and toString on all objects with that artist) findByArtist function?
-
     musicLibraryIn->displayArtist(artistIn);
-
 
 }
 
@@ -95,9 +94,9 @@ void songInfo(std::string songIn, std::string titleIn){
  * @post new songs are in the library file
  * @return print songs that already existed (to avoid duplicates)
  */
-std::string import(std::string fileNameIn){
+void import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
     //TODO make call to fileIO functions to create a new library that holds the songs from the file
-    //readIn function (automatically add to library)
+    musicLibraryIn->fileReadIn(fileNameIn);
 
 }
 
@@ -106,11 +105,11 @@ std::string import(std::string fileNameIn){
  * Also remove songs that occur in any playlist
  * @param fileNameIn
  * @post songs are removed from library and any playlists that they occur in
- * @return print songs that could not be removed
+ * print songs that could not be removed aka that do not exist
  */
-std::string discontinue(std::string fileNameIn){
+void discontinue(std::string fileNameIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to fileIO functions to remove all songs in the library from the list
-
+    musicLibraryIn->removeSongs(fileNameIn);
 
 }
 

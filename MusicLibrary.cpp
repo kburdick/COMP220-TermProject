@@ -11,7 +11,7 @@
 //default constructor creates an empty music library
 MusicLibrary::MusicLibrary() {
     this->arrayOfSongs = new ArrayList(10);
-    this->totalSongCount = -1;
+    this->totalSongCount = 0;
 }
 
 MusicLibrary::MusicLibrary(ArrayList* listOfSongs) {
@@ -31,10 +31,6 @@ MusicLibrary::~MusicLibrary() {
 void MusicLibrary::fileReadIn(std::string fileName){
     this->arrayOfSongs = readLibrary(fileName);
     this->totalSongCount = arrayOfSongs->getCurrentItemCount();
-}
-
-int MusicLibrary::getTotalSongCount(){
-    return totalSongCount;
 }
 
 
@@ -88,6 +84,7 @@ std::string MusicLibrary::displaySongInfo(std::string artist, std::string title)
         songString = tempSong.toString();
         return songString;
     }
+
     return songString;
 }
 
