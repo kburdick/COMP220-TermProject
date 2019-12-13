@@ -91,7 +91,7 @@ public:
      * @return a copy of the song at index
      * @throws out_of_range exception if song is invalid, prints the song it could not find
      */
-    virtual Song removeSong(Song songToRemove)=0;
+    virtual void removeSongAt(int index)=0;
 
     /**
     * determines the total amount of items within the list

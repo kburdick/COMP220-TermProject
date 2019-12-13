@@ -311,7 +311,7 @@ Song ArrayList::removeSongAtFront() {
     return songCopy;
 }
 
-Song ArrayList::removeSong(Song songToRemove) {
+void ArrayList::removeSongAt(int index) {
     int unusedTimer = 0;
 
     bool result = findSong(songToRemove);
@@ -324,8 +324,7 @@ Song ArrayList::removeSong(Song songToRemove) {
     currItemCount = currItemCount - 1;
     Song songCopy;
 
-    //TODO fix algorithm for removing song from the array list
-    /**for(int i = 0; i <= currItemCount; i++) {
+    for(int i = 0; i <= currItemCount; i++) {
         if(i != array[i]) {
             arrCopy[i] = array[i];
         }
@@ -334,7 +333,7 @@ Song ArrayList::removeSong(Song songToRemove) {
             arrCopy[i] = array[i + 1];
         }
     }
-*/
+
     array = copyArray(arrCopy, currItemCount, unusedTimer);
     delete [] arrCopy;
 
