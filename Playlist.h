@@ -40,6 +40,11 @@ public:
     void newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library);
 
     /**
+     * calls write file on each of the proper linked lists files
+     */
+    void writeFile();
+
+    /**
      * Create new Playlist
      * @param the name of the list
      * @post adds list to playlists array

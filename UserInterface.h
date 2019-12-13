@@ -7,6 +7,7 @@
 
 #include <string>
 #include "MusicLibrary.h"
+#include "Playlist.h"
 
 /**
  * provides a summary of all available commands
@@ -115,7 +116,7 @@ void newRandom(std::string playlistNameIn, int maxDurationIn);
  * @param playlistArray
  * @param musicLibraryIn
  */
-void quit(std::string playlistArray, MusicLibrary* musicLibraryIn);
+void quit(std::string listOfPlaylistsIn, MusicLibrary* musicLibraryIn);
 
 
 

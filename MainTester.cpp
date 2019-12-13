@@ -10,7 +10,7 @@
 int main() {
 
     MusicLibrary* musicLibrary = new MusicLibrary();
-    Playlist* playListsMade = new Playlist[20]; //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
+    Playlist* listOfPlaylistsIn; //not efficient, and not the proper way to do this... SHOULD MAKE USER INTERFACE OBJECTS TO INTERFACE WITH THE MUSIC LIBRARY CLASS?
     //Make the playlist pointer array that can hold onto our new playlists, and make the playlist names a property of the list like front/end
 
     std::cout << "\n#################################" << std::endl;
@@ -77,7 +77,7 @@ int main() {
 
             std::cout << "Enter a file name: \n" << std::endl;
             getline(std::cin, selectionString);
-
+            //TODO make this work...currently broken
             //discontinue(selectionString, musicLibrary);
             //discontinue(selectionString); called on the music library again inside of the user interface??
 

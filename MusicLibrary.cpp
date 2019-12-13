@@ -141,10 +141,6 @@ int MusicLibrary::sumDuration(){
 
         duration = duration + temp.getSongDuration();
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> b2eea78e164012b6df47b329e15667adc087ae2a
     return duration;
 }
 

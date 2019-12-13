@@ -54,6 +54,15 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
     currCount ++;
 }
 
+//test this function
+void Playlist::writeFile(){
+    for (int i = 0; i < currCount; i++) {
+        std::string nameIn = playlists[i]->getName();
+        playlists[i]->WriteFile(nameIn);
+    }
+}
+
+
 /**
      * Create new Playlist
      * @param the name of the list

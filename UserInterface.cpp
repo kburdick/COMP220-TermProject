@@ -5,6 +5,7 @@
 #include <iostream>
 #include "UserInterface.h"
 #include "MusicLibrary.h"
+#include "Playlist.h"
 
 /**
  * provides a summary of all available commands
@@ -181,13 +182,16 @@ void newRandom(std::string playlistNameIn, int maxDurationIn){
  * (write output to text files)
  * @post terminate execution of the program.
  */
-void quit(std::string playlistArrayIn, MusicLibrary* musicLibraryIn){
+void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn){
     //TODO make calls to save/write out files here?
 
     std::cout << "\nSaving files and exiting...\n" << std::endl;
 
     musicLibraryIn->WriteFile();
 
+    for(int i = 0; i < sizeof(listOfPlaylistsIn); i++) {
+        listOfPlaylistsIn->writeFile();
+    }
     // for loop to get all of the proper files saved?? probably
     //playlistArrayIn->WriteFile();
 
