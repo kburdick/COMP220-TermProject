@@ -10,9 +10,10 @@
 
 class Playlist {
 private:
-    std::string name;
-    LinkedList* playlist;
-    int totalDuration;
+    int capacity;
+    int currCount;
+    LinkedList* playlists[];
+
 
     //TODO check for the implementation of these methods (yes or no)
 
@@ -29,8 +30,6 @@ public:
 
     //default constructor TODO check if we even want this to be possible
     Playlist();
-    //constructor that accepts name
-    Playlist(std::string name);
 
     //destructor
     ~Playlist();
@@ -39,28 +38,26 @@ public:
     * uses add song, new playlist, and sumDuration
     * Creates a new playlist and adds songs at random without going over the duration specified by the user
     * Note: Songs do not repeat
-    * @param the name of the song
+    * @param the name of the list
     * @param the total duration of the playlist
     * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
+    * @post adds list to playlists array
     */
-    void newRandomPlaylist(std::string songName, int totalDuration);
+    void newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library);
 
     /**
-   * sums the total duration of the playlist
-   * @post the total duration in seconds of the playlist
-   */
-   void sumDuration();
+     * Create new Playlist
+     * @param the name of the list
+     * @post adds list to playlists array
+     */
+     void newPlaylist(std::string name);
 
     /**
-   * Prints information about the next song in the playlist
-   * Removes the desired song from the playlist
-   * Adds one to the play count of that song in the library
-   * If the playlist is empty, then remove the playlist
-   * @param the name of the song
-   * @post all of the information about the song is displayed to the user
-   */
-   void playNext(std::string songName);
-
+    * returns pointer to playlist based on name
+    * @param the name of the list
+    * @return pointer to playlist based on name
+    */
+    LinkedList* getPlaylist(std::string name);
 };
 
 

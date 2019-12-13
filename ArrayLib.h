@@ -15,7 +15,7 @@
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return an integer between min and max inclusive (i.e., including both min and max)
  */
-int genRandInt(int min, int max, int& numLinesRun);
+int genRandInt(int min, int max);
 
 
 /**

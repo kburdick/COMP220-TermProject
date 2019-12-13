@@ -7,22 +7,14 @@
 #include <string>
 #include "Song.h"
 
-int genRandInt(int min, int max, int& numLinesRun) {
-    int randomNumber{};
-    numLinesRun += 3;
-    numLinesRun += 1;
-
-    //check if actual parameters are passed in incorrectly (min is max and vice-versa)
+int genRandInt(int min, int max) {
+    int randomNumber;
     if(min > max){
         randomNumber = rand()%(min - max + 1) + max;
-        numLinesRun += 1;
     }
     else{
         randomNumber = rand()%(max - min + 1) + min;
-        numLinesRun += 1;
     }
-
-    numLinesRun += 1;
     return randomNumber;
 }
 

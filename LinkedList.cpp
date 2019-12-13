@@ -19,6 +19,10 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::LinkedList(std::string name){
+    this->name = name;
+    this->head = nullptr;
+    this->tail = nullptr;
+    this->currItemCount = 0;
 }
 
 
@@ -291,19 +295,6 @@ int LinkedList::findSongIndex(Song songToFind){
 //TODO
     return -2345;
 }
-
-/**
-    * uses add song, new playlist, and sumDuration
-    * Creates a new playlist and adds songs at random without going over the duration specified by the user
-    * Note: Songs do not repeat
-    * @param the name of the song
-    * @param the total duration of the playlist
-    * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
-    */
-void LinkedList::newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library){
-
-}
-
 
 /**
 * sums the total duration of the playlist

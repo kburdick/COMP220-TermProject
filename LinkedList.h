@@ -163,16 +163,6 @@ public:
     int findSongIndex(Song songToFind);
 
     /**
-    * uses add song, new playlist, and sumDuration
-    * Creates a new playlist and adds songs at random without going over the duration specified by the user
-    * Note: Songs do not repeat
-    * @param the name of the song
-    * @param the total duration of the playlist
-    * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
-    */
-    void newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library);
-
-    /**
    * sums the total duration of the playlist
    * @post the total duration in seconds of the playlist
    */
