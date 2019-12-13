@@ -174,12 +174,7 @@ int ArrayList::findSongByArtist(std::string artistIn){
         Song temp = array[i];
 
         artist = temp.getSongArtist();
-        //std::cout<< artist << std::endl;
-       // std::cout<< artistIn << std::endl;
-
-
-
-        std::cout << artist ;
+        //std::cout << artist ;
         if(artist == artistIn){
             found = i;
             return found;

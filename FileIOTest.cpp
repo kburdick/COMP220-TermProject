@@ -36,8 +36,8 @@ int main(){
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;
 
-    //std::string temp1 = myMusic->displaySongInfo("Detlef", "Rock It");
-    //std::cout << temp1;
+    std::string temp1 = myMusic->displaySongInfo("Detlef", "Rock It");
+    std::cout << temp1;
 
     //make an empty library
    // MusicLibrary* anotherFile = new MusicLibrary();
@@ -55,7 +55,10 @@ int main(){
     artistToTest = "Deep Moth";
     myMusic->displayArtist(artistToTest);
 
-
+    std::cout << "\n----Testing the removeSong----\n" << std::endl;
+    MusicLibrary* myMusic2 = new MusicLibrary(testLib);
+    myMusic2->removeSongs("extraSongs.csv");
+    myMusic2->displayAllSongs();
 
     //TODO Automate the tests in some way with another file.....
 

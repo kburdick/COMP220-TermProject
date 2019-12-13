@@ -41,7 +41,7 @@ std::string toString(const int* arrayPtr, int size);
  * @post numLinesRun is updated to add the number of lines run by this function
  * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
  */
-int find(Song* const arrayPtr, int size, Song songToFind, int& numLinesRun);
+int find(Song* arrayPtr, int size, Song songToFind, int& numLinesRun);
 
 /**
  * Searches an int array for a certain value
