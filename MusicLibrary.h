@@ -33,10 +33,10 @@ public:
     void fileReadIn(std::string fileName);
 
     /**
-     * get the total song count for the library
-     * @return the int number of songs
+     * Writes a playlist or library to fileName
+     * @param fileName
      */
-    int getTotalSongCount();
+    void WriteFile(std::string fileName);
 
     /**
      * Removes all songs from the music library and any occurrences of those songs within the valid playlists

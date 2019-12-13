@@ -11,7 +11,7 @@
 //default constructor creates an empty music library
 MusicLibrary::MusicLibrary() {
     this->arrayOfSongs = new ArrayList(10);
-    this->totalSongCount = -1;
+    this->totalSongCount = 0;
 }
 
 MusicLibrary::MusicLibrary(ArrayList* listOfSongs) {
@@ -33,10 +33,14 @@ void MusicLibrary::fileReadIn(std::string fileName){
     this->totalSongCount = arrayOfSongs->getCurrentItemCount();
 }
 
-int MusicLibrary::getTotalSongCount(){
-    return totalSongCount;
-}
 
+/**
+ * Writes a playlist or library to fileName
+ * @param fileName
+ */
+void MusicLibrary::WriteFile(std::string fileName) {
+    arrayOfSongs->WriteFile(fileName);
+}
 
 /**
    * Removes all songs from the music library and any occurrences of those songs within the valid playlists
@@ -87,6 +91,7 @@ void MusicLibrary::displayAllSongs(){
   * @post a list of all the songs from the given artist is displayed to the user
   */
 void MusicLibrary::displayArtist(std::string artist){
+
     int size = arrayOfSongs->getCurrentItemCount();
     std::string artistToCheck;
     for(int i = 0; i < size; i++){
@@ -121,6 +126,7 @@ std::string MusicLibrary::displaySongInfo(std::string artist, std::string title)
         }
     }
 
+    return songString;
 }
 
 

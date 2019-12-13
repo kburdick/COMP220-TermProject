@@ -98,8 +98,8 @@ void Song::updateSongDuration(int duration) {
     this->duration = duration;
 }
 
-void Song::updatePlayCount(int num) {
-    this->playCount = playCount + num;
+void Song::updatePlayCount() {
+    this->playCount++;
 }
 //setters end
 

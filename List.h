@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <string>
 #include "Song.h"
+#include <fstream>
 
 class List {
 private:
@@ -22,8 +23,10 @@ public:
     //Destructor
     virtual ~List() {}
 
-    //file io stuff
-    //TODO write function description
+    /**
+     * Writes a playlist or library to fileName
+     * @param fileName
+     */
     virtual void WriteFile(std::string fileName)=0;
 
     /**

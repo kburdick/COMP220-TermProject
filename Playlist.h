@@ -10,7 +10,7 @@
 
 class Playlist {
 private:
-    //TODO: fill in the data here
+    std::string name;
     LinkedList* playlist;
     int totalDuration;
 
@@ -29,6 +29,8 @@ public:
 
     //default constructor TODO check if we even want this to be possible
     Playlist();
+    //constructor that accepts name
+    Playlist(std::string name);
 
     //destructor
     ~Playlist();

@@ -103,7 +103,7 @@
          * Setter
          * @param num update play count of song
          */
-        void updatePlayCount(int num);
+        void updatePlayCount();
 
         /**
          * Displays all song information (artist, title, duration, playcount)
