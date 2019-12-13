@@ -141,8 +141,7 @@ int MusicLibrary::sumDuration(){
 
         duration = duration + temp.getSongDuration();
     }
-
-    return duration; //TODO check function this currently returns seconds!
+    return duration;
 }
 
 Song* MusicLibrary::findSong(Song songToFind) {

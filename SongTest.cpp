@@ -10,8 +10,6 @@
 
 int main() {
 
-    //TODO fix test output formatting
-
     std::cout << "\n---------------------------" << std::endl;
     std::cout << "---- Song Class Tester ----" << std::endl;
     std::cout << "---------------------------\n" << std::endl;

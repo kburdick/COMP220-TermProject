@@ -17,8 +17,6 @@ int genRandInt(int min, int max) {
     }
     return randomNumber;
 }
-
-//TODO make a function to generate a random array that does not repeat numbers
 int* genRandArray(int size, int min, int max, int& numLinesRun) {
 
     int* randArray = new int[size];
@@ -26,7 +24,7 @@ int* genRandArray(int size, int min, int max, int& numLinesRun) {
     numLinesRun += 2;
 
     for(int i = 0; i < size; i++){
-        randArray[i] = genRandInt(min, max, numLinesRun);
+        randArray[i] = genRandInt(min, max);
         numLinesRun += 3;
     }
 
@@ -77,8 +75,6 @@ int find(Song* arrayPtr, int size, Song songToFind, int index, int &numLinesRun)
         Song songInArray = arrayPtr[index];
         std::string arrString = songInArray.getSongTitle();
         numLinesRun += 1;
-        //TODO fix equivalent evaluation for songs from the array
-        // possibly add a new function to compare?
         if(arrString == songString){
             numLinesRun += 1;
             return index;
@@ -366,8 +362,6 @@ int* merge(const int* a1, int size1, const int* a2, int size2, int& numLinesRun)
 
 
 Song* mergeSort(const Song* arrayToSort, int size, int& numLinesRun){
-    //TODO fix function for merge sort and add the number of lines run
-    // not sure why this is not working
     int rightInd = size - 1;
     int leftInd = 0;
 
