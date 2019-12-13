@@ -16,6 +16,7 @@ int main(){
     std::cout << "\n create linked list pointer to test import...\n" << std::endl;
     LinkedList* testList;
     testList = readPlaylist("testSongLib.csv");
+    testList->WriteFile("testList.csv");
 
     std::cout << "\n-------------------------------------------------------------" << std::endl;
     std::cout << "----To String Should Print Same information from the file----" << std::endl;
@@ -32,6 +33,7 @@ int main(){
     //make a music library
     MusicLibrary* myMusic = new MusicLibrary(testLib);
     myMusic->displayAllSongs();
+    myMusic->WriteFile("MusicLibTest.csv");
 
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;

@@ -37,6 +37,13 @@ int MusicLibrary::getTotalSongCount(){
     return totalSongCount;
 }
 
+/**
+ * Writes a playlist or library to fileName
+ * @param fileName
+ */
+void MusicLibrary::WriteFile(std::string fileName) {
+    arrayOfSongs->WriteFile(fileName);
+}
 
 /**
    * Removes all songs from the music library and any occurrences of those songs within the valid playlists

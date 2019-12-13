@@ -38,7 +38,6 @@ LinkedList* readPlaylist(std::string fileName){
     }
 }
 
-
 /**
  * Reads in a csv file and returns a sorted linked list of songs
  * @param fileName
@@ -55,12 +54,10 @@ ArrayList* readLibrary(std::string fileName){
         while (getline(infile, line)){
 
             Song temp = Song(line);
-            library->insertAtEnd(temp);
+            library->insertInOrder(temp);
             getline(splitter, line, '\n');
 
         }
-
-        //TODO call sorting function here, to sort the array
 
         return library;
     }
@@ -68,15 +65,3 @@ ArrayList* readLibrary(std::string fileName){
         throw "File Not Found!";
     }
 }
-
-/**
-void WriteFile(std::string fileName, LinkedList* songList){
-    std::ofstream outFile(fileName);
-    LinkedNode* current  = songList->head;
-    if (outFile){
-        while (!songList->isEmpty()){
-
-        }
-    }
-}
-**/

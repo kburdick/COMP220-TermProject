@@ -50,10 +50,17 @@ ArrayList::~ArrayList(){
     delete [] array;
 }
 
-//file io stuff
-//TODO write function description
-void ArrayList::WriteFile(std::string fileName) {
 
+void ArrayList::WriteFile(std::string fileName) {
+    std::ofstream outFile(fileName);
+    if (outFile){
+        for (int i=0; i < currItemCount; i++){
+            outFile << array[i].toString() << '\n';
+        }
+    }
+    else{
+        throw "File Not Found";
+    }
 }
 
 
@@ -74,6 +81,7 @@ void ArrayList::doubleCapacity() {
     }
 
     this->array = arrCopy;
+    currCapacity = doubleCap;
 }
 
 void ArrayList::insertAtEnd(Song songToAdd) {
@@ -89,7 +97,26 @@ void ArrayList::insertAtEnd(Song songToAdd) {
 }
 
 void ArrayList::insertInOrder(Song songToAdd){
-
+    std::string artist = songToAdd.getSongArtist();
+    std::string title = songToAdd.getSongTitle();
+    if (this->isEmpty()){
+        this->insertAtEnd(songToAdd);
+        return;
+    }
+    else{
+        for(int i = 0; i < currItemCount; i++){
+            if (artist < array[i].getSongArtist()){
+                this->insertAt(songToAdd,i);
+                return;
+            } else if (artist == array[i].getSongArtist()){
+                if (title < array[i].getSongTitle()){
+                    this->insertAt(songToAdd,i);
+                    return;
+                }
+            }
+        }
+    }
+    insertAtEnd(songToAdd);
 }
 
 
@@ -203,56 +230,35 @@ int ArrayList::findSongByTitle(std::string titleIn){
 
 
 void ArrayList::insertAtFront(Song songToAdd) {
-    int unusedTimer = 0;
-
-    if(currItemCount == currCapacity) {
+    if (currItemCount == currCapacity){
         doubleCapacity();
     }
-
-    Song* arrCopy = new Song[currItemCount + 1];
-    currItemCount += 1;
-
-    for(int i = 0; i < currItemCount; i++) {
-        if(i == 0){
-            arrCopy[0] = songToAdd;
-        }
-        else{
-            arrCopy[i] = array[i - 1];
-        }
+    for (int i=0; i<currItemCount+1; i++){
+        Song temp = array[i];
+        array[i] = songToAdd;
+        songToAdd = temp;
     }
-    array = ::copyArray(arrCopy, currItemCount, unusedTimer);
-
-    delete [] arrCopy;
+    currItemCount++;
 }
 
 void ArrayList::insertAt(Song songToAdd, int index) {
-    int unusedTimer = 0;
-
-    if(index < 0 || index > currItemCount) {
-        throw std::out_of_range("No item to remove");
+    if (index < 0 or index > currItemCount) {
+        throw std::out_of_range("Bad index given to insertAt: " + std::to_string(index));
     }
-
-    Song* arrCopy = new Song[currItemCount + 1];
-    currItemCount += 1;
-
-    for(int i = 0; i < currItemCount; i++) {
-
-        if(i < index) {
-            arrCopy[i] = array[i]; //TODO make sure this is actually copying songs?
-        }
-
-        if(i == index) {
-            arrCopy[index] = songToAdd;
-        }
-
-        if(i > index) {
-            arrCopy[i] = array[i - 1];
-        }
+    if (currItemCount == currCapacity) {
+        doubleCapacity();
     }
-
-    array = copyArray(arrCopy, currItemCount, unusedTimer);
-
-    delete [] arrCopy;
+    if (index < currItemCount) {
+        for (int i = index; i < currItemCount + 1; i++) {
+            Song temp = array[i];
+            array[i] = songToAdd;
+            songToAdd = temp;
+        }
+        currItemCount++;
+    }
+    else{
+        insertAtEnd(songToAdd);
+    }
 }
 
 Song ArrayList::removeSongAtEnd() {
