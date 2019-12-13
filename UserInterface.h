@@ -36,7 +36,7 @@ void artist(std::string artistIn, MusicLibrary* musicLibraryIn);
  * @param songIn
  * @post prints all song info to the console
  */
-void songInfo(std::string songIn, std::string titleIn);
+void songInfo(std::string songIn, std::string titleIn, MusicLibrary* musicLibraryIn);
 
 /**
  * add all songs from the given file to the library
@@ -44,7 +44,7 @@ void songInfo(std::string songIn, std::string titleIn);
  * @post new songs are in the library file
  * @return print songs that already existed (to avoid duplicates)
  */
-void import(std::string fileNameIn, MusicLibrary* musicLibrary);
+MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibrary);
 
 /**
  * remove all songs in a given file from the library
@@ -111,11 +111,11 @@ void playNext(std::string playlistIn);
 void newRandom(std::string playlistNameIn, int maxDurationIn);
 
 /**
- * save the library and the playlist files
- * (write output to text files)
- * @post terminate execution of the program.
+ * saves (writes out files) all playlists and library
+ * @param playlistArray
+ * @param musicLibraryIn
  */
-void quit();
+void quit(std::string playlistArray, MusicLibrary* musicLibraryIn);
 
 
 

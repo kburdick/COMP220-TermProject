@@ -177,6 +177,13 @@ public:
    * @post all of the information about the song is displayed to the user
    */
     void playNext(MusicLibrary* library);
+
+    /**
+     * gets the name of the playlist
+     * @return string of the name
+     */
+    std::string getName();
+
 };
 
 

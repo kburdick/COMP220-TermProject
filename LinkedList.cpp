@@ -326,3 +326,7 @@ void LinkedList::playNext(MusicLibrary* library){
     libSong->updatePlayCount();
     removeSongAtFront();
 }
+
+std::string LinkedList::getName(){
+    return name;
+}
