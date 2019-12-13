@@ -31,7 +31,10 @@ void Playlist::newRandomPlaylist(std::string songName, int totalDuration){}
 * sums the total duration of the playlist
 * @post the total duration in seconds of the playlist
 */
-void Playlist::sumDuration(){}
+void Playlist::sumDuration(){
+
+
+}
 
 /**
 * Prints information about the next song in the playlist
