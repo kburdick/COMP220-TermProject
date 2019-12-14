@@ -11,7 +11,7 @@
 Playlist::Playlist(){
     capacity = 50;
     currCount = 0;
-    this->playlists = new LinkedList[capacity];
+    playlists = new LinkedList[capacity];
 }
 
 Playlist::Playlist(const Playlist &playlistToCopy){
@@ -62,21 +62,25 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
         songsToAdd[i] = swapIndex;
         songsToAdd[swapIndex] = temp;
     }
-    for(int i=0; i<maxSongCount; i++){
-        if (currDuration + library->findSongAtIndex(songsToAdd[i]).getSongDuration() < totalDuration){
-            randomList.insertAtEnd(library->findSongAtIndex(songsToAdd[i]));
-            currDuration += library->findSongAtIndex(songsToAdd[i]).getSongDuration();
+    for(int i=0; i<maxSongCount; i++) {
+        if (songsToAdd[i] < library->getItemCount()){
+            if (currDuration + library->findSongAtIndex(songsToAdd[i]).getSongDuration() < totalDuration){
+                randomList.insertAtEnd(library->findSongAtIndex(songsToAdd[i]));
+                currDuration += library->findSongAtIndex(songsToAdd[i]).getSongDuration();
+            }
         }
     }
     playlists[currCount] = randomList;
+    std::cout<<currCount<<"\n";
+    playlists[currCount].toString();
     currCount ++;
 }
 
 //test this function
-void Playlist::writeFile(std::string fileName){
+void Playlist::WriteFile(){
     for (int i = 0; i < currCount; i++) {
-        std::string nameIn = playlists[i].getName();
-        playlists[i].WriteFile(fileName);
+        std::string nameIn = playlists[i].getName() + ".csv";
+        playlists[i].WriteFile(nameIn);
     }
 }
 
@@ -87,8 +91,7 @@ void Playlist::writeFile(std::string fileName){
      * @post adds list to playlists array
      */
 void Playlist::newPlaylist(std::string name){
-    LinkedList temp = LinkedList(name);
-    playlists[currCount] = temp;
+    playlists[currCount] = LinkedList(name);
     currCount++;
 }
 
@@ -100,20 +103,15 @@ void Playlist::newPlaylist(std::string name){
     */
 LinkedList* Playlist::getPlaylist(std::string name){
     for(int i=0; i<currCount; i++){
-        if (name == playlists[currCount].getName()){
-            return &playlists[currCount];
+        if (playlists[i].getName() == name){
+            return &playlists[i];
         }
     }
     throw("Playlist not found");
 }
 
 std::string Playlist::getPlaylistName(int index) {
-    for (int i = 0; i < currCount; i++) {
-
-        if (i == index) {
-            return playlists[i].getName();
-        }
-    }
+    return playlists[index].getName();
 }
 
 int Playlist::getCurrCount(){

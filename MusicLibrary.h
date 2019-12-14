@@ -15,7 +15,6 @@ private:
     int totalSongCount;
 
 
-    MusicLibrary(const MusicLibrary& libraryToCopy);
     MusicLibrary& operator=(const MusicLibrary& libraryToCopy);
 
 public:
@@ -90,6 +89,8 @@ public:
      * @return integer values
      */
     int getItemCount();
+
+    MusicLibrary(const MusicLibrary& libraryToCopy);
 };
 
 // we need to add and remove songs from the library

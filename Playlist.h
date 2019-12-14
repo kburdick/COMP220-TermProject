@@ -46,7 +46,7 @@ public:
      * calls write file on each of the proper linked lists files
      * @param fileName
      */
-    void writeFile(std::string fileName);
+    void WriteFile();
 
     /**
      * Create new Playlist

@@ -9,7 +9,8 @@
 #include "FileIO.h"
 #include "Playlist.h"
 
-int main(){
+int main() {
+    /**
     std::cout << "--------------------------" << std::endl;
     std::cout << "----File Reader Tester----" << std::endl;
     std::cout << "--------------------------\n" << std::endl;
@@ -34,7 +35,7 @@ int main(){
     //make a music library
     MusicLibrary* myMusic = new MusicLibrary(testLib);
     myMusic->displayAllSongs();
-    //myMusic->WriteFile("MusicLibTest.csv");
+    myMusic->WriteFile();
 
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;
@@ -62,11 +63,52 @@ int main(){
     MusicLibrary* myMusic2 = new MusicLibrary(testLib);
     myMusic2->removeSongs("extraSongs.csv");
     myMusic2->displayAllSongs();
+**/
 
-    Playlist* allLists = new Playlist();
+
+    srand(time(NULL));
+
+    Playlist *allLists = new Playlist();
     allLists->newPlaylist("pl1");
+    std::cout << allLists->getPlaylistName(0) << std::endl;
+    allLists->newPlaylist("Pl2");
+    std::cout << allLists->getPlaylistName(1) << std::endl;
 
-    LinkedList* tempPL = allLists->getPlaylist("pl1");
-    tempPL->toString();
+    MusicLibrary masterLib = MusicLibrary(readLibrary("testSongLib.csv"));
+
+    //LinkedList* testList = readPlaylist("testSongLib.csv");
+    //testList->sumDuration();
+
+    Song tempSong = masterLib.findSongAtIndex(2);
+    std::cout << "HERE" << std::endl;
+    allLists->getPlaylist("pl1")->insertAtEnd(tempSong);
+    tempSong = masterLib.findSongAtIndex(3);
+    allLists->getPlaylist("pl1")->insertAtEnd(tempSong);
+    allLists->getPlaylist("pl1")->sumDuration();
+    allLists->getPlaylist("pl1")->toString();
+    allLists->getPlaylist("pl1")->playNext(&masterLib);
+    allLists->getPlaylist("pl1")->toString();
+
+    std::cout<<masterLib.findSongAtIndex(2).getPlayCount()<<std::endl;
+
+
+    allLists->newRandomPlaylist("RandomPlaylist", 1500, &masterLib);
+
+    std::cout << allLists->getPlaylistName(2) << std::endl;
+    std::cout << allLists->getCurrCount() << std::endl;
+    try {
+        std::cout << "CHECK" << std::endl;
+        LinkedList *tempPL = allLists->getPlaylist("RandomPlaylist");
+        int size = tempPL->getCurrentItemCount();
+
+        for (int i = 0; i < size; i++) {
+            Song songOut = tempPL->getValueAt(i);
+            std::cout << songOut.toString() << std::endl;
+        }
+    }
+    catch (std::invalid_argument) {
+            std::cout << "inhere" << std::endl;
+        }
+
 
 }

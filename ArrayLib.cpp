@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include "Song.h"
+#include <time.h>
 
 int genRandInt(int min, int max) {
     int randomNumber;

@@ -12,11 +12,13 @@
 MusicLibrary::MusicLibrary() {
     this->arrayOfSongs = new ArrayList(10);
     this->totalSongCount = 0;
+    name = "default.csv";
 }
 
 MusicLibrary::MusicLibrary(ArrayList* listOfSongs) {
     this->arrayOfSongs = listOfSongs;
     this->totalSongCount = listOfSongs->getCurrentItemCount();
+    name = "default.csv";
 }
 
 //destructor

@@ -277,7 +277,7 @@ Song LinkedList::removeSongAtEnd(){
 }
 
 Song LinkedList::removeSongAtFront(){
-    if (head = nullptr){
+    if (head == nullptr){
         throw("Playlist is empty");
     }
     LinkedNode* newHead = head->getNext();
@@ -303,6 +303,7 @@ void LinkedList::sumDuration(){
         sumDuration += curr->getItem().getSongDuration();
         curr = curr->getNext();
     }
+    std::cout<<sumDuration<<"\n";
 }
 
 /**
