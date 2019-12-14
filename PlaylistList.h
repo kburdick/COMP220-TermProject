@@ -9,13 +9,15 @@
 #include <string>
 #include "List.h"
 #include "Song.h"
+#include "LinkedList.h"
+
 
 class PlaylistList{
 private:
     //pointer to the start of the array
-    Song* array;
+    LinkedList* array;
     //count of the number of valid items currently stored in the array
-    int currItemCount;
+    int numPlaylists;
     //size of the current array
     int currCapacity;
 
@@ -30,49 +32,36 @@ private:
 public:
     /**
      * Constructor
-     * @throws an std::invalid_argument exception if size < 1
      */
-    ArrayList(int initialCapacity);
+    PlaylistList();
 
     //Copy Constructor
-    ArrayList(const ArrayList& arrayListToCopy);
+    PlaylistList(const PlaylistList& PlaylistListToCopy);
 
     //Overloaded Assignment Operator
-    ArrayList& operator=(const ArrayList& arrayListToCopy);
+    PlaylistList& operator=(const PlaylistList& PlaylistListToCopy);
 
     //Destructor
-    ~ArrayList();
+    ~PlaylistList();
 
     //file io stuff
-    //TODO write function description
+    /**
+     * Writes contents to file
+     * @param fileName
+     */
     void WriteFile(std::string fileName);
 
     /**
      * get the song duration
      * @param songIn input parameter
      */
-    int getDuration(Song songIn);
+    int getPlaylistByIndex(int index);
 
     /**
-     * appends the new item to the end of the list
-     * @post the list has an additional value in it, at the end
+     * get the song duration
+     * @param songIn input parameter
      */
-    void insertAtEnd(Song itemToAdd);
-
-    /**
-     * adds a new song to the list in alphabetical order by artist and then by song
-     * @param songToAdd song to add to the list
-     * @post song is added in order and the library will be sorted for lookup
-     */
-    void insertInOrder(Song songToAdd);
-
-    /**
-     * gets a value from the list
-     * @param index the location from which to get the value
-     * @return a copy of the item at index
-     * @throws out_of_range exception if index is invalid
-     */
-    Song getValueAt(int index);
+    int getPlaylistByName(std::string name);
 
     /**
      * gives a string representation of the current list
@@ -94,76 +83,30 @@ public:
     int getCurrentItemCount();
 
     /**
-     * makes the list empty of valid items
-     * @post the list is empty, such that isEmpty() == true
-     */
-    void clearList();
-
-    /**
-     * Searches a song array for a certain song
-     * @return if the song exists or not
-     */
-    bool findSong(Song songToFind);
-
-    /**
-     * Searches a song array for a certain song
-     * @return the index of the list that contains the song
-     */
-    int findSongIndex(Song songToFind);
-
-    /**
-   * Searches a song list for a certain song
-   * @return index of the song in the list, -1 if the song is not present
-   */
-    int findSongByArtist(std::string artistIn);
-
-    /**
-    * Searches a song list for a certain song
-    * @return index of the song in the list, -1 if the song is not present
-    */
-    int findSongByTitle(std::string titleIn);
-
-    /**
-     * appends the new item to the beginning of the list
-     * @post the list has an additional value in it, at the beginning
-     *    all other items are shifted down by one index
-     */
-    void insertAtFront(Song songToAdd);
-
-    /**
-     * inserts the item into the list so that it can be found with get(index)
-     * @param index the location in which to insert this item
-     * @post the list has an additional value in it at the specified index,
-     *        all further values have been shifted down by one index
-     * @throws out_of_range exception if index is invalid (< 0 or > currItemCount)
-     */
-    void insertAt(Song songToAdd, int index);
-
-    /**
      * removes the item at the end of the list, and returns a copy of that item
      * @post the item at the end is removed from the list
      * @return a copy of the item at the end
      * @throws out_of_range exception if there is no item to remove
      */
-    Song removeSongAtEnd();
+    LinkedList* removePlaylistAtEnd();
 
     /**
-     * removes the item at the front of the list, and returns a copy of that item
-     * @post the item at the front is removed from the list, everything else is shifted down one
-     * @return a copy of the item at index
-     * @throws out_of_range exception if there is no item to remove
-     */
-    Song removeSongAtFront();
+    * uses add song, new playlist, and sumDuration
+    * Creates a new playlist and adds songs at random without going over the duration specified by the user
+    * Note: Songs do not repeat
+    * @param the name of the list
+    * @param the total duration of the playlist
+    * @post generates a new playlist that is populated with random songs that don't repeat and overall less than the duration
+    * @post adds list to playlists array
+    */
+    void newRandomPlaylist(std::string name, int totalDuration, MusicLibrary* library);
 
     /**
-     * removes the Song from Master Library and returns it as a Song Object
-     * @param Song object to remove
-     * @post the array of songs is shifted to compensate for the loss
-     * @return the song
-     * @throws out_of_range exception if index is invalid
+     * Create new Playlist
+     * @param the name of the list
+     * @post adds list to playlists array
      */
-    Song removeSong(Song songToRemove);
+    void newPlaylist(std::string name);
 
 };
-
 #endif //COMP220_TERMPROJECT_PLAYLISTLIST_H

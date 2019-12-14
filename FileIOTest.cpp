@@ -10,7 +10,6 @@
 #include "Playlist.h"
 
 int main() {
-    /**
     std::cout << "--------------------------" << std::endl;
     std::cout << "----File Reader Tester----" << std::endl;
     std::cout << "--------------------------\n" << std::endl;
@@ -35,15 +34,10 @@ int main() {
     //make a music library
     MusicLibrary* myMusic = new MusicLibrary(testLib);
     myMusic->displayAllSongs();
-<<<<<<< HEAD
     myMusic->WriteFile();
-=======
-<<<<<<< HEAD
-   // myMusic->WriteFile("MusicLibTest.csv");
-=======
+
     //myMusic->WriteFile("MusicLibTest.csv");
->>>>>>> a07ea968dca0e56dc13a85a77566eb9f0d41ad69
->>>>>>> 0bbedf4802b91c402a738fe2a8eb837b31516c58
+    //myMusic->WriteFile("MusicLibTest.csv");
 
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;
@@ -68,12 +62,46 @@ int main() {
     myMusic->displayArtist(artistToTest);
 
     std::cout << "\n----Testing the removeSong----\n" << std::endl;
-<<<<<<< HEAD
     MusicLibrary* myMusic2 = new MusicLibrary(testLib);
     myMusic2->removeSongs("extraSongs.csv");
     myMusic2->displayAllSongs();
-**/
 
+   // ArrayList* testLib2;
+    //testLib2 = readLibrary("testList.csv");
+    //MusicLibrary* myMusic2 = new MusicLibrary(testLib2);
+    //myMusic2->displayAllSongs();
+    myMusic->removeSongs("songss.csv.txt");
+    //Song temp3 = myMusic->findSongAtIndex(0);
+    //Song temp5 = myMusic->removeOneSong(temp3);
+    //std::cout << temp5.toString() << "\n" << std::endl;
+
+    myMusic->displayAllSongs();
+
+    //Playlist* allLists = new Playlist();
+    //allLists->newPlaylist("pl1");
+
+    //LinkedList* tempPL = allLists->getPlaylist("pl1");
+    //tempPL->toString();
+
+    //std::cout << "\n----Testing the newPlaylist----\n" << std::endl;
+    //std::cout << "\n----Creating 3 playlists and getting them----\n" << std::endl;
+    //Playlist* allLists2 = new Playlist();
+    //allLists2->newPlaylist("pl2");
+    //LinkedList* temppl2 = allLists2->getPlaylist("pl2");
+    //temppl2->getName();
+    //Playlist* allLists3 = new Playlist();
+    //allLists3->newPlaylist("pl3");
+    //LinkedList* temppl3 = allLists2->getPlaylist("pl3");
+    //temppl3->toString();
+    //Playlist* allLists4 = new Playlist();
+    //allLists4->newPlaylist("pl4");
+    //LinkedList* temppl4 = allLists2->getPlaylist("pl4");
+    //temppl4->toString();
+
+
+
+
+    std::cout << "\n----Testing the newRandomPlaylist----\n" << std::endl;
 
     srand(time(NULL));
 
@@ -116,47 +144,8 @@ int main() {
         }
     }
     catch (std::invalid_argument) {
-            std::cout << "inhere" << std::endl;
-        }
-=======
-   // ArrayList* testLib2;
-    //testLib2 = readLibrary("testList.csv");
-    //MusicLibrary* myMusic2 = new MusicLibrary(testLib2);
-    //myMusic2->displayAllSongs();
-    myMusic->removeSongs("songss.csv.txt");
-    //Song temp3 = myMusic->findSongAtIndex(0);
-    //Song temp5 = myMusic->removeOneSong(temp3);
-    //std::cout << temp5.toString() << "\n" << std::endl;
-
-    myMusic->displayAllSongs();
-
-    //Playlist* allLists = new Playlist();
-    //allLists->newPlaylist("pl1");
-
-    //LinkedList* tempPL = allLists->getPlaylist("pl1");
-    //tempPL->toString();
-
-    //std::cout << "\n----Testing the newPlaylist----\n" << std::endl;
-    //std::cout << "\n----Creating 3 playlists and getting them----\n" << std::endl;
-    //Playlist* allLists2 = new Playlist();
-    //allLists2->newPlaylist("pl2");
-    //LinkedList* temppl2 = allLists2->getPlaylist("pl2");
-    //temppl2->getName();
-    //Playlist* allLists3 = new Playlist();
-    //allLists3->newPlaylist("pl3");
-    //LinkedList* temppl3 = allLists2->getPlaylist("pl3");
-    //temppl3->toString();
-    //Playlist* allLists4 = new Playlist();
-    //allLists4->newPlaylist("pl4");
-    //LinkedList* temppl4 = allLists2->getPlaylist("pl4");
-    //temppl4->toString();
-
-
-
-
-    //std::cout << "\n----Testing the newRandomPlaylist----\n" << std::endl;
-
->>>>>>> 0bbedf4802b91c402a738fe2a8eb837b31516c58
+        std::cout << "inhere" << std::endl;
+    }
 
 
 }

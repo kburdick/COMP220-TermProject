@@ -45,7 +45,10 @@ public:
     ~ArrayList();
 
     //file io stuff
-    //TODO write function description
+    /**
+     * Writes contents to file
+     * @param fileName
+     */
     void WriteFile(std::string fileName);
 
     /**

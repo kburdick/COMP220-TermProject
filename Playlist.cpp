@@ -17,16 +17,19 @@ Playlist::Playlist(){
 Playlist::Playlist(const Playlist &playlistToCopy){
     capacity = playlistToCopy.capacity;
     currCount = playlistToCopy.currCount;
+    playlists = new LinkedList[capacity];
     for (int i=0; i<currCount; i++){
         playlists[i] = playlistToCopy.playlists[i];
     }
-    delete[](&playlistToCopy);
 }
 
 Playlist &Playlist::operator=(const Playlist &playlistToCopy){
     if (this != &playlistToCopy){
+        delete [] playlists;
+
         capacity = playlistToCopy.capacity;
         currCount = playlistToCopy.currCount;
+        playlists = new LinkedList[capacity];
         for (int i=0; i<currCount; i++){
             playlists[i] = playlistToCopy.playlists[i];
         }
@@ -63,7 +66,7 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
         songsToAdd[swapIndex] = temp;
     }
     for(int i=0; i<maxSongCount; i++) {
-        if (songsToAdd[i] < library->getItemCount()){
+        if (songsToAdd[i] < maxSongCount){
             if (currDuration + library->findSongAtIndex(songsToAdd[i]).getSongDuration() < totalDuration){
                 randomList.insertAtEnd(library->findSongAtIndex(songsToAdd[i]));
                 currDuration += library->findSongAtIndex(songsToAdd[i]).getSongDuration();
@@ -71,8 +74,6 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
         }
     }
     playlists[currCount] = randomList;
-    std::cout<<currCount<<"\n";
-    playlists[currCount].toString();
     currCount ++;
 }
 
@@ -112,22 +113,7 @@ LinkedList* Playlist::getPlaylist(std::string name){
 }
 
 std::string Playlist::getPlaylistName(int index) {
-<<<<<<< HEAD
     return playlists[index].getName();
-=======
-    for (int i = 0; i < currCount; i++) {
-<<<<<<< HEAD
-        if (i = index) {
-            std::string temp = playlists[i]->getName();
-            return temp;
-=======
-
-        if (i == index) {
-            return playlists[i].getName();
->>>>>>> a07ea968dca0e56dc13a85a77566eb9f0d41ad69
-        }
-    }
->>>>>>> 0bbedf4802b91c402a738fe2a8eb837b31516c58
 }
 
 int Playlist::getCurrCount(){
