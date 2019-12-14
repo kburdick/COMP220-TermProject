@@ -116,7 +116,7 @@ void newRandom(std::string playlistNameIn, int maxDurationIn);
  * @param playlistArray
  * @param musicLibraryIn
  */
-void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn);
+void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn, std::string fileNameIn);
 
 
 

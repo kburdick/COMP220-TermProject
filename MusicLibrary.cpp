@@ -38,8 +38,8 @@ void MusicLibrary::fileReadIn(std::string fileName){
  * Writes a playlist or library to fileName
  * @param fileName
  */
-void MusicLibrary::WriteFile() {
-    arrayOfSongs->WriteFile(name);
+void MusicLibrary::WriteFile(std::string nameIn) {
+    arrayOfSongs->WriteFile(nameIn);
 }
 
 /**
@@ -52,12 +52,15 @@ void MusicLibrary::removeSongs(std::string fileName){
    ArrayList* tempLib = readLibrary(fileName);
    std::string titleToCheck;
    std::string titleToCheck2;
+
    int count2 = arrayOfSongs->getCurrentItemCount();
    int count = tempLib->getCurrentItemCount();
+
    for(int i = 0; i <= count; i++) {
        Song temp = tempLib->getValueAt(i);
        //std::cout << temp.toString() << std::endl;
        titleToCheck = temp.getSongTitle();
+
        for(int x = 0; x <= count2; x++){
            Song temp2 = arrayOfSongs->getValueAt(x);
            titleToCheck2 = temp2.getSongTitle();
@@ -69,8 +72,6 @@ void MusicLibrary::removeSongs(std::string fileName){
            if(foundSong == 0){
                std::cout << temp.toString() << std::endl;
            }
-
-
        }
    }
 }

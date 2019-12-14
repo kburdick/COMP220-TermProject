@@ -153,7 +153,10 @@ int main() {
         }
 
         if(inputString == "quit"){
-            quit(listOfPlaylistsIn, musicLibrary);
+            std::cout << "Enter the name of the file to save to: " << std::endl;
+            getline(std::cin, selectionString);
+
+            quit(listOfPlaylistsIn, musicLibrary, selectionString);
         }
     }
 

@@ -102,4 +102,3 @@ std::string Playlist::getPlaylistName(int index) {
 int Playlist::getCurrCount(){
     return currCount;
 }
-

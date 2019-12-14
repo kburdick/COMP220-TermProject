@@ -33,7 +33,7 @@ public:
     /**
      * Writes a playlist or library to a file (saves it to the most recent file loaded
      */
-    void WriteFile();
+    void WriteFile(std::string nameIn);
 
     /**
      * Removes all songs from the music library and any occurrences of those songs within the valid playlists

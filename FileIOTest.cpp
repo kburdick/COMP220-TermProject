@@ -34,7 +34,7 @@ int main(){
     //make a music library
     MusicLibrary* myMusic = new MusicLibrary(testLib);
     myMusic->displayAllSongs();
-    myMusic->WriteFile("MusicLibTest.csv");
+    //myMusic->WriteFile("MusicLibTest.csv");
 
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;
@@ -58,15 +58,17 @@ int main(){
     artistToTest = "Deep Moth";
     myMusic->displayArtist(artistToTest);
 
-    std::cout << "\n----Testing the removeSong----\n" << std::endl;
-    MusicLibrary* myMusic2 = new MusicLibrary(testLib);
-    myMusic2->removeSongs("extraSongs.csv");
-    myMusic2->displayAllSongs();
+    //std::cout << "\n----Testing the removeSong----\n" << std::endl;
+    //MusicLibrary* myMusic2 = new MusicLibrary(testLib);
+    //myMusic2->removeSongs("extraSongs.csv");
+    //myMusic2->displayAllSongs();
 
     Playlist* allLists = new Playlist();
     allLists->newPlaylist("pl1");
+    allLists->newPlaylist("pl2");
 
-    LinkedList* tempPL = allLists->getPlaylist("pl1");
-    tempPL->toString();
+    std::string tempPL = allLists->getPlaylistName(1);
+    std::cout << tempPL;
+
 
 }

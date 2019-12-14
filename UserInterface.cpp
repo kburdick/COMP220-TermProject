@@ -213,12 +213,13 @@ void newRandom(std::string playlistNameIn, int maxDurationIn){
  * (write output to text files)
  * @post terminate execution of the program.
  */
-void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn){
+void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn, std::string fileNameIn){
     //TODO make calls to save/write out files here?
+
 
     std::cout << "\nSaving files and exiting...\n" << std::endl;
 
-    musicLibraryIn->WriteFile();
+    musicLibraryIn->WriteFile(fileNameIn);
 
     int size = listOfPlaylistsIn->getCurrCount();
 
