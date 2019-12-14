@@ -7,6 +7,9 @@
 #include "MusicLibrary.h"
 #include "Playlist.h"
 #include "LinkedList.h"
+#include "ArrayList.h"
+#include "FileIO.h"
+#include "Song.h"
 
 /**
  * provides a summary of all available commands
@@ -77,16 +80,15 @@ void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
  * @post prints all song info to the console
  */
 void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibraryIn){
-<<<<<<< HEAD
     //TODO make calls to display all song info (find and toString on that object)
     musicLibraryIn->displaySongInfo(artistIn,titleIn);
 
 
 
-=======
+
     std::string song = musicLibraryIn->displaySongInfo(artistIn, titleIn);
     std::cout << song << std::endl;
->>>>>>> 9a6359e35c6f3e5372bb20d68ca815f2d434a792
+
 }
 
 /**
@@ -109,7 +111,7 @@ MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
  * print songs that could not be removed aka that do not exist
  */
 void discontinue(std::string fileNameIn, MusicLibrary* musicLibraryIn){
-    //TODO make calls to fileIO functions to remove all songs in the library from the list
+
     musicLibraryIn->removeSongs(fileNameIn);
 
 }

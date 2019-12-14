@@ -90,6 +90,8 @@ public:
      * @return integer values
      */
     int getItemCount();
+
+    Song removeOneSong(Song songToRemove);
 };
 
 // we need to add and remove songs from the library
