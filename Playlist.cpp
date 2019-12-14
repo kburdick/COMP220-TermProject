@@ -93,6 +93,7 @@ void Playlist::WriteFile(){
 void Playlist::newPlaylist(std::string name){
     playlists[currCount] = LinkedList(name);
     currCount++;
+
 }
 
     /**
@@ -111,7 +112,22 @@ LinkedList* Playlist::getPlaylist(std::string name){
 }
 
 std::string Playlist::getPlaylistName(int index) {
+<<<<<<< HEAD
     return playlists[index].getName();
+=======
+    for (int i = 0; i < currCount; i++) {
+<<<<<<< HEAD
+        if (i = index) {
+            std::string temp = playlists[i]->getName();
+            return temp;
+=======
+
+        if (i == index) {
+            return playlists[i].getName();
+>>>>>>> a07ea968dca0e56dc13a85a77566eb9f0d41ad69
+        }
+    }
+>>>>>>> 0bbedf4802b91c402a738fe2a8eb837b31516c58
 }
 
 int Playlist::getCurrCount(){

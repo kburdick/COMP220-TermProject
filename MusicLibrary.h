@@ -90,7 +90,11 @@ public:
      */
     int getItemCount();
 
+<<<<<<< HEAD
     MusicLibrary(const MusicLibrary& libraryToCopy);
+=======
+    Song removeOneSong(Song songToRemove);
+>>>>>>> 0bbedf4802b91c402a738fe2a8eb837b31516c58
 };
 
 // we need to add and remove songs from the library
