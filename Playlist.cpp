@@ -11,14 +11,32 @@
 Playlist::Playlist(){
     capacity = 50;
     currCount = 0;
-    playlists[capacity];
+    playlists = new LinkedList[capacity];
+}
+
+Playlist::Playlist(const Playlist &playlistToCopy){
+    capacity = playlistToCopy.capacity;
+    currCount = playlistToCopy.currCount;
+    for (int i=0; i<currCount; i++){
+        playlists[i] = playlistToCopy.playlists[i];
+    }
+    delete[](&playlistToCopy);
+}
+
+Playlist &Playlist::operator=(const Playlist &playlistToCopy){
+    if (this != &playlistToCopy){
+        capacity = playlistToCopy.capacity;
+        currCount = playlistToCopy.currCount;
+        for (int i=0; i<currCount; i++){
+            playlists[i] = playlistToCopy.playlists[i];
+        }
+    }
+    return *this;
 }
 
 //destructor
 Playlist::~Playlist() {
-     for(int i = 0; i < capacity; i++){
-         delete playlists[i];
-     }
+    delete[] playlists;
 }
 
 /**
@@ -44,21 +62,25 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
         songsToAdd[i] = swapIndex;
         songsToAdd[swapIndex] = temp;
     }
-    for(int i=0; i<maxSongCount; i++){
-        if (currDuration + library->findSongAtIndex(songsToAdd[i]).getSongDuration() < totalDuration){
-            randomList.insertAtEnd(library->findSongAtIndex(songsToAdd[i]));
-            currDuration += library->findSongAtIndex(songsToAdd[i]).getSongDuration();
+    for(int i=0; i<maxSongCount; i++) {
+        if (songsToAdd[i] < library->getItemCount()){
+            if (currDuration + library->findSongAtIndex(songsToAdd[i]).getSongDuration() < totalDuration){
+                randomList.insertAtEnd(library->findSongAtIndex(songsToAdd[i]));
+                currDuration += library->findSongAtIndex(songsToAdd[i]).getSongDuration();
+            }
         }
     }
-    playlists[currCount] = &randomList;
+    playlists[currCount] = randomList;
+    std::cout<<currCount<<"\n";
+    playlists[currCount].toString();
     currCount ++;
 }
 
 //test this function
-void Playlist::writeFile(){
+void Playlist::WriteFile(){
     for (int i = 0; i < currCount; i++) {
-        std::string nameIn = playlists[i]->getName();
-        playlists[i]->WriteFile(nameIn);
+        std::string nameIn = playlists[i].getName() + ".csv";
+        playlists[i].WriteFile(nameIn);
     }
 }
 
@@ -69,9 +91,9 @@ void Playlist::writeFile(){
      * @post adds list to playlists array
      */
 void Playlist::newPlaylist(std::string name){
-    LinkedList temp = LinkedList(name);
-    playlists[currCount] = &temp;
+    playlists[currCount] = LinkedList(name);
     currCount++;
+
 }
 
     /**
@@ -82,21 +104,30 @@ void Playlist::newPlaylist(std::string name){
     */
 LinkedList* Playlist::getPlaylist(std::string name){
     for(int i=0; i<currCount; i++){
-        if (name == playlists[currCount]->getName()){
-            return playlists[currCount];
+        if (playlists[i].getName() == name){
+            return &playlists[i];
         }
     }
     throw("Playlist not found");
 }
 
 std::string Playlist::getPlaylistName(int index) {
+<<<<<<< HEAD
+    return playlists[index].getName();
+=======
     for (int i = 0; i < currCount; i++) {
-
+<<<<<<< HEAD
         if (i = index) {
             std::string temp = playlists[i]->getName();
             return temp;
+=======
+
+        if (i == index) {
+            return playlists[i].getName();
+>>>>>>> a07ea968dca0e56dc13a85a77566eb9f0d41ad69
         }
     }
+>>>>>>> 0bbedf4802b91c402a738fe2a8eb837b31516c58
 }
 
 int Playlist::getCurrCount(){

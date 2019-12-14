@@ -12,11 +12,13 @@
 MusicLibrary::MusicLibrary() {
     this->arrayOfSongs = new ArrayList(10);
     this->totalSongCount = 0;
+    name = "default.csv";
 }
 
 MusicLibrary::MusicLibrary(ArrayList* listOfSongs) {
     this->arrayOfSongs = listOfSongs;
     this->totalSongCount = listOfSongs->getCurrentItemCount();
+    name = "default.csv";
 }
 
 //destructor
@@ -50,6 +52,7 @@ void MusicLibrary::WriteFile(std::string nameIn) {
    */
 void MusicLibrary::removeSongs(std::string fileName){
    ArrayList* tempLib = readLibrary(fileName);
+<<<<<<< HEAD
    std::string titleToCheck;
    std::string titleToCheck2;
 
@@ -57,21 +60,41 @@ void MusicLibrary::removeSongs(std::string fileName){
    int count = tempLib->getCurrentItemCount();
 
    for(int i = 0; i <= count; i++) {
+=======
+   std::string titleToCheck = "";
+   std::string titleToCheck2 = "";
+   int count2 = arrayOfSongs->getCurrentItemCount();
+   int count = tempLib->getCurrentItemCount();
+   int specialNum;
+   for(int i = 0; i <= count-1; i++) {
+       specialNum = 0;
+>>>>>>> a52678307501d3591056ab04894791ae296873e4
        Song temp = tempLib->getValueAt(i);
-       //std::cout << temp.toString() << std::endl;
        titleToCheck = temp.getSongTitle();
+<<<<<<< HEAD
 
        for(int x = 0; x <= count2; x++){
+=======
+       //int foundSong = arrayOfSongs->findSong(temp);
+       //if(foundSong == 0){
+         //  std::cout << temp.toString() << "Song does not exist in  library" << std::endl;
+       //}
+       for(int x = 0; x <= count2-1; x++){
+>>>>>>> a52678307501d3591056ab04894791ae296873e4
            Song temp2 = arrayOfSongs->getValueAt(x);
            titleToCheck2 = temp2.getSongTitle();
            if(titleToCheck == titleToCheck2){
                arrayOfSongs->removeSong(temp);
-               std::cout << "I'm here baby" << std::endl;
+               count2-=1;
+               specialNum+=1;
            }
-           int foundSong = arrayOfSongs->findSong(temp);
-           if(foundSong == 0){
-               std::cout << temp.toString() << std::endl;
+           if(x == count2-1 && specialNum != 1){
+               std::cout << temp.toString() << "  " << "Song does not exist in  library" << std::endl;
            }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a52678307501d3591056ab04894791ae296873e4
        }
    }
 }
@@ -167,6 +190,9 @@ int MusicLibrary::getItemCount() {
     int count = arrayOfSongs->getCurrentItemCount();
 
     return count;
+}
+Song MusicLibrary::removeOneSong(Song songToRemove){
+    return arrayOfSongs->removeSong(songToRemove);
 }
 
 

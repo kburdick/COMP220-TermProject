@@ -77,9 +77,8 @@ int main() {
 
             std::cout << "Enter a file name: \n" << std::endl;
             getline(std::cin, selectionString);
-            //TODO make this work...currently broken
-            //discontinue(selectionString, musicLibrary);
-            //discontinue(selectionString); called on the music library again inside of the user interface??
+
+            discontinue(selectionString, musicLibrary);
 
         }
 

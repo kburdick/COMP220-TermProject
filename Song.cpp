@@ -103,7 +103,7 @@ void Song::updatePlayCount() {
 
 //getters start
 std::string  Song::getSongTitle() {
-    return this->title;
+    return title;
 }
 
 std::string Song::getSongArtist() {

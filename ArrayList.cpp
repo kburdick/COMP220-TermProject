@@ -312,6 +312,7 @@ Song ArrayList::removeSong(Song songToRemove) {
         throw std::out_of_range("No item to remove");
     }
     int index = findSongIndex(songToRemove);
+    //std::cout << index << std::endl;
     Song toReturn = array[index];
     for (int i = index; i < currItemCount-1; i++){
         array[i] = array[i+1];
