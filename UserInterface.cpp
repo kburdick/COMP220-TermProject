@@ -234,6 +234,6 @@ void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn){
 
     //TODO test
     for(int i = 0; i < size; i++) {
-        listOfPlaylistsIn->writeFile();
+        listOfPlaylistsIn->writeFile("TestFile.csv");
     }
 }

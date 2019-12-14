@@ -34,7 +34,11 @@ int main(){
     //make a music library
     MusicLibrary* myMusic = new MusicLibrary(testLib);
     myMusic->displayAllSongs();
+<<<<<<< HEAD
    // myMusic->WriteFile("MusicLibTest.csv");
+=======
+    //myMusic->WriteFile("MusicLibTest.csv");
+>>>>>>> a07ea968dca0e56dc13a85a77566eb9f0d41ad69
 
     int temp = myMusic->sumDuration();
     std::cout << temp << std::endl;

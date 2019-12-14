@@ -12,11 +12,10 @@ class Playlist {
 private:
     int capacity;
     int currCount;
-    LinkedList* playlists[];
+    LinkedList* playlists;
 
 
-    Playlist(const Playlist &playlistToCopy);
-    Playlist &operator=(const Playlist &playlistToCopy);
+
 
 public:
     /**
@@ -24,6 +23,10 @@ public:
      */
 
     Playlist();
+
+    Playlist(const Playlist &playlistToCopy);
+
+    Playlist &operator=(const Playlist &playlistToCopy);
 
     //destructor
     ~Playlist();
@@ -41,8 +44,9 @@ public:
 
     /**
      * calls write file on each of the proper linked lists files
+     * @param fileName
      */
-    void writeFile();
+    void writeFile(std::string fileName);
 
     /**
      * Create new Playlist

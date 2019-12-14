@@ -37,6 +37,31 @@ LinkedList::~LinkedList(){
     currItemCount = 0;
 }
 
+LinkedList::LinkedList(const LinkedList& arrayListToCopy){
+    this->name = arrayListToCopy.name;
+    this->head = arrayListToCopy.head;
+    this->tail = arrayListToCopy.tail;
+    this->currItemCount = arrayListToCopy.currItemCount;
+
+    while (head != nullptr) {
+        LinkedNode* temp = head;
+        head = head->getNext();
+        delete temp;
+    }
+    tail = nullptr;
+    currItemCount = 0;
+}
+
+LinkedList &LinkedList::operator=(const LinkedList& arrayListToCopy) {
+    if(this != &arrayListToCopy){
+        this->name = arrayListToCopy.name;
+        this->head = arrayListToCopy.head;
+        this->tail = arrayListToCopy.tail;
+        this->currItemCount = arrayListToCopy.currItemCount;
+    }
+    return *this;
+}
+
 /**
     * get the song duration
     * @param songIn input parameter
