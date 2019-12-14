@@ -52,37 +52,22 @@ void MusicLibrary::WriteFile(std::string nameIn) {
    */
 void MusicLibrary::removeSongs(std::string fileName){
    ArrayList* tempLib = readLibrary(fileName);
-<<<<<<< HEAD
-   std::string titleToCheck;
-   std::string titleToCheck2;
-
-   int count2 = arrayOfSongs->getCurrentItemCount();
-   int count = tempLib->getCurrentItemCount();
-
-   for(int i = 0; i <= count; i++) {
-=======
    std::string titleToCheck = "";
    std::string titleToCheck2 = "";
    int count2 = arrayOfSongs->getCurrentItemCount();
    int count = tempLib->getCurrentItemCount();
    int specialNum;
+
    for(int i = 0; i <= count-1; i++) {
        specialNum = 0;
->>>>>>> a52678307501d3591056ab04894791ae296873e4
        Song temp = tempLib->getValueAt(i);
        titleToCheck = temp.getSongTitle();
-<<<<<<< HEAD
 
-       for(int x = 0; x <= count2; x++){
-=======
-       //int foundSong = arrayOfSongs->findSong(temp);
-       //if(foundSong == 0){
-         //  std::cout << temp.toString() << "Song does not exist in  library" << std::endl;
-       //}
+
        for(int x = 0; x <= count2-1; x++){
->>>>>>> a52678307501d3591056ab04894791ae296873e4
            Song temp2 = arrayOfSongs->getValueAt(x);
            titleToCheck2 = temp2.getSongTitle();
+
            if(titleToCheck == titleToCheck2){
                arrayOfSongs->removeSong(temp);
                count2-=1;
@@ -91,10 +76,6 @@ void MusicLibrary::removeSongs(std::string fileName){
            if(x == count2-1 && specialNum != 1){
                std::cout << temp.toString() << "  " << "Song does not exist in  library" << std::endl;
            }
-<<<<<<< HEAD
-=======
-
->>>>>>> a52678307501d3591056ab04894791ae296873e4
        }
    }
 }

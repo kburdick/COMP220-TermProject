@@ -83,19 +83,16 @@ int main() {
     myMusic2->removeSongs("extraSongs.csv");
     myMusic2->displayAllSongs();
 **/
->>>>>>> a52678307501d3591056ab04894791ae296873e4
 
 
     srand(time(NULL));
 
     Playlist *allLists = new Playlist();
     allLists->newPlaylist("pl1");
-<<<<<<< HEAD
     allLists->newPlaylist("pl2");
 
     std::string tempPL = allLists->getPlaylistName(1);
     std::cout << tempPL;
-=======
     std::cout << allLists->getPlaylistName(0) << std::endl;
     allLists->newPlaylist("Pl2");
     std::cout << allLists->getPlaylistName(1) << std::endl;
@@ -135,17 +132,16 @@ int main() {
     catch (std::invalid_argument) {
             std::cout << "inhere" << std::endl;
         }
-=======
    // ArrayList* testLib2;
     //testLib2 = readLibrary("testList.csv");
     //MusicLibrary* myMusic2 = new MusicLibrary(testLib2);
     //myMusic2->displayAllSongs();
-    myMusic->removeSongs("songss.csv.txt");
+    //myMusic->removeSongs("songss.csv.txt");
     //Song temp3 = myMusic->findSongAtIndex(0);
     //Song temp5 = myMusic->removeOneSong(temp3);
     //std::cout << temp5.toString() << "\n" << std::endl;
 
-    myMusic->displayAllSongs();
+    //myMusic->displayAllSongs();
 
     //Playlist* allLists = new Playlist();
     //allLists->newPlaylist("pl1");
@@ -173,8 +169,6 @@ int main() {
 
     //std::cout << "\n----Testing the newRandomPlaylist----\n" << std::endl;
 
->>>>>>> 0bbedf4802b91c402a738fe2a8eb837b31516c58
->>>>>>> a52678307501d3591056ab04894791ae296873e4
 
 
 }
