@@ -93,7 +93,7 @@ int main() {
             std::cout << "Enter a playlist name: \n" << std::endl;
             getline(std::cin, selectionString);
             std::cout << "Listing songs left in the playlist: \n" << std::endl;
-            //playlist(selectionString); //printing all songs left in the playlists
+            playlist(listOfPlaylistsIn, selectionString); //printing all songs left in the playlists
         }
 
         if(inputString == "new") {
@@ -114,7 +114,7 @@ int main() {
             std::cout << "Enter the name of the title: \n" << std::endl;
             getline(std::cin, titleIn);
 
-            //add(playlistIn, artistIn, titleIn, 0); //update function to add songs to playlist
+            add(playlistIn, artistIn, titleIn, 0, listOfPlaylistsIn); //update function to add songs to playlist
         }
 
         if(inputString == "remove"){
@@ -128,7 +128,7 @@ int main() {
             std::cout << "Enter the name of the title: \n" << std::endl;
             getline(std::cin, titleIn);
 
-            //remove(playlistIn, artistIn, titleIn); // update function to add songs to playlist
+            remove(playlistIn, artistIn, titleIn, listOfPlaylistsIn); // update function to add songs to playlist
         }
 
         if(inputString == "playnext"){
@@ -136,7 +136,7 @@ int main() {
             std::cout << "Enter playlist to play song from: \n" << std::endl;
             getline(std::cin, playlistIn);
 
-            //playNext(playlistIn); //update function to play next song from the playlist
+            playNext(listOfPlaylistsIn, playlistIn, musicLibrary); //update function to play next song from the playlist
 
         }
 
@@ -148,11 +148,14 @@ int main() {
             std::cout << "Enter desired length of the playlist (in seconds): \n" << std::endl;
             getline(std::cin, selectionString);
 
-            newRandom(playlistIn, stoi(selectionString));
+            newRandom(playlistIn, stoi(selectionString), listOfPlaylistsIn, musicLibrary);
         }
 
         if(inputString == "quit"){
-            quit(listOfPlaylistsIn, musicLibrary);
+            std::cout << "Enter the name of the file to save to: " << std::endl;
+            getline(std::cin, selectionString);
+
+            quit(listOfPlaylistsIn, musicLibrary, selectionString);
         }
     }
 

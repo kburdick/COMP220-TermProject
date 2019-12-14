@@ -14,9 +14,6 @@ private:
     int currCount;
     LinkedList* playlists;
 
-
-
-
 public:
     /**
      * Constructor

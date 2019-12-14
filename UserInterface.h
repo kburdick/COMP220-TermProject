@@ -67,7 +67,7 @@ void playlists(Playlist* listOfPlaylistsIn);
  * @param playlistIn
  * @post print songs in playlist to console
  */
-void playlist(std::string playlistIn);
+void playlist(Playlist* listOfPlaylistsIn, std::string playlistIn);
 
 /**
  * make a new empty playlist with the given name
@@ -83,7 +83,6 @@ Playlist* newPlaylist(Playlist* listOfPlaylistsIn, std::string nameIn);
  * @param titleIn title of the song
  * @param duration length of the song in seconds
  */
- //TODO do we need to check if song already exists?
  std::string add(std::string nameIn, std::string artistIn, std::string titleIn, int duration, Playlist* listOfPlaylistsIn);
 
 /**
@@ -92,7 +91,6 @@ Playlist* newPlaylist(Playlist* listOfPlaylistsIn, std::string nameIn);
  * @param artistIn name of artist
  * @param titleIn title of the song
  */
- //TODO do we need to check if song does not exist?
  void remove(std::string nameIn, std::string artistIn, std::string titleIn, Playlist* listOfPlaylistsIn);
 
 /**
@@ -101,7 +99,7 @@ Playlist* newPlaylist(Playlist* listOfPlaylistsIn, std::string nameIn);
  * @param playlistIn
  * @post print to console all song information
  */
-void playNext(std::string nameIn);
+void playNext(Playlist* listOfPlaylistsIn, std::string nameIn, MusicLibrary* musicLibrary);
 
 /**
  * makes a new playlist that does not exceed requested duration
@@ -109,14 +107,14 @@ void playNext(std::string nameIn);
  * @param playlistNameIn
  * @param maxDurationIn
  */
-void newRandom(std::string playlistNameIn, int maxDurationIn);
+void newRandom(std::string playlistNameIn, int maxDurationIn, Playlist* listOfPlayListsIn, MusicLibrary* musicLibraryIn);
 
 /**
  * saves (writes out files) all playlists and library
  * @param playlistArray
  * @param musicLibraryIn
  */
-void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn);
+void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn, std::string fileNameIn);
 
 
 

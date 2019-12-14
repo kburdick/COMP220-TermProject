@@ -74,6 +74,8 @@ void Playlist::newRandomPlaylist(std::string name, int totalDuration, MusicLibra
         }
     }
     playlists[currCount] = randomList;
+    std::cout << currCount << "\n";
+    playlists[currCount].toString();
     currCount ++;
 }
 
@@ -119,4 +121,3 @@ std::string Playlist::getPlaylistName(int index) {
 int Playlist::getCurrCount(){
     return currCount;
 }
-

@@ -80,11 +80,7 @@ void artist(std::string artistIn, MusicLibrary* musicLibraryIn){
  * @post prints all song info to the console
  */
 void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibraryIn){
-    //TODO make calls to display all song info (find and toString on that object)
     musicLibraryIn->displaySongInfo(artistIn,titleIn);
-
-
-
 
     std::string song = musicLibraryIn->displaySongInfo(artistIn, titleIn);
     std::cout << song << std::endl;
@@ -100,7 +96,6 @@ void songInfo(std::string artistIn, std::string titleIn, MusicLibrary* musicLibr
 MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
     musicLibraryIn->fileReadIn(fileNameIn);
     return musicLibraryIn;
-    //TODO overwrites the text file
 }
 
 /**
@@ -111,7 +106,6 @@ MusicLibrary* import(std::string fileNameIn, MusicLibrary* musicLibraryIn){
  * print songs that could not be removed aka that do not exist
  */
 void discontinue(std::string fileNameIn, MusicLibrary* musicLibraryIn){
-
     musicLibraryIn->removeSongs(fileNameIn);
 
 }
@@ -121,13 +115,10 @@ void discontinue(std::string fileNameIn, MusicLibrary* musicLibraryIn){
  * @post prints all playlists with respective duration to the console
  */
 void playlists(Playlist* listOfPlaylistsIn){
-    //TODO makes calls to have a toString method that prints the names of all current linked list based playlists
     int size = listOfPlaylistsIn->getCurrCount();
-    std::string nameOfPlaylist;
 
-    for(int i = 0; i < size; i++) {
-        nameOfPlaylist = listOfPlaylistsIn[i].getPlaylistName(i);
-        std::cout << nameOfPlaylist << std::endl;
+    for(int i = 0; i < size; i++){
+        std::cout << listOfPlaylistsIn->getPlaylistName(i) << std::endl;
     }
 }
 
@@ -167,7 +158,6 @@ Playlist* newPlaylist(Playlist* listOfPlaylistsIn, std::string nameIn){
  * @param duration length of the song in seconds
  */
 std::string add(std::string nameIn, std::string artistIn, std::string titleIn, int duration, Playlist* listOfPlaylistsIn){
-    //TODO make calls to add song to proper linked list
     Song temp = Song(titleIn, artistIn, duration);
     std::string songString;
 
@@ -192,8 +182,16 @@ std::string add(std::string nameIn, std::string artistIn, std::string titleIn, i
  * @param titleIn title of the song
  */
 void remove(std::string nameIn, std::string artistIn, std::string titleIn, Playlist* listOfPlaylistsIn){
-    //TODO make calls to remove song from proper linked list
+    LinkedList* templist = listOfPlaylistsIn->getPlaylist(nameIn);
+    Song songToRemove = Song(titleIn, artistIn, 0);
+    int found = templist->findSong(songToRemove);
 
+    if(found == 1) {
+        templist->removeSong(songToRemove);
+    }
+    else {
+        std::cout << "No Song to Remove" << std::endl;
+    }
 }
 
 /**
@@ -202,9 +200,9 @@ void remove(std::string nameIn, std::string artistIn, std::string titleIn, Playl
  * @param playlistIn
  * @post print to console all song information
  */
-void playNext(std::string nameIn){
-    //TODO make calls to play song and display it to the screen
-
+void playNext(Playlist* listOfPlaylistsIn, std::string nameIn, MusicLibrary* musicLibraryIn){
+    LinkedList* tempList = listOfPlaylistsIn->getPlaylist(nameIn);
+    tempList->playNext(musicLibraryIn);
 }
 
 /**
@@ -213,9 +211,8 @@ void playNext(std::string nameIn){
  * @param playlistNameIn
  * @param maxDurationIn
  */
-void newRandom(std::string playlistNameIn, int maxDurationIn){
-    //TODO make calls to random playlist generation functions
-
+void newRandom(std::string playlistNameIn, int maxDurationIn, Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn){
+        listOfPlaylistsIn->newRandomPlaylist(playlistNameIn, maxDurationIn, musicLibraryIn);
 }
 
 /**
@@ -223,16 +220,14 @@ void newRandom(std::string playlistNameIn, int maxDurationIn){
  * (write output to text files)
  * @post terminate execution of the program.
  */
-void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn){
-    //TODO make calls to save/write out files here?
+void quit(Playlist* listOfPlaylistsIn, MusicLibrary* musicLibraryIn, std::string fileNameIn){
 
     std::cout << "\nSaving files and exiting...\n" << std::endl;
 
-    musicLibraryIn->WriteFile();
+    musicLibraryIn->WriteFile(fileNameIn);
 
     int size = listOfPlaylistsIn->getCurrCount();
 
-    //TODO test
     for(int i = 0; i < size; i++) {
         listOfPlaylistsIn->WriteFile();
     }
